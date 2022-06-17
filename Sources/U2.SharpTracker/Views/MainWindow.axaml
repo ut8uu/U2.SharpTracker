@@ -19,11 +19,36 @@
             </MenuItem>
         </Menu>
         <Border Name="StatusPanel" DockPanel.Dock="Bottom" Classes="Card" >
+            <TextBlock Text="{Binding StatusText}"></TextBlock>
+		</Border>
+        <Border Classes="Card">
+            <DockPanel>
+                <Border Name="LeftPanel" DockPanel.Dock="Left">
+                    <ListBox Name="ThreadsList" 
+                             Width="150"
+                             HorizontalAlignment="Stretch"
+                             SelectionMode="Single"
+                             Items="{Binding ThreadsList, Mode=OneWay}"
+                             SelectedItem="{Binding SelectedThread, Mode=TwoWay}"
+                             >
 
-        </Border>
-
-        <Border>
-            
+                    </ListBox>
+                </Border>
+                <Border>
+                    <DataGrid Name="LoaderThreadInfo"
+                              HeadersVisibility="None"
+                              ScrollViewer.VerticalScrollBarVisibility="Auto"
+                              Items="{Binding ThreadInfo, Mode=OneWay}"
+                              SelectionMode="Single"
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Type" Binding="{Binding Key}" Width="100"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Message" Binding="{Binding Value}" Width="*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+					</DataGrid>
+                </Border>
+            </DockPanel>
         </Border>
     </DockPanel>
 

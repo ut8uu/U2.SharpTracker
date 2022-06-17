@@ -19,15 +19,40 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using Avalonia.Controls;
+using DynamicData;
 
 namespace U2.SharpTracker.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        private string _selectedThread = null;
+        public string StatusText { get; set; } = "Ready";
         public string Title { get; set; }
         public Window Owner { get; set; }
+
+        public string SelectedThread
+        {
+            get => _selectedThread;
+            set
+            {
+                if (_selectedThread != value)
+                {
+                    SelectThread(value);
+                }
+                _selectedThread = value;
+            }
+        }
+
+        private void SelectThread(string value)
+        {
+
+        }
+
+        public ObservableCollection<string> ThreadsList { get; } = new();
+        public ObservableCollection<KeyValuePair<string, string>> ThreadInfo { get; } = new();
 
         public void ExecuteExitCommand()
         {
@@ -41,6 +66,15 @@ namespace U2.SharpTracker.ViewModels
         public DesignMainWindowViewModel()
         {
             Title = "RuTracker Parser";
+            ThreadsList.AddRange(new[] { "Thread 1", "Thread 2" });
+            SelectedThread = "Thread 1";
+            ThreadInfo.AddRange(
+                new[]
+                {
+                    new KeyValuePair<string, string>("Index", "1001"),
+                    new KeyValuePair<string, string>("Url", "https://rutracker.org/1001"),
+                    new KeyValuePair<string, string>("Status", "Connecting"),
+                });
         }
     }
 }
