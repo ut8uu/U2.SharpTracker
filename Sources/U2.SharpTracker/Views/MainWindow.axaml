@@ -6,12 +6,25 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="U2.SharpTracker.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="U2.SharpTracker">
+        Title="{Binding Title}">
 
     <Design.DataContext>
-        <vm:MainWindowViewModel/>
+		<vm:DesignMainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit" Command="{Binding ExecuteExitCommand}"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Border Name="StatusPanel" DockPanel.Dock="Bottom" Classes="Card" >
+
+        </Border>
+
+        <Border>
+            
+        </Border>
+    </DockPanel>
 
 </Window>
