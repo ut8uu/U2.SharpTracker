@@ -18,6 +18,7 @@
  */
 
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using U2.SharpTracker.ViewModels;
@@ -36,10 +37,13 @@ namespace U2.SharpTracker
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.MainWindow = new MainWindow
+                var viewModel = new MainWindowViewModel();
+                var window = new MainWindow
                 {
-                    DataContext = new MainWindowViewModel(),
+                    DataContext = viewModel,
                 };
+                viewModel.Owner = window;
+                desktop.MainWindow = window;
             }
 
             base.OnFrameworkInitializationCompleted();

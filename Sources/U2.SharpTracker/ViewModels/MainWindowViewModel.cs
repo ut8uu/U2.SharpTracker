@@ -20,11 +20,27 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Avalonia.Controls;
 
 namespace U2.SharpTracker.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public string Greeting => "Welcome to Avalonia!";
+        public string Title { get; set; }
+        public Window Owner { get; set; }
+
+        public void ExecuteExitCommand()
+        {
+            Owner?.Close();
+        }
+
+    }
+
+    public sealed class DesignMainWindowViewModel : MainWindowViewModel
+    {
+        public DesignMainWindowViewModel()
+        {
+            Title = "RuTracker Parser";
+        }
     }
 }
