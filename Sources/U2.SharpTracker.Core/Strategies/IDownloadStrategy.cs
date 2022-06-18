@@ -23,7 +23,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace U2.SharpTracker.Core
+namespace U2.SharpTracker.Core.Strategies
 {
     public delegate void UserInputRequiredEventHandler(object sender, UserInputRequiredEventArgs e);
     public delegate void InternetResourceContentRequiredEventHandler(object sender, InternetResourceContentRequiredEventArgs e);

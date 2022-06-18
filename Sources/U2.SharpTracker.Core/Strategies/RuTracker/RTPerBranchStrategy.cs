@@ -22,6 +22,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using U2.SharpTracker.Core.Strategies;
 
 namespace U2.SharpTracker.Core;
 
@@ -80,6 +81,11 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
 
     public string GetNextUrl()
     {
+        if (!Ready)
+        {
+            throw new StrategyNotReadyException();
+        }
+
         throw new NoMoreUrlsToDownloadException();
     }
 

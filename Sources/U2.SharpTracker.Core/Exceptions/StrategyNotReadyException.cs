@@ -17,21 +17,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace U2.SharpTracker.Core;
 
-[Serializable]
-public sealed class NoMoreUrlsToDownloadException : Exception
+public sealed class StrategyNotReadyException : Exception
 {
-    public NoMoreUrlsToDownloadException() { }
 
-    public NoMoreUrlsToDownloadException(string message) : base(message)
-    {
-
-    }
 }
