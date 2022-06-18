@@ -46,7 +46,7 @@ public class StorageTests : IDisposable
     }
 
     [Fact]
-    public async Task CanAddGetBranch()
+    public async Task TestBranchCrud()
     {
         var storage = new TrackerStorage(Database);
 
@@ -63,5 +63,17 @@ public class StorageTests : IDisposable
         var addedBranch = await storage.TryGetBranchAsync(branch.Id, CancellationToken.None);
         Assert.NotNull(addedBranch);
         addedBranch.ShouldDeepEqual(branch);
+
+        addedBranch.Name = "updated name";
+        await storage.UpdateBranchAsync(addedBranch, CancellationToken.None);
+
+        var updatedBranch = await storage.TryGetBranchAsync(branch.Id, CancellationToken.None);
+        Assert.NotNull(updatedBranch);
+
+        await storage.DeleteBranchAsync(branch.Id, CancellationToken.None);
+        var deletedBranch = await storage.TryGetBranchAsync(branch.Id, CancellationToken.None);
+        Assert.Null(deletedBranch);
     }
+
+
 }
