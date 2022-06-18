@@ -17,15 +17,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System.Net;
-
 namespace U2.SharpTracker.Core;
 
-public sealed class PageLoadResult
+public sealed class UrlRequiredEventArgs
 {
+    /// <summary>
+    /// Indicates whether the further loading can be performed.
+    /// </summary>
+    public bool CanContinue { get; set; }
+    /// <summary>
+    /// An URL to be loaded
+    /// </summary>
     public string Url { get; set; }
-    public int Index { get; set; }
-    public UrlLoadStatusCode StatusCode { get; set; }
-    public string Title { get; set; }
-    public string Description { get; set; }
 }

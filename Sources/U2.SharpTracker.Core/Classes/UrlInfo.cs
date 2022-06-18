@@ -17,15 +17,28 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System.Net;
-
 namespace U2.SharpTracker.Core;
 
-public sealed class PageLoadResult
+public enum UrlLoadStatusCode
+{
+    Unknown,
+    Success,
+    Failure,
+    NotFound,
+}
+
+public enum UrlLoadState
+{
+    Waiting,
+    Loading,
+    Completed, // regardless of the LoadStatus
+    Reported,
+}
+
+public sealed class UrlInfo
 {
     public string Url { get; set; }
-    public int Index { get; set; }
-    public UrlLoadStatusCode StatusCode { get; set; }
-    public string Title { get; set; }
-    public string Description { get; set; }
+    public int AttemptsLeft { get; set; } = 5;
+    public UrlLoadState UrlLoadState { get; set; }
+    public UrlLoadStatusCode UrlLoadStatusCode { get; set; }
 }

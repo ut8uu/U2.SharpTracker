@@ -17,15 +17,21 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System.Net;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace U2.SharpTracker.Core;
 
-public sealed class PageLoadResult
+[Serializable]
+public sealed class NoMoreUrlsToDownloadException : Exception
 {
-    public string Url { get; set; }
-    public int Index { get; set; }
-    public UrlLoadStatusCode StatusCode { get; set; }
-    public string Title { get; set; }
-    public string Description { get; set; }
+    public NoMoreUrlsToDownloadException() { }
+
+    public NoMoreUrlsToDownloadException(string message) : base(message)
+    {
+
+    }
 }

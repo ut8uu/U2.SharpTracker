@@ -19,9 +19,15 @@
 
 namespace U2.SharpTracker.Core;
 
-public sealed class PageLoadRequest
+public sealed class InternetResourceContentRequiredEventArgs
 {
-    public int Index { get; set; }
-    public string Url { get; set; }
-    public CancellationToken CancellationToken { get; set; }
+    /// <summary>
+    /// A base info to download.
+    /// </summary>
+    public UrlInfo UrlInfo { get; set; }
+
+    /// <summary>
+    /// A content of the loaded resource.
+    /// </summary>
+    public string ResourceContent { get; set; }
 }

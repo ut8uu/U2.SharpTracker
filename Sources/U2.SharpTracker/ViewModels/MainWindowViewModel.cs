@@ -21,6 +21,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading;
 using Avalonia.Controls;
 using DynamicData;
 
@@ -28,6 +29,7 @@ namespace U2.SharpTracker.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        private CancellationTokenSource _cancellationTokenSource;
         private string _selectedThread = null;
         public string StatusText { get; set; } = "Ready";
         public string Title { get; set; }
@@ -59,6 +61,20 @@ namespace U2.SharpTracker.ViewModels
             Owner?.Close();
         }
 
+        public void ExecuteStartCommand()
+        {
+
+        }
+
+        public void ExecuteStopCommand()
+        {
+            _cancellationTokenSource.Cancel();
+        }
+
+        public void ExecutePauseCommand()
+        {
+
+        }
     }
 
     public sealed class DesignMainWindowViewModel : MainWindowViewModel

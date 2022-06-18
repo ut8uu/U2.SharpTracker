@@ -19,12 +19,13 @@
 
 namespace U2.SharpTracker.Core;
 
-public class FileIOException : Exception
+[Serializable]
+public sealed class FileIOException : Exception
 {
     public FileIOException() {}
 
-    public FileIOException(string s)
+    public FileIOException(string message) : base(message)
     {
-        throw new NotImplementedException();
+        
     }
 }

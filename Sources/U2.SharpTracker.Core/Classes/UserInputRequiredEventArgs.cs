@@ -17,32 +17,21 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace U2.SharpTracker.Core;
 
-public delegate void PageDownloadFinishedEventHandler(object sender, PageLoadResult result);
-
-public sealed class TrackerLoader
+public sealed class UserInputRequiredEventArgs
 {
-    private PageLoadRequest _request;
-
-    public string Title { get; set; }
-    public int Index { get; set; }
-
-    public event PageDownloadFinishedEventHandler PageDownloadFinished;
-
-    private void OnPageDownloadFinished(PageLoadResult result)
-    {
-        PageDownloadFinished?.Invoke(this, result);
-    }
-
-    public void LoadPage(PageLoadRequest request)
-    {
-        _request = request;
-    }
+    /// <summary>
+    /// A message to display to user.
+    /// </summary>
+    public string MessageToUser { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string UserInput { get; set; }
+    /// <summary>
+    /// Contains <see langword="true"></see> if user canceled
+    /// the request for information.
+    /// </summary>
+    public bool Canceled { get; set; }
 }

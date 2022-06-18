@@ -17,6 +17,11 @@
             <MenuItem Header="File">
                 <MenuItem Header="Exit" Command="{Binding ExecuteExitCommand}"></MenuItem>
             </MenuItem>
+            <MenuItem Header="Download">
+                <MenuItem Header="Start" Command="{Binding ExecuteStartCommand}"></MenuItem>
+                <MenuItem Header="Stop" Command="{Binding ExecuteStopCommand}"></MenuItem>
+                <MenuItem Header="Pause" Command="{Binding ExecutePauseCommand}"></MenuItem>
+            </MenuItem>
         </Menu>
         <Border Name="StatusPanel" DockPanel.Dock="Bottom" Classes="Card" >
             <TextBlock Text="{Binding StatusText}"></TextBlock>
