@@ -36,9 +36,10 @@ public interface IStorage
 
     Task AddUrlAsync(UrlDto url, CancellationToken cancellationToken);
     Task<UrlDto> TryGetUrlAsync(Guid id, CancellationToken cancellationToken);
+    Task<UrlDto> TryGetUrlAsync(string url, CancellationToken cancellationToken);
     Task UpdateUrlAsync(UrlDto url, CancellationToken cancellationToken);
     Task DeleteUrlAsync(Guid id, CancellationToken cancellationToken);
 
-    Task<IEnumerable<UrlDto>> GetUrlsAsync(CancellationToken cancellationToken);
-    Task<IEnumerable<UrlDto>> GetUrlsAsync(Guid branchId, CancellationToken cancellationToken);
+    IAsyncEnumerable<UrlDto> GetUrlsAsync(CancellationToken cancellationToken);
+    IAsyncEnumerable<UrlDto> GetUrlsAsync(Guid branchId, CancellationToken cancellationToken);
 }

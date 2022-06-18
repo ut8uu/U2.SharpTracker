@@ -74,32 +74,47 @@ namespace U2.SharpTracker.Core.Storage
 
         public Task AddUrlAsync(UrlDto url, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return _urlsCollection.InsertOneAsync(url, new InsertOneOptions(), cancellationToken);
         }
 
         public Task<UrlDto> TryGetUrlAsync(Guid id, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return _urlsCollection.Find(x => x.Id == id)
+                .FirstOrDefaultAsync(cancellationToken);
+        }
+
+        public Task<UrlDto> TryGetUrlAsync(string url, CancellationToken cancellationToken)
+        {
+            return _urlsCollection.Find(x => x.Url == url)
+                .FirstOrDefaultAsync(cancellationToken);
         }
 
         public Task UpdateUrlAsync(UrlDto url, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return _urlsCollection.ReplaceOneAsync(x => x.Id == url.Id, url, new ReplaceOptions { }, cancellationToken);
         }
 
         public Task DeleteUrlAsync(Guid id, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return _urlsCollection.DeleteOneAsync(x => x.Id == id, cancellationToken);
         }
 
-        public Task<IEnumerable<UrlDto>> GetUrlsAsync(CancellationToken cancellationToken)
+        public async IAsyncEnumerable<UrlDto> GetUrlsAsync(CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var cursor = await _urlsCollection.FindAsync(x => !string.IsNullOrEmpty(x.Url), options: null, cancellationToken);
+            await foreach (var url in cursor.ToAsyncEnumerable().WithCancellation(cancellationToken))
+            {
+                yield return url;
+            }
         }
 
-        public Task<IEnumerable<UrlDto>> GetUrlsAsync(Guid branchId, CancellationToken cancellationToken)
+        public async IAsyncEnumerable<UrlDto> GetUrlsAsync(Guid branchId, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var cursor = await _urlsCollection.FindAsync(b => b.BranchId == branchId, options: null, cancellationToken);
+            await foreach (var url in cursor.ToAsyncEnumerable().WithCancellation(cancellationToken))
+            {
+                yield return url;
+            }
         }
     }
 }

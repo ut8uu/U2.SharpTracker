@@ -27,4 +27,9 @@ namespace U2.SharpTracker.Core;
 
 public sealed class UrlDto
 {
+    public Guid Id { get; set; }
+    public Guid BranchId { get; set; }
+    public string Url { get; set; }
+    public string Content { get; set; }
+    public int DownloadStatus { get; set; }
 }
