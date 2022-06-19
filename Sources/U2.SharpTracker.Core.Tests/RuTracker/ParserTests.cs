@@ -29,6 +29,14 @@ namespace U2.SharpTracker.Core.Tests.RuTracker
     public class ParserTests
     {
         [Fact]
+        public void FailsOnBadContent()
+        {
+            var parser = new RTBranchParser();
+            var stream = new MemoryStream(new byte[]{0x01, 0x02});
+            var exception = Assert.Throws<ParserException>(() => parser.Parse(stream));
+        }
+
+        [Fact]
         public void CanParseBranchPage()
         {
             var parser = new RTBranchParser();
@@ -36,7 +44,6 @@ namespace U2.SharpTracker.Core.Tests.RuTracker
             var result = parser.Parse(stream);
             Assert.NotNull(result);
 
-            var pages = result.Pages.ToList();
             Assert.Equal(15, result.Branches.Count());
             Assert.Equal(50, result.Pages.Count());
             Assert.Equal(1, result.PageIndex);

@@ -19,27 +19,45 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using HtmlAgilityPack;
-using U2.SharpTracker.Core.Classes;
 
 namespace U2.SharpTracker.Core;
 
 public sealed class RTBranchParser : IParser
 {
+    const string PageRecordXpath = "//table[@class='vf-table vf-tor forumline forum']//tr//td[2]//a[1]";
+    const string BranchRecordXpath = "//table[@class='forumline forum']//tr/td[2]//a";
+    const string IndexPath = "//div[@id='pagination']/p[1]/b[1]";
+    const string TotalPagesPath = "//div[@id='pagination']/p[1]/b[2]";
+
     public ListingPage Parse(Stream stream)
     {
         var xdoc = new HtmlDocument();
         xdoc.Load(stream);
 
+        var indexNode = xdoc.DocumentNode.SelectSingleNode(IndexPath);
+        if (indexNode == null)
+        {
+            throw new ParserException("Error extracting page index.");
+        }
+        var index = int.Parse(indexNode.InnerText);
+
+        var totalPagesNode = xdoc.DocumentNode.SelectSingleNode(TotalPagesPath);
+        if (indexNode == null)
+        {
+            throw new ParserException("Error extracting total pages number.");
+        }
+        var totalPages = int.Parse(totalPagesNode.InnerText);
+
         var branches = new List<string>();
         var pages = new List<string>();
 
-        var branchRecordXpath = "//table[@class='forumline forum']//tr/td[2]//a";
-        var elements = xdoc.DocumentNode.SelectNodes(branchRecordXpath);
+        var elements = xdoc.DocumentNode.SelectNodes(BranchRecordXpath);
         foreach (var element in elements)
         {
             var href = element.Attributes["href"];
@@ -51,8 +69,7 @@ public sealed class RTBranchParser : IParser
             branches.Add(url);
         }
 
-        var pageRecordXpath = "//table[@class='vf-table vf-tor forumline forum']//tr//td[2]//a[1]";
-        elements = xdoc.DocumentNode.SelectNodes(pageRecordXpath);
+        elements = xdoc.DocumentNode.SelectNodes(PageRecordXpath);
         foreach (var element in elements)
         {
             var href = element.Attributes["href"];
@@ -74,14 +91,6 @@ public sealed class RTBranchParser : IParser
                 pages.Add(url);
             }
         }
-
-        var indexPath = "//div[@id='pagination']/p[1]/b[1]";
-        var indexNode = xdoc.DocumentNode.SelectSingleNode(indexPath);
-        var index = int.Parse(indexNode.InnerText);
-
-        var totalPagesPath = "//div[@id='pagination']/p[1]/b[2]";
-        var totalPagesNode = xdoc.DocumentNode.SelectSingleNode(totalPagesPath);
-        var totalPages = int.Parse(totalPagesNode.InnerText);
 
         var result = new ListingPage
         {
