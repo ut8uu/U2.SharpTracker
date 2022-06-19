@@ -22,34 +22,71 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using U2.SharpTracker.Core.Strategies;
+using U2.SharpTracker.Core.Classes;
 
 namespace U2.SharpTracker.Core;
 
-public sealed class RTSequentialStrategy : IDownloadStrategy
+public sealed class RTPerBranchStrategy : IDownloadStrategy
 {
-    private int _index = 0;
-    private static readonly object _getNextUrlLock = new();
+    private int _branchId = 0;
+    private bool _started;
 
-    public bool Ready { get; private set; } = false;
-
+    public bool Ready { get; }
     public void Start()
     {
-        throw new NotImplementedException();
+        if (_started)
+        {
+            return;
+        }
+
+        _started = true;
+
+        var eventArgs = new UserInputRequiredEventArgs
+        {
+            MessageToUser = "Enter identifier of the branch to download.",
+            UserInput = null,
+        };
+        OnUserInputRequired(eventArgs);
+        if (eventArgs.Canceled)
+        {
+            _started = false;
+            return;
+        }
+
+        if (!int.TryParse(eventArgs.UserInput, out _branchId))
+        {
+            _started = false;
+            return;
+        }
+
+        if (!CollectBranchPages())
+        {
+            _started = false;
+            return;
+        }
+    }
+
+    private bool CollectBranchPages()
+    {
+        return false;
     }
 
     public void Stop()
     {
-        throw new NotImplementedException();
+        if (!_started)
+        {
+            return;
+        }
     }
 
     public string GetNextUrl()
     {
-        lock (_getNextUrlLock)
+        if (!Ready)
         {
-            _index++;
-            return $"https://rutracker.org/forum/viewtopic.php?t={_index}";
+            throw new StrategyNotReadyException();
         }
+
+        throw new NoMoreUrlsToDownloadException();
     }
 
     public event UserInputRequiredEventHandler UserInputRequired;

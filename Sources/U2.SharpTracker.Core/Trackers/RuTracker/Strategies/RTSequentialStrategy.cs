@@ -22,71 +22,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using U2.SharpTracker.Core.Strategies;
+using U2.SharpTracker.Core.Classes;
 
 namespace U2.SharpTracker.Core;
 
-public sealed class RTPerBranchStrategy : IDownloadStrategy
+public sealed class RTSequentialStrategy : IDownloadStrategy
 {
-    private int _branchId = 0;
-    private bool _started;
+    private int _index = 0;
+    private static readonly object _getNextUrlLock = new();
 
-    public bool Ready { get; }
+    public bool Ready { get; private set; } = false;
+
     public void Start()
     {
-        if (_started)
-        {
-            return;
-        }
-
-        _started = true;
-
-        var eventArgs = new UserInputRequiredEventArgs
-        {
-            MessageToUser = "Enter identifier of the branch to download.",
-            UserInput = null,
-        };
-        OnUserInputRequired(eventArgs);
-        if (eventArgs.Canceled)
-        {
-            _started = false;
-            return;
-        }
-
-        if (!int.TryParse(eventArgs.UserInput, out _branchId))
-        {
-            _started = false;
-            return;
-        }
-
-        if (!CollectBranchPages())
-        {
-            _started = false;
-            return;
-        }
-    }
-
-    private bool CollectBranchPages()
-    {
-        return false;
+        throw new NotImplementedException();
     }
 
     public void Stop()
     {
-        if (!_started)
-        {
-            return;
-        }
+        throw new NotImplementedException();
     }
 
     public string GetNextUrl()
     {
-        if (!Ready)
+        lock (_getNextUrlLock)
         {
-            throw new StrategyNotReadyException();
+            _index++;
+            return $"https://rutracker.org/forum/viewtopic.php?t={_index}";
         }
-
-        throw new NoMoreUrlsToDownloadException();
     }
 
     public event UserInputRequiredEventHandler UserInputRequired;
