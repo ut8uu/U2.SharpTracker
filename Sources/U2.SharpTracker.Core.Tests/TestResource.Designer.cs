@@ -73,6 +73,16 @@ namespace U2.SharpTracker.Core.Tests {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] rt_f1_short {
+            get {
+                object obj = ResourceManager.GetObject("rt_f1_short", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] rt_f2 {
             get {
                 object obj = ResourceManager.GetObject("rt_f2", resourceCulture);
