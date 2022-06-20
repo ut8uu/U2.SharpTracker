@@ -30,7 +30,9 @@ namespace U2.SharpTracker.Core;
 
 public sealed class RTBranchParser : IParser
 {
-    const string PageRecordXpath = "//table[@class='vf-table vf-tor forumline forum']//tr//td[2]//a[1]";
+    private const string RuTrackerUrl = "https://rutracker.org";
+    //const string PageRecordXpath = "//table[@class='vf-table vf-tor forumline forum']//tr//td[2]//a[1]";
+    const string PageRecordXpath = "//tr[@class='hl-tr']";
     const string BranchRecordXpath = "//table[@class='forumline forum']//tr/td[2]//a";
     const string IndexPath = "//div[@id='pagination']/p[1]/b[1]";
     const string TotalPagesPath = "//div[@id='pagination']/p[1]/b[2]";
@@ -58,34 +60,28 @@ public sealed class RTBranchParser : IParser
         var pages = new List<string>();
 
         var elements = xdoc.DocumentNode.SelectNodes(BranchRecordXpath);
-        foreach (var element in elements)
+
+        if (elements != null)
         {
-            var href = element.Attributes["href"];
-            if (!href.Value.Contains("viewforum", StringComparison.InvariantCultureIgnoreCase))
+            // can be empty
+            foreach (var element in elements)
             {
-                continue;
+                var href = element.Attributes["href"];
+                if (!href.Value.Contains("viewforum", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    continue;
+                }
+
+                var url = $"{RuTrackerUrl}/{href.Value}";
+                branches.Add(url);
             }
-            var url = $"https://rutracker.org/{href.Value}";
-            branches.Add(url);
         }
 
         elements = xdoc.DocumentNode.SelectNodes(PageRecordXpath);
         foreach (var element in elements)
         {
-            var href = element.Attributes["href"];
-            if (!href.Value.Contains("viewtopic", StringComparison.InvariantCultureIgnoreCase))
-            {
-                continue;
-            }
-            var url = $"https://rutracker.org/{href.Value}";
-            var uri = new Uri(url);
-            var queryChunks = HttpUtility.ParseQueryString(uri.Query);
-            if (!queryChunks.AllKeys.Contains("t"))
-            {
-                continue;
-            }
-            var t = queryChunks["t"];
-            url = $"https://rutracker.org{uri.AbsolutePath}?t={t}";
+            var id = element.Attributes["data-topic_id"];
+            var url = $"{RuTrackerUrl}/viewtopic.php?t={id.Value}";
             if (!pages.Contains(url))
             {
                 pages.Add(url);
@@ -96,7 +92,7 @@ public sealed class RTBranchParser : IParser
         {
             Branches = branches,
             Pages = pages,
-            PageIndex = index,
+            CurrentPage = index,
             TotalPages = totalPages,
         };
 
