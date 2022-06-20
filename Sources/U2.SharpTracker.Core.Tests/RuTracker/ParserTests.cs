@@ -33,7 +33,7 @@ namespace U2.SharpTracker.Core.Tests.RuTracker
         {
             var parser = new RTBranchParser();
             var stream = new MemoryStream(new byte[]{0x01, 0x02});
-            var exception = Assert.Throws<ParserException>(() => parser.Parse(stream));
+            Assert.Throws<ParserException>(() => parser.Parse(stream));
         }
 
         [Fact]
@@ -46,7 +46,7 @@ namespace U2.SharpTracker.Core.Tests.RuTracker
 
             Assert.Equal(15, result.Branches.Count());
             Assert.Equal(50, result.Pages.Count());
-            Assert.Equal(1, result.PageIndex);
+            Assert.Equal(1, result.CurrentPage);
             Assert.Equal(2, result.TotalPages);
         }
     }

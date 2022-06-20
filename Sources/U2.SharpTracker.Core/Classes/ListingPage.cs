@@ -30,6 +30,6 @@ public sealed class ListingPage
     public string Url { get; set; }
     public IEnumerable<string> Branches { get; set; }
     public IEnumerable<string> Pages { get; set; }
-    public int PageIndex { get; set; }
+    public int CurrentPage { get; set; }
     public int TotalPages { get; set; }
 }
