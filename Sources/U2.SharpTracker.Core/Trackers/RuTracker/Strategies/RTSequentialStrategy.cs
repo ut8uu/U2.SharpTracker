@@ -54,6 +54,7 @@ public sealed class RTSequentialStrategy : IDownloadStrategy
 
     public event UserInputRequiredEventHandler UserInputRequired;
     public event InternetResourceContentRequiredEventHandler InternetResourceContentRequired;
+    public event ProgressReportedEventHandler ProgressReported;
 
     private void OnUserInputRequired(UserInputRequiredEventArgs e)
     {
@@ -63,5 +64,10 @@ public sealed class RTSequentialStrategy : IDownloadStrategy
     private void OnInternetResourceContentRequired(InternetResourceContentRequiredEventArgs e)
     {
         InternetResourceContentRequired?.Invoke(this, e);
+    }
+
+    private void OnProgressReported(ProgressReportedEventArgs eventArgs)
+    {
+        ProgressReported?.Invoke(this, eventArgs);
     }
 }

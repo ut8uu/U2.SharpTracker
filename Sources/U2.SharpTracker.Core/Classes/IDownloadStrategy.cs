@@ -27,6 +27,7 @@ namespace U2.SharpTracker.Core.Classes
 {
     public delegate void UserInputRequiredEventHandler(object sender, UserInputRequiredEventArgs e);
     public delegate void InternetResourceContentRequiredEventHandler(object sender, InternetResourceContentRequiredEventArgs e);
+    public delegate void ProgressReportedEventHandler(object sender, ProgressReportedEventArgs eventArgs);
 
     public interface IDownloadStrategy
     {
@@ -54,5 +55,6 @@ namespace U2.SharpTracker.Core.Classes
 
         event UserInputRequiredEventHandler UserInputRequired;
         event InternetResourceContentRequiredEventHandler InternetResourceContentRequired;
+        event ProgressReportedEventHandler ProgressReported;
     }
 }
