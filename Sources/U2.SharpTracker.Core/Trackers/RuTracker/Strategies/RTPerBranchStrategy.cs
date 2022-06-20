@@ -30,8 +30,12 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
 {
     private int _branchId = 0;
     private bool _started;
+    private const string _rutrackerUrl = "https://rutracker.org";
+    private readonly IParser _parser = new RTBranchParser();
 
     public bool Ready { get; }
+    public List<string> Pages { get; } = new();
+
     public void Start()
     {
         if (_started)
@@ -64,9 +68,64 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
             _started = false;
             return;
         }
+
+        if (!CollectTopicPages())
+        {
+            _started = false;
+            return;
+        }
     }
 
+    /// <summary>
+    /// Collects all pages of this branch
+    /// </summary>
+    /// <returns></returns>
     private bool CollectBranchPages()
+    {
+        Pages.Clear();
+
+        var start = 0;
+        while (true)
+        {
+            var eventArgs = new InternetResourceContentRequiredEventArgs
+            {
+                UrlInfo = new UrlInfo
+                {
+                    Url = $"{_rutrackerUrl}/viewforum.php?f={_branchId}&start={start}",
+                },
+                ResourceContent = string.Empty,
+            };
+            OnInternetResourceContentRequired(eventArgs);
+            if (string.IsNullOrEmpty(eventArgs.ResourceContent))
+            {
+                return false;
+            }
+
+            // resource loaded
+            var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(eventArgs.ResourceContent));
+            var listingPage = _parser.Parse(memoryStream);
+            foreach (var page in listingPage.Pages)
+            {
+                if (!Pages.Contains(page, StringComparer.InvariantCultureIgnoreCase))
+                {
+                    Pages.Add(page);
+                }
+            }
+            if (listingPage.CurrentPage == listingPage.TotalPages)
+            {
+                break;
+            }
+
+            start = (listingPage.CurrentPage - 1) * 50;
+        }
+        return true;
+    }
+
+    /// <summary>
+    /// Collects all topic pages on all branch pages
+    /// </summary>
+    /// <returns></returns>
+    private bool CollectTopicPages()
     {
         return false;
     }
