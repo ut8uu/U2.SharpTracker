@@ -22,7 +22,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using U2.SharpTracker.Core.Classes;
 
 namespace U2.SharpTracker.Core;
 
@@ -32,6 +31,12 @@ public sealed class RTSequentialStrategy : IDownloadStrategy
     private static readonly object _getNextUrlLock = new();
 
     public bool Ready { get; private set; } = false;
+
+    public event UserInputRequiredEventHandler UserInputRequired;
+    public event InternetResourceContentRequiredEventHandler InternetResourceContentRequired;
+    public event ProgressReportedEventHandler ProgressReported;
+    public event WorkFinishedEventHandler WorkFinished;
+    public event TorrentPageLoadedEventHandler TorrentPageLoaded;
 
     public void Start()
     {
@@ -51,10 +56,6 @@ public sealed class RTSequentialStrategy : IDownloadStrategy
             return $"https://rutracker.org/forum/viewtopic.php?t={_index}";
         }
     }
-
-    public event UserInputRequiredEventHandler UserInputRequired;
-    public event InternetResourceContentRequiredEventHandler InternetResourceContentRequired;
-    public event ProgressReportedEventHandler ProgressReported;
 
     private void OnUserInputRequired(UserInputRequiredEventArgs e)
     {

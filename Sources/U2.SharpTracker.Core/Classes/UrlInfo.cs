@@ -37,6 +37,13 @@ public enum UrlLoadState
 
 public sealed class UrlInfo
 {
+    public UrlInfo(){}
+
+    public UrlInfo(string url)
+    {
+        Url = url;
+    }
+
     public string Url { get; set; }
     public int AttemptsLeft { get; set; } = 5;
     public UrlLoadState UrlLoadState { get; set; }

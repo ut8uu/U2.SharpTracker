@@ -31,17 +31,17 @@ namespace U2.SharpTracker.Core.Tests.RuTracker
         [Fact]
         public void FailsOnBadContent()
         {
-            var parser = new RTBranchParser();
+            var parser = new RutrackerParser();
             var stream = new MemoryStream(new byte[]{0x01, 0x02});
-            Assert.Throws<ParserException>(() => parser.Parse(stream));
+            Assert.Throws<ParserException>(() => parser.ParseBranch(stream));
         }
 
         [Fact]
         public void CanParseBranchPage()
         {
-            var parser = new RTBranchParser();
+            var parser = new RutrackerParser();
             var stream = new MemoryStream(TestResource.rt_f1);
-            var result = parser.Parse(stream);
+            var result = parser.ParseBranch(stream);
             Assert.NotNull(result);
 
             Assert.Equal(15, result.Branches.Count());
