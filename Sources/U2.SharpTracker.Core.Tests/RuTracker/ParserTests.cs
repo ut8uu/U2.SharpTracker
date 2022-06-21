@@ -49,5 +49,51 @@ namespace U2.SharpTracker.Core.Tests.RuTracker
             Assert.Equal(1, result.CurrentPage);
             Assert.Equal(2, result.TotalPages);
         }
+
+        [Theory]
+        [MemberData(nameof(ParseTopicTestData))]
+        public void CanParseTopicPage(TopicTestData testData)
+        {
+            var parser = new RutrackerParser();
+            using var stream = new MemoryStream(TestResource.rt_t1);
+            var pageInfo = parser.ParseTorrentPage(stream);
+            Assert.Equal(testData.Title, pageInfo.Title);
+        }
+
+        #region Test data
+
+        public static IEnumerable<object[]> ParseTopicTestData
+        {
+            get
+            {
+                return new List<object[]>
+                {
+                    new object[]
+                    {
+                        new TopicTestData()
+                        {
+                            Title = "Только для взрослых. Выпуск первый (Ефим Гамбург) [1971, СССР, рисованный мультфильм, короткометражка, 35mm Film Scan 1080p]",
+                            ExpectedParserException = false,
+                            ExpectedWords = new List<string>
+                            {
+                                "1971", "СССР", "Продолжительность", "1440x1080",
+                            },
+                            MagnetLink = "AF907474F5308A1EEE324FEA4D08671DD1096052",
+                        },
+                    },
+                };
+            }
+        }
+
+        public class TopicTestData
+        {
+            public string RawContent { get; set; }
+            public string Title { get; set; }
+            public string MagnetLink { get; set; }
+            public IEnumerable<string> ExpectedWords { get; set; }
+            public bool ExpectedParserException { get; set; }
+        }
+
+        #endregion
     }
 }

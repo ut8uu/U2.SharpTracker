@@ -37,6 +37,11 @@ public sealed class RutrackerParser : IParser
     const string IndexPath = "//div[@id='pagination']/p[1]/b[1]";
     const string TotalPagesPath = "//div[@id='pagination']/p[1]/b[2]";
 
+    //private const string TorrentPageTitle = "//div[@class='post_body']//";
+    private const string TorrentPageTitle = "//a[@id='topic-title']";
+    private const string TorrentPageDescription = "//td[@class='message td2']//div[@class='post_wrap']//div[@class='post_body']";
+    private const string TorrentPageMagnet = "//a[@class='med magnet-link']";
+
     public ListingPage ParseBranch(Stream stream)
     {
         var xdoc = new HtmlDocument();
@@ -107,6 +112,48 @@ public sealed class RutrackerParser : IParser
     /// <exception cref="ParserException"></exception>
     public TorrentPageInfo ParseTorrentPage(Stream stream)
     {
-        throw new NotImplementedException();
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+        var result = new TorrentPageInfo();
+
+        var win1251 = Encoding.GetEncoding("windows-1251");
+
+        var xdoc = new HtmlDocument();
+        xdoc.Load(stream, win1251);
+
+        var titleNode = FindNode(xdoc, TorrentPageTitle, 
+            "Failed to extract title");
+
+        var desctiprionNode = FindNode(xdoc, TorrentPageDescription,
+            "Failed to extract description");
+
+        var magnetNode = FindNode(xdoc, TorrentPageMagnet,
+            "Failed to extract magnet link");
+
+        result.Title = titleNode.InnerText;
+        result.Description = desctiprionNode.InnerHtml;
+        result.MagnetLink =
+            RegularExpressionHelper.MatchAndGetFirst("xt=urn:btih:([A-F0-9]+)&",
+                magnetNode.Attributes["href"].Value);
+
+        return result;
+    }
+
+    /// <summary>
+    /// Attempts to find out the node by its xPath.
+    /// </summary>
+    /// <param name="doc">An HtmlDocument to search in</param>
+    /// <param name="xpath">An xpath to search for</param>
+    /// <param name="exceptionMessage">An exception mesage to show if node hasn't been found.</param>
+    /// <returns></returns>
+    /// <exception cref="ParserException"></exception>
+    private static HtmlNode FindNode(HtmlDocument doc, string xpath, string exceptionMessage)
+    {
+        var node = doc.DocumentNode.SelectSingleNode(xpath);
+        if (node == null)
+        {
+            throw new ParserException(exceptionMessage);
+        }
+
+        return node;
     }
 }
