@@ -23,38 +23,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace U2.SharpTracker.Core.Classes
+namespace U2.SharpTracker.Core;
+
+public delegate void UserInputRequiredEventHandler(object sender, UserInputRequiredEventArgs e);
+public delegate void InternetResourceContentRequiredEventHandler(object sender, InternetResourceContentRequiredEventArgs e);
+public delegate void ProgressReportedEventHandler(object sender, ProgressReportedEventArgs eventArgs);
+public delegate void WorkFinishedEventHandler(object sender, WorkFinishedEventArgs eventArgs);
+public delegate void TorrentPageLoadedEventHandler(object sender, TorrentPageLoadedEventArgs eventArgs);
+
+public interface IDownloadStrategy
 {
-    public delegate void UserInputRequiredEventHandler(object sender, UserInputRequiredEventArgs e);
-    public delegate void InternetResourceContentRequiredEventHandler(object sender, InternetResourceContentRequiredEventArgs e);
-    public delegate void ProgressReportedEventHandler(object sender, ProgressReportedEventArgs eventArgs);
+    /// <summary>
+    /// Indicates whether the strategy is ready to server requests
+    /// </summary>
+    bool Ready { get; }
 
-    public interface IDownloadStrategy
-    {
-        /// <summary>
-        /// Indicates whether the strategy is ready to server requests
-        /// </summary>
-        bool Ready { get; }
+    /// <summary>
+    /// Starts the strategy. 
+    /// </summary>
+    void Start();
 
-        /// <summary>
-        /// Starts the strategy. 
-        /// </summary>
-        void Start();
+    /// <summary>
+    /// Stops the strategy. It rejects further requests until started.
+    /// </summary>
+    void Stop();
 
-        /// <summary>
-        /// Stops the strategy. It rejects further requests until started.
-        /// </summary>
-        void Stop();
+    /// <summary>
+    /// Returns the next URL for downloading.
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="NoMoreUrlsToDownloadException"></exception>
+    string GetNextUrl();
 
-        /// <summary>
-        /// Returns the next URL for downloading.
-        /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NoMoreUrlsToDownloadException"></exception>
-        string GetNextUrl();
-
-        event UserInputRequiredEventHandler UserInputRequired;
-        event InternetResourceContentRequiredEventHandler InternetResourceContentRequired;
-        event ProgressReportedEventHandler ProgressReported;
-    }
+    event UserInputRequiredEventHandler UserInputRequired;
+    event InternetResourceContentRequiredEventHandler InternetResourceContentRequired;
+    event ProgressReportedEventHandler ProgressReported;
+    event WorkFinishedEventHandler WorkFinished;
+    event TorrentPageLoadedEventHandler TorrentPageLoaded;
 }
