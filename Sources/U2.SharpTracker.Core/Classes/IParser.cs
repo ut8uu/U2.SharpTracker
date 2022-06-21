@@ -27,5 +27,6 @@ namespace U2.SharpTracker.Core;
 
 public interface IParser
 {
-    ListingPage Parse(Stream stream);
+    ListingPage ParseBranch(Stream stream);
+    TorrentPageInfo ParseTorrentPage(Stream stream);
 }

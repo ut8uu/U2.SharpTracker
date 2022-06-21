@@ -28,7 +28,7 @@ using HtmlAgilityPack;
 
 namespace U2.SharpTracker.Core;
 
-public sealed class RTBranchParser : IParser
+public sealed class RutrackerParser : IParser
 {
     private const string RuTrackerUrl = "https://rutracker.org";
     //const string PageRecordXpath = "//table[@class='vf-table vf-tor forumline forum']//tr//td[2]//a[1]";
@@ -37,7 +37,7 @@ public sealed class RTBranchParser : IParser
     const string IndexPath = "//div[@id='pagination']/p[1]/b[1]";
     const string TotalPagesPath = "//div[@id='pagination']/p[1]/b[2]";
 
-    public ListingPage Parse(Stream stream)
+    public ListingPage ParseBranch(Stream stream)
     {
         var xdoc = new HtmlDocument();
         xdoc.Load(stream);
@@ -97,5 +97,16 @@ public sealed class RTBranchParser : IParser
         };
 
         return result;
+    }
+
+    /// <summary>
+    /// Parses given stream as a content of the torrent page
+    /// </summary>
+    /// <param name="stream"></param>
+    /// <returns></returns>
+    /// <exception cref="ParserException"></exception>
+    public TorrentPageInfo ParseTorrentPage(Stream stream)
+    {
+        throw new NotImplementedException();
     }
 }

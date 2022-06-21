@@ -18,11 +18,11 @@
  */
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using U2.SharpTracker.Core.Classes;
 
 namespace U2.SharpTracker.Core;
 
@@ -31,7 +31,15 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
     private int _branchId = 0;
     private bool _started;
     private const string _rutrackerUrl = "https://rutracker.org";
-    private readonly IParser _parser = new RTBranchParser();
+    private readonly IParser _parser = new RutrackerParser();
+    private Task _runnerTask;
+    private CancellationTokenSource _cancellationTokenSource;
+
+    public event UserInputRequiredEventHandler UserInputRequired;
+    public event InternetResourceContentRequiredEventHandler InternetResourceContentRequired;
+    public event ProgressReportedEventHandler ProgressReported;
+    public event WorkFinishedEventHandler WorkFinished;
+    public event TorrentPageLoadedEventHandler TorrentPageLoaded;
 
     public bool Ready { get; }
     public List<string> Pages { get; } = new();
@@ -45,6 +53,15 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
 
         _started = true;
 
+        _cancellationTokenSource = new CancellationTokenSource();
+        _runnerTask = Task.Factory.StartNew(Run,
+            _cancellationTokenSource.Token, 
+            TaskCreationOptions.LongRunning, 
+            TaskScheduler.Current);
+    }
+
+    private void Run()
+    {
         var eventArgs = new UserInputRequiredEventArgs
         {
             MessageToUser = "Enter identifier of the branch to download.",
@@ -54,26 +71,33 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
         if (eventArgs.Canceled)
         {
             _started = false;
+            OnWorkFinished(WorkFinishStatusCode.Canceled);
             return;
         }
 
         if (!int.TryParse(eventArgs.UserInput, out _branchId))
         {
             _started = false;
+            OnWorkFinished(WorkFinishStatusCode.Canceled);
             return;
         }
 
         if (!CollectBranchPages())
         {
             _started = false;
+            OnWorkFinished(WorkFinishStatusCode.Incomplete);
             return;
         }
 
         if (!CollectTopicPages())
         {
             _started = false;
+            OnWorkFinished(WorkFinishStatusCode.Canceled);
             return;
         }
+
+        _started = false;
+        OnWorkFinished(WorkFinishStatusCode.Complete);
     }
 
     /// <summary>
@@ -87,23 +111,17 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
         var start = 0;
         while (true)
         {
-            var eventArgs = new InternetResourceContentRequiredEventArgs
-            {
-                UrlInfo = new UrlInfo
-                {
-                    Url = $"{_rutrackerUrl}/viewforum.php?f={_branchId}&start={start}",
-                },
-                ResourceContent = string.Empty,
-            };
-            OnInternetResourceContentRequired(eventArgs);
-            if (string.IsNullOrEmpty(eventArgs.ResourceContent))
+            var url = $"{_rutrackerUrl}/viewforum.php?f={_branchId}&start={start}";
+            var info = new UrlInfo(url);
+            OnInternetResourceContentRequired(info, out var content);
+            if (info.UrlLoadStatusCode != UrlLoadStatusCode.Success)
             {
                 return false;
             }
 
             // resource loaded
-            var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(eventArgs.ResourceContent));
-            var listingPage = _parser.Parse(memoryStream);
+            var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(content));
+            var listingPage = _parser.ParseBranch(memoryStream);
             foreach (var page in listingPage.Pages)
             {
                 if (!Pages.Contains(page, StringComparer.InvariantCultureIgnoreCase))
@@ -127,6 +145,46 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
     /// <returns></returns>
     private bool CollectTopicPages()
     {
+        while (Pages.Count > 0)
+        {
+            var url = Pages.First();
+            var info = new UrlInfo(url);
+            OnInternetResourceContentRequired(info, out var content);
+
+            if (info.UrlLoadStatusCode == UrlLoadStatusCode.Success)
+            {
+                var stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
+
+                TorrentPageInfo torrentInfo = null;
+                try
+                {
+                    torrentInfo = _parser.ParseTorrentPage(stream);
+                }
+                catch (ParserException ex)
+                {
+                    torrentInfo = new TorrentPageInfo
+                    {
+                        Url = info.Url,
+                        StatusCode = info.UrlLoadStatusCode,
+                        ParserStatusCode = ParserStatusCode.Fail,
+                        ProcessingMessage = ex.Message,
+                    };
+                }
+                catch (Exception ex)
+                {
+                    #warning TODO Make smarter solution about logging this
+                    torrentInfo = new TorrentPageInfo
+                    {
+                        Url = info.Url,
+                        StatusCode = info.UrlLoadStatusCode,
+                        ParserStatusCode = ParserStatusCode.Fail,
+                        ProcessingMessage = ex.Message,
+                    };
+                }
+
+                OnTorrentPageLoaded(torrentInfo);
+            }
+        }
         return false;
     }
 
@@ -136,6 +194,9 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
         {
             return;
         }
+
+        _started = false;
+        _cancellationTokenSource.Cancel();
     }
 
     public string GetNextUrl()
@@ -148,22 +209,47 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
         throw new NoMoreUrlsToDownloadException();
     }
 
-    public event UserInputRequiredEventHandler UserInputRequired;
-    public event InternetResourceContentRequiredEventHandler InternetResourceContentRequired;
-    public event ProgressReportedEventHandler ProgressReported;
-
     private void OnUserInputRequired(UserInputRequiredEventArgs e)
     {
         UserInputRequired?.Invoke(this, e);
     }
 
-    private void OnInternetResourceContentRequired(InternetResourceContentRequiredEventArgs e)
+    private void OnInternetResourceContentRequired(UrlInfo info, out string content)
     {
-        InternetResourceContentRequired?.Invoke(this, e);
+        content = string.Empty;
+
+        var eventArgs = new InternetResourceContentRequiredEventArgs
+        {
+            UrlInfo = info,
+        };
+        InternetResourceContentRequired?.Invoke(this, eventArgs);
     }
 
-    private void OnProgressReported(ProgressReportedEventArgs eventArgs)
+    private void OnProgressReported(int progress, string message)
     {
-        ProgressReported?.Invoke(this, eventArgs);
+        var args = new ProgressReportedEventArgs
+        {
+            Cancel = false,
+            Progress = progress,
+            Text = message,
+        };
+        ProgressReported?.Invoke(this, args);
+    }
+
+    private void OnWorkFinished(WorkFinishStatusCode statusCode)
+    {
+        var args = new WorkFinishedEventArgs
+        {
+            StatusCode = statusCode,
+        };
+        WorkFinished?.Invoke(this, args);
+    }
+
+    private void OnTorrentPageLoaded(TorrentPageInfo pageInfo)
+    {
+        TorrentPageLoaded?.Invoke(this, new TorrentPageLoadedEventArgs
+        {
+            PageInfo = pageInfo,
+        });
     }
 }
