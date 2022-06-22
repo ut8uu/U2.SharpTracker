@@ -151,14 +151,16 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
             var info = new UrlInfo(url);
             OnInternetResourceContentRequired(info, out var content);
 
+            TorrentPageInfo torrentInfo = null;
+
             if (info.UrlLoadStatusCode == UrlLoadStatusCode.Success)
             {
                 var stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
 
-                TorrentPageInfo torrentInfo = null;
                 try
                 {
                     torrentInfo = _parser.ParseTorrentPage(stream);
+                    torrentInfo.Url = info.Url;
                 }
                 catch (ParserException ex)
                 {
@@ -182,10 +184,19 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
                     };
                 }
 
-                OnTorrentPageLoaded(torrentInfo);
             }
+            else
+            {
+                torrentInfo = new TorrentPageInfo
+                {
+                    ParserStatusCode = ParserStatusCode.Fail,
+                    Url = info.Url,
+                };
+            }
+            OnTorrentPageLoaded(torrentInfo);
+            Pages.Remove(url);
         }
-        return false;
+        return true;
     }
 
     public void Stop()
@@ -223,6 +234,7 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
             UrlInfo = info,
         };
         InternetResourceContentRequired?.Invoke(this, eventArgs);
+        content = eventArgs.ResourceContent;
     }
 
     private void OnProgressReported(int progress, string message)

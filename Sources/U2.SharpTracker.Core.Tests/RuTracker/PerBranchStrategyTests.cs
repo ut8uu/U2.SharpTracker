@@ -35,6 +35,7 @@ public class PerBranchStrategyTests
         var branchId = 0;
         var branchRequested = false;
         var numberOfRequestedPages = 0;
+        var numberOfParsedPages = 0;
         var reportedProgress = new List<Tuple<int, string>>();
 
         var strategy = new RTPerBranchStrategy();
@@ -81,6 +82,10 @@ public class PerBranchStrategyTests
                 args.UrlInfo.UrlLoadStatusCode = UrlLoadStatusCode.Success;
             }
         };
+        strategy.TorrentPageLoaded += (sender, args) =>
+        {
+            numberOfParsedPages++;
+        };
         strategy.Start();
 
         var waitTimespan = TimeSpan.FromMilliseconds(100);
@@ -89,7 +94,8 @@ public class PerBranchStrategyTests
         {
             while (branchId == 0 
                    || !branchRequested 
-                   || numberOfRequestedPages < 3)
+                   || numberOfRequestedPages < 3
+                   || numberOfParsedPages < 3)
             {
                 Thread.Sleep(waitTimespan);
             }
@@ -102,6 +108,7 @@ public class PerBranchStrategyTests
         Assert.True(task.Wait(waitPeriod));
         Assert.Equal(1, branchId);
         Assert.Equal(3, numberOfRequestedPages);
+        Assert.Equal(3, numberOfParsedPages);
         Assert.True(branchRequested);
 
         strategy.Stop();
