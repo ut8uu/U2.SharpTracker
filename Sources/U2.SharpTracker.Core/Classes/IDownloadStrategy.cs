@@ -30,6 +30,7 @@ public delegate void InternetResourceContentRequiredEventHandler(object sender, 
 public delegate void ProgressReportedEventHandler(object sender, ProgressReportedEventArgs eventArgs);
 public delegate void WorkFinishedEventHandler(object sender, WorkFinishedEventArgs eventArgs);
 public delegate void TorrentPageLoadedEventHandler(object sender, TorrentPageLoadedEventArgs eventArgs);
+public delegate void StrategyReadyEventHandler(object sender);
 
 public interface IDownloadStrategy
 {
@@ -43,7 +44,7 @@ public interface IDownloadStrategy
     /// <summary>
     /// Starts the strategy. 
     /// </summary>
-    void Start();
+    Task StartAsync();
 
     /// <summary>
     /// Stops the strategy. It rejects further requests until started.
@@ -55,11 +56,12 @@ public interface IDownloadStrategy
     /// </summary>
     /// <returns></returns>
     /// <exception cref="NoMoreUrlsToDownloadException"></exception>
-    string GetNextUrl();
+    Task<UrlDto> TryGetNextUrlAsync();
 
     event UserInputRequiredEventHandler UserInputRequired;
     event InternetResourceContentRequiredEventHandler InternetResourceContentRequired;
     event ProgressReportedEventHandler ProgressReported;
     event WorkFinishedEventHandler WorkFinished;
     event TorrentPageLoadedEventHandler TorrentPageLoaded;
+    event StrategyReadyEventHandler StrategyReady;
 }

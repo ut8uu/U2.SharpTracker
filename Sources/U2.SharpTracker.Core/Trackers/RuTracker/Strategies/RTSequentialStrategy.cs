@@ -38,8 +38,9 @@ public sealed class RTSequentialStrategy : IDownloadStrategy
     public event ProgressReportedEventHandler ProgressReported;
     public event WorkFinishedEventHandler WorkFinished;
     public event TorrentPageLoadedEventHandler TorrentPageLoaded;
+    public event StrategyReadyEventHandler StrategyReady;
 
-    public void Start()
+    public Task StartAsync()
     {
         throw new NotImplementedException();
     }
@@ -49,12 +50,16 @@ public sealed class RTSequentialStrategy : IDownloadStrategy
         throw new NotImplementedException();
     }
 
-    public string GetNextUrl()
+    public Task<UrlDto> TryGetNextUrlAsync()
     {
         lock (_getNextUrlLock)
         {
             _index++;
-            return $"https://rutracker.org/forum/viewtopic.php?t={_index}";
+            var url = $"https://rutracker.org/forum/viewtopic.php?t={_index}";
+            return Task.FromResult(new UrlDto
+            {
+                Url = url,
+            });
         }
     }
 

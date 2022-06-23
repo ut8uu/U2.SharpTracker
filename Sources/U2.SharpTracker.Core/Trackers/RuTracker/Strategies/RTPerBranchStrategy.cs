@@ -24,6 +24,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using U2.SharpTracker.Core.Storage;
 
 namespace U2.SharpTracker.Core;
 
@@ -37,10 +38,12 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
     private CancellationTokenSource _cancellationTokenSource;
 
     private IMongoDatabase _database;
+    private IStorage _storage;
 
-    public RTPerBranchStrategy()
+    public RTPerBranchStrategy(IMongoDatabase database)
     {
-        
+        _database = database;
+        _storage = new TrackerStorage(_database);
     }
 
     public event UserInputRequiredEventHandler UserInputRequired;
@@ -48,29 +51,24 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
     public event ProgressReportedEventHandler ProgressReported;
     public event WorkFinishedEventHandler WorkFinished;
     public event TorrentPageLoadedEventHandler TorrentPageLoaded;
+    public event StrategyReadyEventHandler StrategyReady;
 
     public IStorage Storage { get; set; }
-    public bool Ready { get; }
+    public bool Ready { get; private set; }
     public List<string> Pages { get; } = new();
 
-    public void Start()
+    public async Task StartAsync()
     {
         if (_started)
         {
             return;
         }
 
+        Ready = false;
         _started = true;
 
         _cancellationTokenSource = new CancellationTokenSource();
-        _runnerTask = Task.Factory.StartNew(Run,
-            _cancellationTokenSource.Token, 
-            TaskCreationOptions.LongRunning, 
-            TaskScheduler.Current);
-    }
-
-    private void Run()
-    {
+        
         var eventArgs = new UserInputRequiredEventArgs
         {
             MessageToUser = "Enter identifier of the branch to download.",
@@ -91,31 +89,39 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
             return;
         }
 
-        if (!CollectBranchPages())
+        if (!await CollectBranchPages())
         {
             _started = false;
             OnWorkFinished(WorkFinishStatusCode.Incomplete);
             return;
         }
 
-        if (!CollectTopicPages())
-        {
-            _started = false;
-            OnWorkFinished(WorkFinishStatusCode.Canceled);
-            return;
-        }
-
-        _started = false;
-        OnWorkFinished(WorkFinishStatusCode.Complete);
+        Ready = true;
+        OnStrategyReady();
     }
 
     /// <summary>
     /// Collects all pages of this branch
     /// </summary>
     /// <returns></returns>
-    private bool CollectBranchPages()
+    private async Task<bool> CollectBranchPages()
     {
         Pages.Clear();
+        var token = _cancellationTokenSource.Token;
+
+        var branchDto = await _storage.TryGetBranchAsync(_branchId, token);
+        if (branchDto == null)
+        {
+            branchDto = new BranchDto
+            {
+                OriginalId = _branchId,
+                Id = Guid.NewGuid(),
+                Name = string.Empty,
+                ParentId = Guid.Empty,
+                Url = $"{_rutrackerUrl}/viewforum.php?f={_branchId}",
+            };
+            await _storage.AddBranchAsync(branchDto, token);
+        }
 
         var start = 0;
         while (true)
@@ -133,11 +139,23 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
             var listingPage = _parser.ParseBranch(memoryStream);
             foreach (var page in listingPage.Pages)
             {
-                if (!Pages.Contains(page, StringComparer.InvariantCultureIgnoreCase))
+                if (await _storage.HasUrl(page, _cancellationTokenSource.Token))
                 {
-                    Pages.Add(page);
+                    continue;
                 }
+
+                var urlDto = new UrlDto
+                {
+                    Id = Guid.NewGuid(),
+                    BranchId = branchDto.Id,
+                    Content = string.Empty,
+                    ObjectState = UrlLoadState.Added,
+                    LoadStatusCode = UrlLoadStatusCode.Unknown,
+                    Url = page,
+                };
+                await _storage.AddUrlAsync(urlDto, token);
             }
+
             if (listingPage.CurrentPage == listingPage.TotalPages)
             {
                 break;
@@ -219,14 +237,22 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
         _cancellationTokenSource.Cancel();
     }
 
-    public string GetNextUrl()
+    public async Task<UrlDto> TryGetNextUrlAsync()
     {
         if (!Ready)
         {
             throw new StrategyNotReadyException();
         }
 
-        throw new NoMoreUrlsToDownloadException();
+        var urls = _storage.GetUrlsAsync(_cancellationTokenSource.Token);
+        var nextUrl = await urls.FirstOrDefaultAsync(x => x.ObjectState == UrlLoadState.Added
+                                                    || x.ObjectState == UrlLoadState.Unknown);
+        if (nextUrl == null)
+        {
+            throw new NoMoreUrlsToDownloadException();
+        }
+
+        return nextUrl;
     }
 
     private void OnUserInputRequired(UserInputRequiredEventArgs e)
@@ -272,5 +298,10 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
         {
             PageInfo = pageInfo,
         });
+    }
+
+    private void OnStrategyReady()
+    {
+        StrategyReady?.Invoke(this);
     }
 }

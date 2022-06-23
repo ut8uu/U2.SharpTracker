@@ -29,6 +29,7 @@ public sealed class BranchDto
 {
     public Guid Id { get; set; }
     public Guid ParentId { get; set; }
+    public int OriginalId { get; set; }
     public string Name { get; set; }
     public string Url { get; set; }
 }

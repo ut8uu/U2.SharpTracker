@@ -21,14 +21,33 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using U2.SharpTracker.Core.Storage;
 using Xunit;
 
 namespace U2.SharpTracker.Core.Tests;
 
-public class PerBranchStrategyTests
+public class PerBranchStrategyTests : IDisposable
 {
+    private readonly string _testDirectory;
+    private readonly MongoDBRunner _runner;
+
+    public PerBranchStrategyTests()
+    {
+        var currentPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        _testDirectory = Path.Combine(currentPath, "Tests", "PerBranchStrategyTests");
+
+        _runner = new MongoDBRunner(_testDirectory);
+        _runner.Start();
+    }
+
+    public void Dispose()
+    {
+        _runner.Stop();
+    }
+
     [Fact]
     public async Task EntireSuccessfulFlowTest()
     {
@@ -38,7 +57,8 @@ public class PerBranchStrategyTests
         var numberOfParsedPages = 0;
         var reportedProgress = new List<Tuple<int, string>>();
 
-        var strategy = new RTPerBranchStrategy();
+        var database = _runner.CreateDatabase("EntireSuccessfulFlowTest");
+        var strategy = new RTPerBranchStrategy(database);
         // strategy asks for a BranchId to parse
         strategy.ProgressReported += (sender, args) =>
         {
@@ -86,31 +106,42 @@ public class PerBranchStrategyTests
         {
             numberOfParsedPages++;
         };
-        strategy.Start();
+        await strategy.StartAsync();
 
-        var waitTimespan = TimeSpan.FromMilliseconds(100);
-
-        var task = Task.Factory.StartNew(() =>
-        {
-            while (branchId == 0 
-                   || !branchRequested 
-                   || numberOfRequestedPages < 3
-                   || numberOfParsedPages < 3)
-            {
-                Thread.Sleep(waitTimespan);
-            }
-        });
-        var waitPeriod = TimeSpan.FromMilliseconds(5000);
-        if (Debugger.IsAttached)
-        {
-            waitPeriod = TimeSpan.FromDays(1);
-        }
-        Assert.True(task.Wait(waitPeriod));
         Assert.Equal(1, branchId);
-        Assert.Equal(3, numberOfRequestedPages);
-        Assert.Equal(3, numberOfParsedPages);
         Assert.True(branchRequested);
 
+        var dbStorage = new TrackerStorage(database);
+        var pages = dbStorage.GetUrlsAsync(CancellationToken.None);
+        Assert.Equal(3, await pages.CountAsync());
+
+        // now it's time to download pages
+        while (true)
+        {
+            try
+            {
+                var url = await strategy.TryGetNextUrlAsync();
+                if (url == null)
+                {
+                    break;
+                }
+
+                numberOfRequestedPages++;
+                url.LoadStatusCode = UrlLoadStatusCode.Success;
+                url.ObjectState = UrlLoadState.Loaded;
+                await dbStorage.UpdateUrlAsync(url, CancellationToken.None);
+            }
+            catch (NoMoreUrlsToDownloadException)
+            {
+                break;
+            }
+        }
+
         strategy.Stop();
+
+        pages = dbStorage.GetUrlsAsync(CancellationToken.None);
+        Assert.Equal(3, await pages.CountAsync(x => x.LoadStatusCode == UrlLoadStatusCode.Success));
+
+        _runner.DropDatabase("EntireSuccessfulFlowTest");
     }
 }

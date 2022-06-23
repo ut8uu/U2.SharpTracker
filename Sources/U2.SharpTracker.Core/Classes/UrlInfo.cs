@@ -29,10 +29,10 @@ public enum UrlLoadStatusCode
 
 public enum UrlLoadState
 {
-    Waiting,
-    Loading,
+    Unknown,
+    Added,
+    Loaded,
     Completed, // regardless of the LoadStatus
-    Reported,
 }
 
 public sealed class UrlInfo

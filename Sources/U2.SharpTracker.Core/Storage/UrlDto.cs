@@ -31,5 +31,6 @@ public sealed class UrlDto
     public Guid BranchId { get; set; }
     public string Url { get; set; }
     public string Content { get; set; }
-    public int DownloadStatus { get; set; }
+    public UrlLoadState ObjectState { get; set; }
+    public UrlLoadStatusCode LoadStatusCode { get; set; }
 }
