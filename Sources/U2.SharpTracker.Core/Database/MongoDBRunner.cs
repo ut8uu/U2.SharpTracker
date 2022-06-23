@@ -25,34 +25,41 @@ using System.Threading.Tasks;
 using Mongo2Go;
 using MongoDB.Driver;
 
-namespace U2.SharpTracker.Core.Tests
+namespace U2.SharpTracker.Core;
+
+public sealed class MongoDBRunner
 {
-    public sealed class MongoDBRunner
+    private readonly string _dbDirectory;
+    MongoDbRunner _dbRunner;
+    IMongoClient _dbClient;
+
+    public MongoDBRunner(string dbDirectory)
     {
-        static MongoDbRunner _dbRunner;
-        static IMongoClient _dbClient;
-
-        public static void Start()
-        {
-            var dbDirectory = Path.Combine(Path.GetDirectoryName(typeof(MongoDBRunner).Assembly.Location), "MongoDB");
-            _dbRunner = MongoDbRunner.Start(dbDirectory, singleNodeReplSet: true);
-            _dbClient = new MongoClient(_dbRunner.ConnectionString);
-        }
-
-        public static void Stop()
-        {
-            _dbClient = null;
-            _dbRunner?.Dispose();
-            _dbRunner = null;
-        }
-
-        public static IMongoDatabase CreateDatabase(string name)
-        {
-            _dbClient.DropDatabase(name);
-            return _dbClient.GetDatabase(name);
-        }
-
-        public static string ConnectionString => _dbRunner.ConnectionString;
+        _dbDirectory = dbDirectory;
     }
 
+    public void Start()
+    {
+        _dbRunner = MongoDbRunner.Start(_dbDirectory, singleNodeReplSet: true);
+        _dbClient = new MongoClient(_dbRunner.ConnectionString);
+    }
+
+    public void Stop()
+    {
+        _dbClient = null;
+        _dbRunner?.Dispose();
+        _dbRunner = null;
+    }
+
+    public void DropDatabase(string name)
+    {
+        _dbClient.DropDatabase(name);
+    }
+
+    public IMongoDatabase CreateDatabase(string name)
+    {
+        return _dbClient.GetDatabase(name);
+    }
+
+    public string ConnectionString => _dbRunner.ConnectionString;
 }

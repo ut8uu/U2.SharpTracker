@@ -35,17 +35,21 @@ public class StorageTests : IDisposable
     private readonly Guid _emptyGuid = Guid.Empty;
 
     protected IMongoDatabase Database { get; private set; }
+    private readonly MongoDBRunner _runner;
 
     public StorageTests()
     {
-        MongoDBRunner.Start();
-        Database = MongoDBRunner.CreateDatabase(GetType().Name);
+        var dbDirectory = Path.Combine(Path.GetDirectoryName(typeof(MongoDBRunner).Assembly.Location), "MongoDB");
+        _runner = new MongoDBRunner(dbDirectory);
+        _runner.Start();
+        Database = _runner.CreateDatabase(GetType().Name);
     }
 
     public void Dispose()
     {
+        _runner.DropDatabase(GetType().Name);
         Database = null;
-        MongoDBRunner.Stop();
+        _runner.Stop();
     }
 
     private static BranchDto CreateBranch(Guid parentId)

@@ -30,6 +30,7 @@ public sealed class RTSequentialStrategy : IDownloadStrategy
     private int _index = 0;
     private static readonly object _getNextUrlLock = new();
 
+    public IStorage Storage { get; set; }
     public bool Ready { get; private set; } = false;
 
     public event UserInputRequiredEventHandler UserInputRequired;

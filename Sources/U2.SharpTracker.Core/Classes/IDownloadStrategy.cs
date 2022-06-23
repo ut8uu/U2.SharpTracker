@@ -33,6 +33,8 @@ public delegate void TorrentPageLoadedEventHandler(object sender, TorrentPageLoa
 
 public interface IDownloadStrategy
 {
+    IStorage Storage { get; set; }
+
     /// <summary>
     /// Indicates whether the strategy is ready to server requests
     /// </summary>

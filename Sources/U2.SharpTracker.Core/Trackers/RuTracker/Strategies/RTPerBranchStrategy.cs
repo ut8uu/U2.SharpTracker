@@ -23,6 +23,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Driver;
 
 namespace U2.SharpTracker.Core;
 
@@ -35,12 +36,20 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
     private Task _runnerTask;
     private CancellationTokenSource _cancellationTokenSource;
 
+    private IMongoDatabase _database;
+
+    public RTPerBranchStrategy()
+    {
+        
+    }
+
     public event UserInputRequiredEventHandler UserInputRequired;
     public event InternetResourceContentRequiredEventHandler InternetResourceContentRequired;
     public event ProgressReportedEventHandler ProgressReported;
     public event WorkFinishedEventHandler WorkFinished;
     public event TorrentPageLoadedEventHandler TorrentPageLoaded;
 
+    public IStorage Storage { get; set; }
     public bool Ready { get; }
     public List<string> Pages { get; } = new();
 
