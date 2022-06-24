@@ -25,6 +25,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using U2.SharpTracker.Core.Storage;
+using U2.SharpTracker.Core.Trackers.RuTracker;
 
 namespace U2.SharpTracker.Core;
 
@@ -118,7 +119,7 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
                 Id = Guid.NewGuid(),
                 Name = string.Empty,
                 ParentId = Guid.Empty,
-                Url = $"{_rutrackerUrl}/viewforum.php?f={_branchId}",
+                Url = RuTrackerHelper.GenerateBranchUrl(_branchId, 0),
             };
             await _storage.AddBranchAsync(branchDto, token);
         }
@@ -126,7 +127,7 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
         var start = 0;
         while (true)
         {
-            var url = $"{_rutrackerUrl}/viewforum.php?f={_branchId}&start={start}";
+            var url = RuTrackerHelper.GenerateBranchUrl(_branchId, start);
             var info = new UrlInfo(url);
             OnInternetResourceContentRequired(info, out var content);
             if (info.UrlLoadStatusCode != UrlLoadStatusCode.Success)
@@ -161,7 +162,7 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
                 break;
             }
 
-            start = (listingPage.CurrentPage - 1) * 50;
+            start = listingPage.CurrentPage * 50;
         }
         return true;
     }
