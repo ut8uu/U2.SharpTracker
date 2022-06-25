@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" Sdk="Microsoft.Docker.Sdk">
+  <PropertyGroup Label="Globals">
+    <ProjectVersion>2.1</ProjectVersion>
+    <DockerTargetOS>Linux</DockerTargetOS>
+    <ProjectGuid>6F08A7FC-5CD5-4FD7-9450-C8C74CDB3804</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DockerServiceName>profile</DockerServiceName>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="Directory.Build.targets" />
+    <None Include="docker-compose.override.yml">
+      <DependentUpon>docker-compose.yml</DependentUpon>
+    </None>
+    <None Include="docker-compose.yml" />
+  </ItemGroup>
+</Project>

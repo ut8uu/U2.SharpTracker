@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+    tracker-web:
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+        ports:
+            - 32500:32500
+        volumes:
+            - tracker-svc
+        depends_on:
+            - tracker-svc
+    tracker-svc:
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - PublishTrackerSvc__ConnectionString=mongodb://db:27017
+            - PublishTrackerSvc__DatabaseName=RuTracker
+            - PublishTrackerSvc__DatabaseStrategy=PerBranch
+        ports:
+            - 32501:32501
+        depends_on:
+            - db
+    db:
+        image: mongo
+        volumes:
+            - mongodb:/data/db
+            - mongodb_config:/data/configdb
+volumes:
+    mongodb:
+    mongodb_config:
+    tracker-svc:

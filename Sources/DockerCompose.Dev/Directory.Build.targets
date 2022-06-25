@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <PropertyGroup>
+    <BuildDependsOn>
+      PublishTrackerSvc;
+      PublishTrackerWeb;
+      $(BuildDependsOn)
+    </BuildDependsOn>
+  </PropertyGroup>
+
+  <Target Name="PublishTrackerSvc">
+    <Exec Command="dotnet publish --configuration Release --runtime linux-x64 ../U2.SharpTracker.Svc/U2.SharpTracker.Svc.csproj --self-contained"/>
+  </Target>
+
+  <Target Name="PublishTrackerWeb">
+    <Exec Command="dotnet publish --configuration Release --runtime linux-x64 ../U2.SharpTracker.Web/U2.SharpTracker.Web.csproj --self-contained"/>
+  </Target>
+
+</Project>

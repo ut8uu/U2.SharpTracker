@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+    tracker-svc:
+        image: tracker-service
+        build:
+            context: ..
+            #dockerfile: Dockerfile
+    tracker-web:
+        image: tracker-website
+        build:
+            context: ..
+            #dockerfile: Dockerfile

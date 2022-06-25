@@ -15,4 +15,19 @@
 	  <ProjectReference Include="..\U2.SharpTracker.Core\U2.SharpTracker.Core.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="UtilsAppSettings.Designer.cs">
+	    <DesignTimeSharedInput>True</DesignTimeSharedInput>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>UtilsAppSettings.settings</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="UtilsAppSettings.settings">
+	    <Generator>SettingsSingleFileGenerator</Generator>
+	    <LastGenOutput>UtilsAppSettings.Designer.cs</LastGenOutput>
+	  </None>
+	</ItemGroup>
+
 </Project>
