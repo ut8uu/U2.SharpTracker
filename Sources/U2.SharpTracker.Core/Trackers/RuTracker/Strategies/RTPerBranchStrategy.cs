@@ -145,7 +145,7 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
                     continue;
                 }
 
-                var urlDto = new UrlDto
+                var urlDto = new TopicDto
                 {
                     Id = Guid.NewGuid(),
                     BranchId = branchDto.Id,
@@ -238,7 +238,7 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
         _cancellationTokenSource.Cancel();
     }
 
-    public async Task<UrlDto> TryGetNextUrlAsync()
+    public async Task<TopicDto> TryGetNextUrlAsync()
     {
         if (!Ready)
         {

@@ -25,13 +25,14 @@ using System.Threading.Tasks;
 
 namespace U2.SharpTracker.Core;
 
-public sealed class BranchDto
+public sealed class TopicDto
 {
     public Guid Id { get; set; }
-    public Guid ParentId { get; set; }
-    public int OriginalId { get; set; }
-    public string Name { get; set; }
+    public Guid BranchId { get; set; }
     public string Url { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+    public string Hash { get; set; }
     public UrlLoadState ObjectState { get; set; }
     public UrlLoadStatusCode LoadStatusCode { get; set; }
 }

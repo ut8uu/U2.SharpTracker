@@ -56,7 +56,7 @@ public interface IDownloadStrategy
     /// </summary>
     /// <returns></returns>
     /// <exception cref="NoMoreUrlsToDownloadException"></exception>
-    Task<UrlDto> TryGetNextUrlAsync();
+    Task<TopicDto> TryGetNextUrlAsync();
 
     event UserInputRequiredEventHandler UserInputRequired;
     event InternetResourceContentRequiredEventHandler InternetResourceContentRequired;

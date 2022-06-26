@@ -35,14 +35,14 @@ public interface IStorage
 
     IAsyncEnumerable<BranchDto> GetBranchesAsync(Guid parentId, CancellationToken cancellationToken);
 
-    Task AddUrlAsync(UrlDto url, CancellationToken cancellationToken);
-    Task<UrlDto> TryGetUrlAsync(Guid id, CancellationToken cancellationToken);
-    Task<UrlDto> TryGetUrlAsync(string url, CancellationToken cancellationToken);
-    Task UpdateUrlAsync(UrlDto url, CancellationToken cancellationToken);
+    Task AddUrlAsync(TopicDto url, CancellationToken cancellationToken);
+    Task<TopicDto> TryGetUrlAsync(Guid id, CancellationToken cancellationToken);
+    Task<TopicDto> TryGetUrlAsync(string url, CancellationToken cancellationToken);
+    Task UpdateUrlAsync(TopicDto url, CancellationToken cancellationToken);
     Task DeleteUrlAsync(Guid id, CancellationToken cancellationToken);
 
-    IAsyncEnumerable<UrlDto> GetUrlsAsync(CancellationToken cancellationToken);
-    IAsyncEnumerable<UrlDto> GetUrlsAsync(Guid branchId, CancellationToken cancellationToken);
+    IAsyncEnumerable<TopicDto> GetUrlsAsync(CancellationToken cancellationToken);
+    IAsyncEnumerable<TopicDto> GetUrlsAsync(Guid branchId, CancellationToken cancellationToken);
 
     Task<bool> HasUrl(string url, CancellationToken cancellationToken);
     Task<bool> HasBranch(int branch, CancellationToken cancellationToken);

@@ -63,9 +63,9 @@ public class StorageTests : IDisposable
         };
     }
 
-    private static UrlDto CreateUrl(Guid branchId)
+    private static TopicDto CreateUrl(Guid branchId)
     {
-        return new UrlDto
+        return new TopicDto
         {
             Id = Guid.NewGuid(),
             BranchId = branchId,
@@ -85,7 +85,7 @@ public class StorageTests : IDisposable
         addedBranch.ShouldDeepEqual(branch);
     }
 
-    private async Task AddUrlAsync(IStorage storage, UrlDto url)
+    private async Task AddUrlAsync(IStorage storage, TopicDto url)
     {
         await storage.AddUrlAsync(url, CancellationToken.None);
 

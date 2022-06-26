@@ -17,21 +17,18 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace U2.SharpTracker.Core;
 
-public sealed class BranchDto
+public interface ISharpTrackerService
 {
-    public Guid Id { get; set; }
-    public Guid ParentId { get; set; }
-    public int OriginalId { get; set; }
-    public string Name { get; set; }
-    public string Url { get; set; }
-    public UrlLoadState ObjectState { get; set; }
-    public UrlLoadStatusCode LoadStatusCode { get; set; }
+    public IAsyncEnumerable<TopicDto> GetTopicsAsync(Guid branchId, CancellationToken cancellationToken);
+    public Task<TopicDto> GetTopicAsync(Guid id, CancellationToken cancellationToken);
+    public Task<TopicDto> GetTopicAsync(int id, CancellationToken cancellationToken);
+    
+    public Task AddBranchAsync(BranchDto branch, CancellationToken cancellationToken);
+    public Task<List<BranchDto>> GetBranchesAsync(Guid parentId, CancellationToken cancellationToken);
+    public Task<BranchDto> GetBranchAsync(int id, CancellationToken cancellationToken);
+    public Task<BranchDto> GetBranchAsync(Guid id, CancellationToken cancellationToken);
+    public Task DeleteBranchAsync(Guid id, CancellationToken cancellationToken);
+
 }

@@ -33,13 +33,13 @@ namespace U2.SharpTracker.Core.Storage
 
         private readonly IMongoDatabase _database;
         readonly IMongoCollection<BranchDto> _branchesCollection;
-        readonly IMongoCollection<UrlDto> _urlsCollection;
+        readonly IMongoCollection<TopicDto> _urlsCollection;
 
         public TrackerStorage(IMongoDatabase database)
         {
             _database = database;
             _branchesCollection = database.GetCollection<BranchDto>(BranchesCollectionName);
-            _urlsCollection = database.GetCollection<UrlDto>(UrlsCollectionName);
+            _urlsCollection = database.GetCollection<TopicDto>(UrlsCollectionName);
         }
 
         public Task AddBranchAsync(BranchDto branch, CancellationToken cancellationToken)
@@ -78,24 +78,24 @@ namespace U2.SharpTracker.Core.Storage
             }
         }
 
-        public Task AddUrlAsync(UrlDto url, CancellationToken cancellationToken)
+        public Task AddUrlAsync(TopicDto url, CancellationToken cancellationToken)
         {
             return _urlsCollection.InsertOneAsync(url, new InsertOneOptions(), cancellationToken);
         }
 
-        public Task<UrlDto> TryGetUrlAsync(Guid id, CancellationToken cancellationToken)
+        public Task<TopicDto> TryGetUrlAsync(Guid id, CancellationToken cancellationToken)
         {
             return _urlsCollection.Find(x => x.Id == id)
                 .FirstOrDefaultAsync(cancellationToken);
         }
 
-        public Task<UrlDto> TryGetUrlAsync(string url, CancellationToken cancellationToken)
+        public Task<TopicDto> TryGetUrlAsync(string url, CancellationToken cancellationToken)
         {
             return _urlsCollection.Find(x => x.Url == url)
                 .FirstOrDefaultAsync(cancellationToken);
         }
 
-        public Task UpdateUrlAsync(UrlDto url, CancellationToken cancellationToken)
+        public Task UpdateUrlAsync(TopicDto url, CancellationToken cancellationToken)
         {
             return _urlsCollection.ReplaceOneAsync(x => x.Id == url.Id, url, new ReplaceOptions { }, cancellationToken);
         }
@@ -105,7 +105,7 @@ namespace U2.SharpTracker.Core.Storage
             return _urlsCollection.DeleteOneAsync(x => x.Id == id, cancellationToken);
         }
 
-        public async IAsyncEnumerable<UrlDto> GetUrlsAsync(CancellationToken cancellationToken)
+        public async IAsyncEnumerable<TopicDto> GetUrlsAsync(CancellationToken cancellationToken)
         {
             var cursor = await _urlsCollection.FindAsync(x => !string.IsNullOrEmpty(x.Url), options: null, cancellationToken);
             await foreach (var url in cursor.ToAsyncEnumerable().WithCancellation(cancellationToken))
@@ -114,7 +114,7 @@ namespace U2.SharpTracker.Core.Storage
             }
         }
 
-        public async IAsyncEnumerable<UrlDto> GetUrlsAsync(Guid branchId, CancellationToken cancellationToken)
+        public async IAsyncEnumerable<TopicDto> GetUrlsAsync(Guid branchId, CancellationToken cancellationToken)
         {
             var cursor = await _urlsCollection.FindAsync(b => b.BranchId == branchId, options: null, cancellationToken);
             await foreach (var url in cursor.ToAsyncEnumerable().WithCancellation(cancellationToken))

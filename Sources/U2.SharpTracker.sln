@@ -11,13 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "U2.SharpTracker.Core.Tests"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "U2.SharpTracker.Resources", "U2.SharpTracker.Resources\U2.SharpTracker.Resources.csproj", "{653D54AB-77AA-4EAB-A672-D587D82A843F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U2.SharpTracker.Utils", "U2.SharpTracker.Utils\U2.SharpTracker.Utils.csproj", "{CB04DEB5-4911-4691-BB07-A38D2BA87C7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "U2.SharpTracker.Utils", "U2.SharpTracker.Utils\U2.SharpTracker.Utils.csproj", "{CB04DEB5-4911-4691-BB07-A38D2BA87C7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U2.SharpTracker.Web", "U2.SharpTracker.Web\U2.SharpTracker.Web.csproj", "{4D6F06FD-27A2-42D6-B212-49E3B55C8D4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "U2.SharpTracker.Web", "U2.SharpTracker.Web\U2.SharpTracker.Web.csproj", "{4D6F06FD-27A2-42D6-B212-49E3B55C8D4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U2.SharpTracker.Svc", "U2.SharpTracker.Svc\U2.SharpTracker.Svc.csproj", "{48FCBFA6-5332-43EF-8524-091E422AF0ED}"
-EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "DockerCompose.Dev\docker-compose.dcproj", "{6F08A7FC-5CD5-4FD7-9450-C8C74CDB3804}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U2.SharpTracker.Svc", "U2.SharpTracker.Svc\U2.SharpTracker.Svc.csproj", "{A8A27E72-EADC-4DA5-9A50-3AC02FCAABB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,14 +47,10 @@ Global
 		{4D6F06FD-27A2-42D6-B212-49E3B55C8D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D6F06FD-27A2-42D6-B212-49E3B55C8D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D6F06FD-27A2-42D6-B212-49E3B55C8D4E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{48FCBFA6-5332-43EF-8524-091E422AF0ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{48FCBFA6-5332-43EF-8524-091E422AF0ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{48FCBFA6-5332-43EF-8524-091E422AF0ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{48FCBFA6-5332-43EF-8524-091E422AF0ED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F08A7FC-5CD5-4FD7-9450-C8C74CDB3804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F08A7FC-5CD5-4FD7-9450-C8C74CDB3804}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F08A7FC-5CD5-4FD7-9450-C8C74CDB3804}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F08A7FC-5CD5-4FD7-9450-C8C74CDB3804}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8A27E72-EADC-4DA5-9A50-3AC02FCAABB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8A27E72-EADC-4DA5-9A50-3AC02FCAABB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8A27E72-EADC-4DA5-9A50-3AC02FCAABB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8A27E72-EADC-4DA5-9A50-3AC02FCAABB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

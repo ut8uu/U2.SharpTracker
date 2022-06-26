@@ -17,21 +17,19 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace U2.SharpTracker.Core;
-
-public sealed class BranchDto
+namespace U2.SharpTracker.Core
 {
-    public Guid Id { get; set; }
-    public Guid ParentId { get; set; }
-    public int OriginalId { get; set; }
-    public string Name { get; set; }
-    public string Url { get; set; }
-    public UrlLoadState ObjectState { get; set; }
-    public UrlLoadStatusCode LoadStatusCode { get; set; }
+    public sealed class TrackerSvcSettings : ITrackerSvcSettings
+    {
+        public string ConnectionString { get; set; }
+        public string DatabaseName { get; set; }
+        public string Strategy { get; set; }
+    }
+
+    public interface ITrackerSvcSettings
+    {
+        string ConnectionString { get; set; }
+        string DatabaseName { get; set; }
+        string Strategy { get; set; }
+    }
 }

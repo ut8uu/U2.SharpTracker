@@ -13,9 +13,9 @@ services:
     tracker-svc:
         environment:
             - ASPNETCORE_ENVIRONMENT=Development
-            - PublishTrackerSvc__ConnectionString=mongodb://db:27017
-            - PublishTrackerSvc__DatabaseName=RuTracker
-            - PublishTrackerSvc__DatabaseStrategy=PerBranch
+            - TrackerSvcSettings__ConnectionString=mongodb://db:27017
+            - TrackerSvcSettings__DatabaseName=RuTracker
+            - TrackerSvcSettings__Strategy=PerBranch
         ports:
             - 32501:32501
         depends_on:

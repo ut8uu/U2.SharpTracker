@@ -50,13 +50,13 @@ public sealed class RTSequentialStrategy : IDownloadStrategy
         throw new NotImplementedException();
     }
 
-    public Task<UrlDto> TryGetNextUrlAsync()
+    public Task<TopicDto> TryGetNextUrlAsync()
     {
         lock (_getNextUrlLock)
         {
             _index++;
             var url = $"https://rutracker.org/forum/viewtopic.php?t={_index}";
-            return Task.FromResult(new UrlDto
+            return Task.FromResult(new TopicDto
             {
                 Url = url,
             });
