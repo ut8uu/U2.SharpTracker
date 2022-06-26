@@ -5,18 +5,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using U2.SharpTracker.Web.Data;
+using U2.SharpTracker.Core;
 using U2.SharpTracker.Web.Models;
 
 namespace U2.SharpTracker.Web.Pages.Branches
 {
     public class CreateModel : PageModel
     {
-        private readonly U2SharpTrackerWebContext _context;
+        private readonly ISharpTrackerService _trackerService;
 
-        public CreateModel()//U2SharpTrackerWebContext context)
+        public CreateModel(ISharpTrackerService trackerService)
         {
-            //_context = context;
+            _trackerService = trackerService;
         }
 
         public IActionResult OnGet()
@@ -31,6 +31,18 @@ namespace U2.SharpTracker.Web.Pages.Branches
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
+            var branch = new BranchDto
+            {
+                Id = Guid.NewGuid(),
+                LoadStatusCode = UrlLoadStatusCode.Unknown,
+                LoadState = UrlLoadState.Added,
+                Url = TrackerBranch.Url,
+                Title = TrackerBranch.Title,
+                OriginalId = TrackerBranch.OriginalId,
+                ParentId = Guid.Empty,
+            };
+            await _trackerService.AddBranchAsync(branch, CancellationToken.None);
+          /*
           if (!ModelState.IsValid || _context.TrackerBranch == null || TrackerBranch == null)
             {
                 return Page();
@@ -39,6 +51,7 @@ namespace U2.SharpTracker.Web.Pages.Branches
             _context.TrackerBranch.Add(TrackerBranch);
             await _context.SaveChangesAsync();
 
+            */
             return RedirectToPage("./Index");
         }
     }

@@ -27,12 +27,12 @@ namespace U2.SharpTracker.Core.Trackers.RuTracker
 {
     public static class RuTrackerHelper
     {
-        public static string GenerateBranchUrl(int branchId, int start)
+        public static string GenerateBranchUrl(string branchId, int start)
         {
             return $"https://rutracker.org/forum/viewforum.php?f={branchId}&start={start}";
         }
 
-        public static string GenerateTopicUrl(int branchId)
+        public static string GenerateTopicUrl(string branchId)
         {
             return $"https://rutracker.org/forum/viewtopic.php?f={branchId}";
         }

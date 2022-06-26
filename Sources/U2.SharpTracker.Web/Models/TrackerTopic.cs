@@ -31,4 +31,5 @@ public sealed class TrackerTopic
     public string Url { get; set; }
     public TrackerBranch Branch { get; set; }
     public UrlLoadStatusCode StatusCode { get; set; }
+    public UrlLoadState UrlLoadState { get; set; }
 }

@@ -47,7 +47,7 @@ namespace U2.SharpTracker.Core.Storage
             return _branchesCollection.InsertOneAsync(branch, new InsertOneOptions(), cancellationToken);
         }
 
-        public Task<BranchDto> TryGetBranchAsync(int originalBranchId, CancellationToken cancellationToken)
+        public Task<BranchDto> TryGetBranchAsync(string originalBranchId, CancellationToken cancellationToken)
         {
             return _branchesCollection.Find(b => b.OriginalId == originalBranchId)
                 .FirstOrDefaultAsync(cancellationToken);
@@ -130,7 +130,7 @@ namespace U2.SharpTracker.Core.Storage
             return Task.FromResult(urlsCount.Result > 0);
         }
 
-        public Task<bool> HasBranch(int branchId, CancellationToken cancellationToken)
+        public Task<bool> HasBranch(string branchId, CancellationToken cancellationToken)
         {
             var branchesCount = _branchesCollection.Find(x => x.OriginalId == branchId)
                 .CountDocumentsAsync(cancellationToken);

@@ -5,19 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using U2.SharpTracker.Web.Data;
 using U2.SharpTracker.Web.Models;
 
 namespace U2.SharpTracker.Web.Pages.Branches
 {
     public class EditModel : PageModel
     {
-        private readonly U2.SharpTracker.Web.Data.U2SharpTrackerWebContext _context;
-
-        public EditModel(U2.SharpTracker.Web.Data.U2SharpTrackerWebContext context)
+        public EditModel()
         {
-            _context = context;
         }
 
         [BindProperty]
@@ -25,6 +20,7 @@ namespace U2.SharpTracker.Web.Pages.Branches
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
+            /*
             if (id == null || _context.TrackerBranch == null)
             {
                 return NotFound();
@@ -36,6 +32,7 @@ namespace U2.SharpTracker.Web.Pages.Branches
                 return NotFound();
             }
             TrackerBranch = trackerbranch;
+            */
             return Page();
         }
 
@@ -48,6 +45,7 @@ namespace U2.SharpTracker.Web.Pages.Branches
                 return Page();
             }
 
+            /*
             _context.Attach(TrackerBranch).State = EntityState.Modified;
 
             try
@@ -65,13 +63,15 @@ namespace U2.SharpTracker.Web.Pages.Branches
                     throw;
                 }
             }
+            */
 
             return RedirectToPage("./Index");
         }
 
         private bool TrackerBranchExists(Guid id)
         {
-          return (_context.TrackerBranch?.Any(e => e.Id == id)).GetValueOrDefault();
+            return true;
+//          return (_context.TrackerBranch?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

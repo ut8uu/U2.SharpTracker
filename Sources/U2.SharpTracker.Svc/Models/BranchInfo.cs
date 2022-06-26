@@ -30,14 +30,14 @@ public sealed class BranchInfo
         OriginalId = branchDto.OriginalId;
         Name = branchDto.Title;
         Url = branchDto.Url;
-        ObjectState = branchDto.ObjectState;
+        ObjectState = branchDto.LoadState;
         LoadStatusCode = branchDto.LoadStatusCode;
         Topics = new List<TopicShortInfo>();
     }
 
     public Guid Id { get; set; }
     public Guid ParentId { get; set; }
-    public int OriginalId { get; set; }
+    public string OriginalId { get; set; }
     public string Name { get; set; }
     public string Url { get; set; }
     public UrlLoadState ObjectState { get; set; }

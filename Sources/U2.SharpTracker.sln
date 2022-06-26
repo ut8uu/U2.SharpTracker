@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "U2.SharpTracker.Resources",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "U2.SharpTracker.Utils", "U2.SharpTracker.Utils\U2.SharpTracker.Utils.csproj", "{CB04DEB5-4911-4691-BB07-A38D2BA87C7C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "U2.SharpTracker.Web", "U2.SharpTracker.Web\U2.SharpTracker.Web.csproj", "{4D6F06FD-27A2-42D6-B212-49E3B55C8D4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "U2.SharpTracker.Svc", "U2.SharpTracker.Svc\U2.SharpTracker.Svc.csproj", "{A8A27E72-EADC-4DA5-9A50-3AC02FCAABB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U2.SharpTracker.Svc", "U2.SharpTracker.Svc\U2.SharpTracker.Svc.csproj", "{A8A27E72-EADC-4DA5-9A50-3AC02FCAABB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U2.SharpTracker.Web", "U2.SharpTracker.Web\U2.SharpTracker.Web.csproj", "{06674F29-034E-4540-A874-CDCAB2FF700A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,14 +43,14 @@ Global
 		{CB04DEB5-4911-4691-BB07-A38D2BA87C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB04DEB5-4911-4691-BB07-A38D2BA87C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB04DEB5-4911-4691-BB07-A38D2BA87C7C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4D6F06FD-27A2-42D6-B212-49E3B55C8D4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D6F06FD-27A2-42D6-B212-49E3B55C8D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D6F06FD-27A2-42D6-B212-49E3B55C8D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D6F06FD-27A2-42D6-B212-49E3B55C8D4E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A8A27E72-EADC-4DA5-9A50-3AC02FCAABB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A8A27E72-EADC-4DA5-9A50-3AC02FCAABB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8A27E72-EADC-4DA5-9A50-3AC02FCAABB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8A27E72-EADC-4DA5-9A50-3AC02FCAABB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06674F29-034E-4540-A874-CDCAB2FF700A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06674F29-034E-4540-A874-CDCAB2FF700A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06674F29-034E-4540-A874-CDCAB2FF700A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06674F29-034E-4540-A874-CDCAB2FF700A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

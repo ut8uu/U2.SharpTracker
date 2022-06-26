@@ -1,16 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using U2.SharpTracker.Core.Storage;
-using U2.SharpTracker.Core;
-using U2.SharpTracker.Web.Data;
 using MongoDB.Driver;
+using Quartz.Impl;
+using Quartz;
+using U2.SharpTracker.Core;
+using U2.SharpTracker.Core.Storage;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<U2SharpTrackerWebContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("U2SharpTrackerWebContext") ?? throw new InvalidOperationException("Connection string 'U2SharpTrackerWebContext' not found.")));
 
 var svcSettings = new TrackerSvcSettings();
 builder.Configuration.GetSection(nameof(TrackerSvcSettings)).Bind(svcSettings);
@@ -38,7 +35,11 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
 }
+
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
