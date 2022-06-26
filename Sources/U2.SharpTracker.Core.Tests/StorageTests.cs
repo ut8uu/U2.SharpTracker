@@ -57,7 +57,7 @@ public class StorageTests : IDisposable
         return new BranchDto
         {
             Id = Guid.NewGuid(),
-            Name = $"test branch {new Random(DateTime.UtcNow.Millisecond).NextInt64()}",
+            Title = $"test branch {new Random(DateTime.UtcNow.Millisecond).NextInt64()}",
             ParentId = parentId,
             Url = "test url",
         };
@@ -106,7 +106,7 @@ public class StorageTests : IDisposable
         Assert.NotNull(addedBranch);
         addedBranch.ShouldDeepEqual(branch);
 
-        addedBranch.Name = "updated name";
+        addedBranch.Title = "updated name";
         await storage.UpdateBranchAsync(addedBranch, CancellationToken.None);
 
         var updatedBranch = await storage.TryGetBranchAsync(branch.Id, CancellationToken.None);

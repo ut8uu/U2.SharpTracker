@@ -17,12 +17,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System.ComponentModel.DataAnnotations;
 using U2.SharpTracker.Core;
 
 namespace U2.SharpTracker.Web.Models;
 
 public sealed class TrackerTopic
 {
+    [Key]
+    public Guid Id { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
     public string Url { get; set; }

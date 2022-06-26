@@ -17,16 +17,29 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System.ComponentModel.DataAnnotations;
 using U2.SharpTracker.Core;
 
 namespace U2.SharpTracker.Web.Models;
 
 public class TrackerBranch
 {
+    public TrackerBranch() { }
+
+    public TrackerBranch(BranchDto branch)
+    {
+        Id = branch.Id;
+        Title = branch.Title;
+        Url = branch.Url;
+        LoadStatusCode = branch.LoadStatusCode;
+    }
+
+    [Key]
+    public Guid Id { get; set; }
     public IEnumerable<TrackerBranch> Branches { get; set; }
     public IEnumerable<TrackerTopic> Topics { get; set; }
 
     public string Title { get; set; }
     public string Url { get; set; }
-    public UrlLoadStatusCode StatusCode { get; set; }
+    public UrlLoadStatusCode LoadStatusCode { get; set; }
 }

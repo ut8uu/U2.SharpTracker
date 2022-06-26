@@ -117,7 +117,7 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
             {
                 OriginalId = _branchId,
                 Id = Guid.NewGuid(),
-                Name = string.Empty,
+                Title = string.Empty,
                 ParentId = Guid.Empty,
                 Url = RuTrackerHelper.GenerateBranchUrl(_branchId, 0),
             };

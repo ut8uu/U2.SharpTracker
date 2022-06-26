@@ -1,0 +1,45 @@
+﻿@page
+@model U2.SharpTracker.Web.Pages.Branches.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TrackerBranch</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TrackerBranch.Id" />
+            <div class="form-group">
+                <label asp-for="TrackerBranch.Title" class="control-label"></label>
+                <input asp-for="TrackerBranch.Title" class="form-control" />
+                <span asp-validation-for="TrackerBranch.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrackerBranch.Url" class="control-label"></label>
+                <input asp-for="TrackerBranch.Url" class="form-control" />
+                <span asp-validation-for="TrackerBranch.Url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrackerBranch.LoadStatusCode" class="control-label"></label>
+                <select asp-for="TrackerBranch.LoadStatusCode" class="form-control"></select>
+                <span asp-validation-for="TrackerBranch.LoadStatusCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

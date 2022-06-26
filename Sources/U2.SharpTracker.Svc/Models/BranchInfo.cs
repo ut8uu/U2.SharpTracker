@@ -28,7 +28,7 @@ public sealed class BranchInfo
         Id = branchDto.Id;
         ParentId = branchDto.ParentId;
         OriginalId = branchDto.OriginalId;
-        Name = branchDto.Name;
+        Name = branchDto.Title;
         Url = branchDto.Url;
         ObjectState = branchDto.ObjectState;
         LoadStatusCode = branchDto.LoadStatusCode;
