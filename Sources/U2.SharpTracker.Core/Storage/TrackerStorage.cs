@@ -69,6 +69,15 @@ namespace U2.SharpTracker.Core.Storage
             return _branchesCollection.DeleteOneAsync(b => b.Id == id, cancellationToken);
         }
 
+        public async IAsyncEnumerable<BranchDto> GetBranchesAsync(CancellationToken cancellationToken)
+        {
+            var cursor = await _branchesCollection.FindAsync(b => !string.IsNullOrEmpty(b.Url), options: null, cancellationToken);
+            await foreach (var branch in cursor.ToAsyncEnumerable().WithCancellation(cancellationToken))
+            {
+                yield return branch;
+            }
+        }
+
         public async IAsyncEnumerable<BranchDto> GetBranchesAsync(Guid parentId, CancellationToken cancellationToken)
         {
             var cursor = await _branchesCollection.FindAsync(b => b.ParentId == parentId, options: null, cancellationToken);
@@ -130,9 +139,9 @@ namespace U2.SharpTracker.Core.Storage
             return Task.FromResult(urlsCount.Result > 0);
         }
 
-        public Task<bool> HasBranch(string branchId, CancellationToken cancellationToken)
+        public Task<bool> HasBranch(string url, CancellationToken cancellationToken)
         {
-            var branchesCount = _branchesCollection.Find(x => x.OriginalId == branchId)
+            var branchesCount = _branchesCollection.Find(x => x.Url == url)
                 .CountDocumentsAsync(cancellationToken);
             return Task.FromResult(branchesCount.Result > 0);
         }

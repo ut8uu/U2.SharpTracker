@@ -33,6 +33,7 @@ public interface IStorage
     Task UpdateBranchAsync(BranchDto branch, CancellationToken cancellationToken);
     Task DeleteBranchAsync(Guid id, CancellationToken cancellationToken);
 
+    IAsyncEnumerable<BranchDto> GetBranchesAsync(CancellationToken cancellationToken);
     IAsyncEnumerable<BranchDto> GetBranchesAsync(Guid parentId, CancellationToken cancellationToken);
 
     Task AddUrlAsync(TopicDto url, CancellationToken cancellationToken);

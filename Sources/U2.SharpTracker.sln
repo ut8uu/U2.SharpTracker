@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "U2.SharpTracker.Svc", "U2.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U2.SharpTracker.Web", "U2.SharpTracker.Web\U2.SharpTracker.Web.csproj", "{06674F29-034E-4540-A874-CDCAB2FF700A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U2.SharpTracker.Loader", "U2.SharpTracker.Loader\U2.SharpTracker.Loader.csproj", "{31B8CE9F-4A2D-49E2-AEB5-B5CFC54E2BC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{06674F29-034E-4540-A874-CDCAB2FF700A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06674F29-034E-4540-A874-CDCAB2FF700A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06674F29-034E-4540-A874-CDCAB2FF700A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31B8CE9F-4A2D-49E2-AEB5-B5CFC54E2BC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31B8CE9F-4A2D-49E2-AEB5-B5CFC54E2BC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31B8CE9F-4A2D-49E2-AEB5-B5CFC54E2BC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31B8CE9F-4A2D-49E2-AEB5-B5CFC54E2BC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

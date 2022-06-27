@@ -69,8 +69,8 @@ public class StorageTests : IDisposable
         {
             Id = Guid.NewGuid(),
             BranchId = branchId,
-            Content = "content",
-            ObjectState = UrlLoadState.Added,
+            RawContent = "content",
+            UrlLoadState = UrlLoadState.Unknown,
             LoadStatusCode = UrlLoadStatusCode.Unknown,
             Url = "url",
         };
@@ -147,7 +147,7 @@ public class StorageTests : IDisposable
         addedUrl = await storage.TryGetUrlAsync(url.Url, CancellationToken.None);
         Assert.NotNull(addedUrl);
         
-        url.ObjectState = UrlLoadState.Completed;
+        url.UrlLoadState = UrlLoadState.Completed;
         url.Url = "updated url";
         await storage.UpdateUrlAsync(url, CancellationToken.None);
         url.ShouldDeepEqual(await storage.TryGetUrlAsync(url.Id, CancellationToken.None));

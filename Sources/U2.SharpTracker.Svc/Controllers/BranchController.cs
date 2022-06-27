@@ -37,7 +37,7 @@ namespace U2.SharpTracker.Svc.Controllers
         [HttpPut("CreateBranch")]
         public async Task CreateBranchAsync(BranchDto branch, CancellationToken cancellationToken)
         {
-            await _trackerService.AddBranchAsync(branch, cancellationToken);
+            await _trackerService.AddOrUpdateBranchAsync(branch, cancellationToken);
         }
 
         [HttpGet("ListBranches")]

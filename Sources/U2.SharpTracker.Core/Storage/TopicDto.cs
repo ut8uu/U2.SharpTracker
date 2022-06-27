@@ -31,8 +31,18 @@ public sealed class TopicDto
     public Guid BranchId { get; set; }
     public string Url { get; set; }
     public string Title { get; set; }
-    public string Content { get; set; }
+    public string Description { get; set; }
+    public string RawContent { get; set; }
     public string Hash { get; set; }
-    public UrlLoadState ObjectState { get; set; }
+    public UrlLoadState UrlLoadState { get; set; }
     public UrlLoadStatusCode LoadStatusCode { get; set; }
+    public ParseStatusCode ParseStatusCode { get; set; }
+    public string ParserMessage { get; set; }
+}
+
+public enum ParseStatusCode
+{
+    Unknown,
+    Success,
+    Failure,
 }

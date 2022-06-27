@@ -61,7 +61,7 @@ public sealed class RutrackerParser : IParser
         }
         var totalPages = int.Parse(totalPagesNode.InnerText);
 
-        var branches = new List<string>();
+        var branches = new Dictionary<string, string>();
         var pages = new List<string>();
 
         var elements = xdoc.DocumentNode.SelectNodes(BranchRecordXpath);
@@ -77,8 +77,12 @@ public sealed class RutrackerParser : IParser
                     continue;
                 }
 
-                var url = $"{RuTrackerUrl}/{href.Value}";
-                branches.Add(url);
+                var url = $"{RuTrackerUrl}/forum/{href.Value}";
+                var title = element.InnerText;
+                if (!branches.Keys.Contains(url))
+                {
+                    branches[url] = title;
+                }
             }
         }
 
@@ -86,7 +90,7 @@ public sealed class RutrackerParser : IParser
         foreach (var element in elements)
         {
             var id = element.Attributes["data-topic_id"];
-            var url = $"{RuTrackerUrl}/viewtopic.php?t={id.Value}";
+            var url = $"{RuTrackerUrl}/forum/viewtopic.php?t={id.Value}";
             if (!pages.Contains(url))
             {
                 pages.Add(url);

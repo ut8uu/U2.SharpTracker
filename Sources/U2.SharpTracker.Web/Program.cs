@@ -1,6 +1,4 @@
 using MongoDB.Driver;
-using Quartz.Impl;
-using Quartz;
 using U2.SharpTracker.Core;
 using U2.SharpTracker.Core.Storage;
 

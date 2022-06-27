@@ -37,32 +37,79 @@ public sealed class SharpTrackerService : ISharpTrackerService
 
     public IAsyncEnumerable<TopicDto> GetTopicsAsync(Guid branchId, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return _storage.GetUrlsAsync(branchId, cancellationToken);
     }
 
     public Task<TopicDto> GetTopicAsync(Guid id, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return _storage.TryGetUrlAsync(id, cancellationToken);
     }
 
-    public Task<TopicDto> GetTopicAsync(int id, CancellationToken cancellationToken)
+    public Task<TopicDto> GetTopicAsync(string id, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return _storage.TryGetUrlAsync(id, cancellationToken);
     }
 
-    public async Task AddBranchAsync(BranchDto branch, CancellationToken cancellationToken)
+    public Task<TopicDto> GetWaitingTopicAsync(CancellationToken cancellationToken)
     {
-        await _storage.AddBranchAsync(branch, cancellationToken);
+        var topic = _storage.GetUrlsAsync(cancellationToken)
+            .Where(x => x.UrlLoadState == UrlLoadState.Unknown)
+            .FirstOrDefaultAsync(cancellationToken);
+        return topic.AsTask();
+    }
+
+    public async Task AddOrUpdateTopicAsync(TopicDto topicDto, CancellationToken cancellationToken)
+    {
+        if (await _storage.HasUrl(topicDto.Url, cancellationToken))
+        {
+            await _storage.UpdateUrlAsync(topicDto, cancellationToken);
+        }
+        else
+        {
+            await _storage.AddUrlAsync(topicDto, cancellationToken);
+        }
+    }
+
+    public Task DeleteTopicAsync(Guid id, CancellationToken cancellationToken)
+    {
+        return _storage.DeleteUrlAsync(id, cancellationToken);
+    }
+
+    public Task<bool> ContainsTopicAsync(string url, CancellationToken cancellationToken)
+    {
+        return _storage.HasUrl(url, cancellationToken);
+    }
+
+    public Task<bool> ContainsBranchAsync(string url, CancellationToken cancellationToken)
+    {
+        return _storage.HasBranch(url, cancellationToken);
+    }
+
+    private async Task<bool> BranchExists(BranchDto branch, CancellationToken cancellationToken)
+    {
+        return await GetBranchAsync(branch.Id, cancellationToken) != null;
+    }
+
+    public async Task AddOrUpdateBranchAsync(BranchDto branch, CancellationToken cancellationToken)
+    {
+        if (!await BranchExists(branch, cancellationToken))
+        {
+            await _storage.AddBranchAsync(branch, cancellationToken);
+        }
+        else
+        {
+            await _storage.UpdateBranchAsync(branch, cancellationToken);
+        }
     }
 
     public Task<TopicDto> GetTopic(Guid id, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return _storage.TryGetUrlAsync(id, cancellationToken);
     }
 
-    public Task<TopicDto> GetTopic(int id, CancellationToken cancellationToken)
+    public Task<TopicDto> GetTopic(string id, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return _storage.TryGetUrlAsync(id, cancellationToken);
     }
 
     public async Task<List<BranchDto>> GetBranchesAsync(Guid parentId, CancellationToken cancellationToken)
@@ -79,18 +126,29 @@ public sealed class SharpTrackerService : ISharpTrackerService
         }
     }
 
-    public Task<BranchDto> GetBranchAsync(int id, CancellationToken cancellationToken)
+    public Task<BranchDto> GetBranchAsync(string id, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return _storage.TryGetBranchAsync(id, cancellationToken);
     }
 
     public Task<BranchDto> GetBranchAsync(Guid id, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return _storage.TryGetBranchAsync(id, cancellationToken);
     }
 
-    public async Task DeleteBranchAsync(Guid id, CancellationToken cancellationToken)
+    public Task DeleteBranchAsync(Guid id, CancellationToken cancellationToken)
     {
-        await _storage.DeleteBranchAsync(id, cancellationToken);
+        return _storage.DeleteBranchAsync(id, cancellationToken);
+    }
+
+    public async Task ResetLoadingBranchesAsync(CancellationToken token)
+    {
+        var branches = _storage.GetBranchesAsync(token)
+            .Where(x => x.LoadState == UrlLoadState.Loading);
+        await foreach (var b in branches)
+        {
+            b.LoadState = UrlLoadState.Unknown;
+            await _storage.UpdateBranchAsync(b, token);
+        }
     }
 }

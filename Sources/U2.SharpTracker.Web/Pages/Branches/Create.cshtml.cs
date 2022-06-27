@@ -35,23 +35,13 @@ namespace U2.SharpTracker.Web.Pages.Branches
             {
                 Id = Guid.NewGuid(),
                 LoadStatusCode = UrlLoadStatusCode.Unknown,
-                LoadState = UrlLoadState.Added,
+                LoadState = UrlLoadState.Unknown,
                 Url = TrackerBranch.Url,
                 Title = TrackerBranch.Title,
                 OriginalId = TrackerBranch.OriginalId,
                 ParentId = Guid.Empty,
             };
-            await _trackerService.AddBranchAsync(branch, CancellationToken.None);
-          /*
-          if (!ModelState.IsValid || _context.TrackerBranch == null || TrackerBranch == null)
-            {
-                return Page();
-            }
-
-            _context.TrackerBranch.Add(TrackerBranch);
-            await _context.SaveChangesAsync();
-
-            */
+            await _trackerService.AddOrUpdateBranchAsync(branch, CancellationToken.None);
             return RedirectToPage("./Index");
         }
     }

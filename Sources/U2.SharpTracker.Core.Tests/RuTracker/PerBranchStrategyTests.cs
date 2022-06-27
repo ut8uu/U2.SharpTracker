@@ -128,7 +128,7 @@ public class PerBranchStrategyTests : IDisposable
 
                 numberOfRequestedPages++;
                 url.LoadStatusCode = UrlLoadStatusCode.Success;
-                url.ObjectState = UrlLoadState.Loaded;
+                url.UrlLoadState = UrlLoadState.Loaded;
                 await dbStorage.UpdateUrlAsync(url, CancellationToken.None);
             }
             catch (NoMoreUrlsToDownloadException)

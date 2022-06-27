@@ -142,8 +142,8 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
                 {
                     Id = Guid.NewGuid(),
                     BranchId = branchDto.Id,
-                    Content = string.Empty,
-                    ObjectState = UrlLoadState.Added,
+                    RawContent = string.Empty,
+                    UrlLoadState = UrlLoadState.Unknown,
                     LoadStatusCode = UrlLoadStatusCode.Unknown,
                     Url = page,
                 };
@@ -239,8 +239,7 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
         }
 
         var urls = _storage.GetUrlsAsync(_cancellationTokenSource.Token);
-        var nextUrl = await urls.FirstOrDefaultAsync(x => x.ObjectState == UrlLoadState.Added
-                                                    || x.ObjectState == UrlLoadState.Unknown);
+        var nextUrl = await urls.FirstOrDefaultAsync(x => x.UrlLoadState == UrlLoadState.Unknown);
         if (nextUrl == null)
         {
             throw new NoMoreUrlsToDownloadException();

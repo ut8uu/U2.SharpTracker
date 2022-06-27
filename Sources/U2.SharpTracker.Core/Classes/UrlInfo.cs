@@ -30,7 +30,7 @@ public enum UrlLoadStatusCode
 public enum UrlLoadState
 {
     Unknown,
-    Added,
+    Loading,
     Loaded,
     Completed, // regardless of the LoadStatus
 }
