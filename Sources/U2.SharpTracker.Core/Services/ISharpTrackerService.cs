@@ -40,4 +40,6 @@ public interface ISharpTrackerService
     public Task<BranchDto> GetBranchAsync(Guid id, CancellationToken cancellationToken);
     public Task DeleteBranchAsync(Guid id, CancellationToken cancellationToken);
 
+    public Task<UrlCacheRecord> GetUrlCacheAsync(string url, CancellationToken token);
+    public Task AddUrlCacheRecordAsync(UrlCacheRecord urlCache, CancellationToken token);
 }

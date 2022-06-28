@@ -48,4 +48,7 @@ public interface IStorage
     Task<bool> HasUrl(string url, CancellationToken cancellationToken);
     Task<bool> HasUrl(int originalId, CancellationToken cancellationToken);
     Task<bool> HasBranch(string branch, CancellationToken cancellationToken);
+
+    Task<UrlCacheRecord> GetUrlCacheAsync(string url, CancellationToken token);
+    Task AddUrlCacheAsync(UrlCacheRecord record, CancellationToken token);
 }

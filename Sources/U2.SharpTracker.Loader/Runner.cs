@@ -38,6 +38,7 @@ namespace U2.SharpTracker.Loader
             {
                 b.LoadState = UrlLoadState.Unknown;
                 b.LoadStatusCode = UrlLoadStatusCode.Unknown;
+                b.OriginalId = RutrackerParser.GetIdFromUrl(b.Url);
                 await _service.AddOrUpdateBranchAsync(b, token);
             }
 
@@ -58,7 +59,7 @@ namespace U2.SharpTracker.Loader
 
         public async Task RunAsync(CancellationToken token)
         {
-            await ResetAsync(token);
+            //await ResetAsync(token);
             await _service.ResetLoadingBranchesAsync(token);
 
             while (!token.IsCancellationRequested)
@@ -93,7 +94,7 @@ namespace U2.SharpTracker.Loader
 
             TorrentPageInfo torrentInfo = null;
             var info = new UrlInfo(topic.Url);
-            var content = await DownloadUrlAsync(info);
+            var content = await DownloadUrlAsync(info, token);
 
             if (info.UrlLoadStatusCode == UrlLoadStatusCode.Success)
             {
@@ -164,7 +165,7 @@ namespace U2.SharpTracker.Loader
                 Console.WriteLine($"Page {pageIndex}");
                 var url = $"{branch.Url}&start={start}";
                 var info = new UrlInfo(url);
-                var content = await DownloadUrlAsync(info);
+                var content = await DownloadUrlAsync(info, cancellationToken);
                 if (info.UrlLoadStatusCode != UrlLoadStatusCode.Success)
                 {
                     branch.LoadStatusCode = info.UrlLoadStatusCode;
@@ -201,6 +202,7 @@ namespace U2.SharpTracker.Loader
                     var topicDto = new TopicDto
                     {
                         Id = Guid.NewGuid(),
+                        OriginalId = page.OriginalId,
                         BranchId = branch.Id,
                         RawContent = string.Empty,
                         UrlLoadState = UrlLoadState.Unknown,
@@ -217,7 +219,7 @@ namespace U2.SharpTracker.Loader
                         Hash = string.Empty,
                         ProcessingMessage = page.ProcessingMessage,
                     };
-                     if (await _service.AddTopicIfNotExistsAsync(topicDto, cancellationToken))
+                    if (await _service.AddTopicIfNotExistsAsync(topicDto, cancellationToken))
                     {
                         Console.Write("+");
                         nlRequired = true;
@@ -248,10 +250,16 @@ namespace U2.SharpTracker.Loader
             return client.GetDatabase(settings.DatabaseName);
         }
 
-        static async Task<string> DownloadUrlAsync(UrlInfo url)
+        async Task<string> DownloadUrlAsync(UrlInfo url, CancellationToken token)
         {
             try
             {
+                var cache = await _service.GetUrlCacheAsync(url.Url, token);
+                if (cache != null)
+                {
+                    return cache.Content;
+                }
+
                 var client = new HttpClient();
                 var response = await client.GetAsync(url.Url);
                 var content = await response.Content.ReadAsByteArrayAsync();
@@ -260,6 +268,19 @@ namespace U2.SharpTracker.Loader
                 var responseString = win1251.GetString(content, 0, content.Length);
                 url.UrlLoadState = UrlLoadState.Loaded;
                 url.UrlLoadStatusCode = UrlLoadStatusCode.Success;
+
+                if (responseString != null)
+                {
+                    cache = new UrlCacheRecord
+                    {
+                        Id = Guid.NewGuid(),
+                        Url = url.Url,
+                        Content = responseString,
+                        ValidTill = DateTime.UtcNow.AddMonths(1),
+                    };
+                    await _service.AddUrlCacheRecordAsync(cache, token);
+                }
+
                 return responseString;
             }
             catch (Exception ex)
