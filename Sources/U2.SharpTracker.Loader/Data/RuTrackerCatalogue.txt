@@ -1,0 +1,1500 @@
+<select name="f-jumpbox" id="f-jumpbox">
+<optgroup label="Кино, Видео и ТВ">
+<option class="root_forum" value="756">Предложения по улучшению категории "Кино, Видео и...</option>
+<option class="root_forum has_sf" value="214">Кино, Видео и TV - помощь по разделу</option>
+<option value="692">Заявки, заказы, координация</option>
+<option value="1253">Архив (Кино, Видео и TV - помощь по разделу)</option>
+<option value="23">Обработка видео + аудио</option>
+<option value="707">Работа с DVD</option>
+<option value="1194">Работа с BLU RAY и HD-DVD</option>
+<option class="root_forum has_sf" value="22">Наше кино</option>
+<option value="941">Кино СССР</option>
+<option value="1666">Детские отечественные фильмы</option>
+<option value="376">Авторские дебюты</option>
+<option value="106">Фильмы России и СССР на национальных языках [без...</option>
+<option value="772">Российские/советские режиссёры и их творчество</option>
+<option value="789">Российские/советские актёры и фильмы с их участием</option>
+<option value="65">Ищу (Наше кино) + Тематические ссылки</option>
+<option value="267">Архив (Наше кино)</option>
+<option class="root_forum has_sf" value="7">Зарубежное кино</option>
+<option value="1640">Тематические подборки ссылок</option>
+<option value="187">Классика мирового кинематографа</option>
+<option value="2090">Фильмы до 1990 года</option>
+<option value="2221">Фильмы 1991-2000</option>
+<option value="2091">Фильмы 2001-2005</option>
+<option value="2092">Фильмы 2006-2010</option>
+<option value="2093">Фильмы 2011-2015</option>
+<option value="2200">Фильмы 2016-2020</option>
+<option value="1950">Фильмы 2021-2022</option>
+<option value="2540">Фильмы Ближнего Зарубежья</option>
+<option value="934">Азиатские фильмы</option>
+<option value="505">Индийское кино</option>
+<option value="212">Сборники фильмов</option>
+<option value="2459">Короткий метр</option>
+<option value="1235">Грайндхаус</option>
+<option value="166">Зарубежные фильмы без перевода</option>
+<option value="185">Звуковые дорожки и Переводы</option>
+<option value="1454">Авторский перевод</option>
+<option value="2374">Закадровый перевод</option>
+<option value="1692">Подраздел переводчиков</option>
+<option value="2373">Профессиональные студии закадрового перевода и дубляжа</option>
+<option value="254">Зарубежные актёры и фильмы с их участием</option>
+<option value="771">Зарубежные режиссёры и их творчество</option>
+<option value="44">Поиск и обсуждение фильмов</option>
+<option value="906">Ищу / Предлагаю звуковые дорожки и переводы</option>
+<option value="69">Архив (Зарубежное кино)</option>
+<option class="root_forum has_sf" value="124">Арт-хаус и авторское кино</option>
+<option value="1543">Короткий метр (Арт-хаус и авторское кино)</option>
+<option value="709">Документальные фильмы (Арт-хаус и авторское кино)</option>
+<option value="1577">Анимация (Арт-хаус и авторское кино)</option>
+<option value="149">Фильмографии (Авторское кино)</option>
+<option value="125">Ищу / Предлагаю (Авторское кино)</option>
+<option value="186">Поговорим об арт-хаусе</option>
+<option value="531">Архив (Авторское кино)</option>
+<option class="root_forum has_sf" value="511">Театр</option>
+<option value="540">Архив (Театр)</option>
+<option value="513">Ищу / Предлагаю (Театр)</option>
+<option class="root_forum has_sf" value="93">DVD Video</option>
+<option value="96">Архив (DVD, HD Video)</option>
+<option value="94">Ищу / Предлагаю (DVD, HD Video)</option>
+<option value="905">Классика мирового кинематографа (DVD Video)</option>
+<option value="101">Зарубежное кино (DVD Video)</option>
+<option value="100">Наше кино (DVD Video)</option>
+<option value="877">Фильмы Ближнего Зарубежья (DVD Video)</option>
+<option value="1576">Азиатские фильмы (DVD Video)</option>
+<option value="572">Арт-хаус и авторское кино (DVD Video)</option>
+<option value="2220">Индийское кино (DVD Video)</option>
+<option value="1670">Грайндхаус (DVD Video)</option>
+<option class="root_forum has_sf" value="2198">HD Video</option>
+<option value="1457">UHD Video</option>
+<option value="2199">Классика мирового кинематографа (HD Video)</option>
+<option value="313">Зарубежное кино (HD Video)</option>
+<option value="312">Наше кино (HD Video)</option>
+<option value="1247">Фильмы Ближнего Зарубежья (HD Video)</option>
+<option value="2201">Азиатские фильмы (HD Video)</option>
+<option value="2339">Арт-хаус и авторское кино (HD Video)</option>
+<option value="140">Индийское кино (HD Video)</option>
+<option value="194">Грайндхаус (HD Video)</option>
+<option value="653">Анонсы HD Video</option>
+<option class="root_forum has_sf" value="352">3D/Стерео Кино, Видео, TV и Спорт</option>
+<option value="2344">Архив (3D)</option>
+<option value="549">3D Кинофильмы</option>
+<option value="1213">3D Мультфильмы</option>
+<option value="2109">3D Документальные фильмы</option>
+<option value="514">3D Спорт</option>
+<option value="2097">3D Ролики, Музыкальное видео, Трейлеры к фильмам</option>
+<option class="root_forum has_sf" value="4">Мультфильмы</option>
+<option value="84">Мультфильмы (UHD Video)</option>
+<option value="2343">Отечественные мультфильмы (HD Video)</option>
+<option value="930">Иностранные мультфильмы (HD Video)</option>
+<option value="2365">Иностранные короткометражные мультфильмы (HD Video)</option>
+<option value="1900">Отечественные мультфильмы (DVD)</option>
+<option value="2258">Иностранные короткометражные мультфильмы (DVD)</option>
+<option value="521">Иностранные мультфильмы (DVD)</option>
+<option value="208">Отечественные мультфильмы</option>
+<option value="539">Отечественные полнометражные мультфильмы</option>
+<option value="209">Иностранные мультфильмы</option>
+<option value="484">Иностранные короткометражные мультфильмы</option>
+<option value="822">Сборники мультфильмов</option>
+<option value="181">Мультфильмы без перевода</option>
+<option value="86">Ищу (Мультфильмы)</option>
+<option value="665">Архив (Мультфильмы)</option>
+<option class="root_forum has_sf" value="921">Мультсериалы</option>
+<option value="815">Мультсериалы (SD Video)</option>
+<option value="816">Мультсериалы (DVD Video)</option>
+<option value="1460">Мультсериалы (HD Video)</option>
+<option value="932">Ищу (Мультсериалы)</option>
+<option value="931">Архив (Мультсериалы)</option>
+<option class="root_forum has_sf" value="33">Аниме</option>
+<option value="1385">Предложения по улучшению раздела "Аниме"</option>
+<option value="705">Поговорим об аниме</option>
+<option value="1105">Аниме (HD Video)</option>
+<option value="599">Аниме (DVD)</option>
+<option value="1389">Аниме (основной подраздел)</option>
+<option value="1391">Аниме (плеерный подраздел)</option>
+<option value="2491">Аниме (QC подраздел)</option>
+<option value="2544">Ван-Пис</option>
+<option value="1642">Гандам</option>
+<option value="1390">Наруто</option>
+<option value="404">Покемоны</option>
+<option value="893">Японские мультфильмы</option>
+<option value="809">Звуковые дорожки (Аниме)</option>
+<option value="2484">Артбуки и журналы (Аниме)</option>
+<option value="1386">Обои, сканы, аватары, арт</option>
+<option value="1387">AMV и другие ролики</option>
+<option value="535">Архив (Аниме)</option>
+</optgroup>
+<optgroup label="Сериалы">
+<option class="root_forum" value="917">Предложения по улучшению категории "Сериалы"</option>
+<option class="root_forum has_sf" value="9">Русские сериалы</option>
+<option value="26">Ищу (Русские сериалы)</option>
+<option value="32">Обсуждение (Русские сериалы)</option>
+<option value="81">Русские сериалы (HD Video)</option>
+<option value="920">Русские сериалы (DVD Video)</option>
+<option value="80">Возвращение Мухтара</option>
+<option value="1535">Воронины</option>
+<option value="188">Чернобыль: Зона отчуждения</option>
+<option value="91">Кухня / Отель Элеон</option>
+<option value="990">Универ / Универ. Новая общага / СашаТаня</option>
+<option value="1408">Ольга / Физрук</option>
+<option value="175">След</option>
+<option value="79">Солдаты и пр.</option>
+<option value="104">Тайны следствия</option>
+<option value="67">Архив (Русские сериалы)</option>
+<option class="root_forum has_sf" value="189">Зарубежные сериалы</option>
+<option value="1147">Обсуждение сериалов</option>
+<option value="191">Ищу (Зарубежные сериалы)</option>
+<option value="842">Новинки и сериалы в стадии показа</option>
+<option value="235">Сериалы США и Канады</option>
+<option value="242">Сериалы Великобритании и Ирландии</option>
+<option value="819">Скандинавские сериалы</option>
+<option value="1531">Испанские сериалы</option>
+<option value="721">Итальянские сериалы</option>
+<option value="1102">Европейские сериалы</option>
+<option value="1120">Сериалы стран Африки, Ближнего и Среднего Востока</option>
+<option value="1214">Сериалы Австралии и Новой Зеландии</option>
+<option value="489">Сериалы Ближнего Зарубежья</option>
+<option value="387">Сериалы совместного производства нескольких стран</option>
+<option value="1359">Веб-сериалы, Вебизоды к сериалам и Пилотные серии...</option>
+<option value="184">Бесстыжие / Shameless (US)</option>
+<option value="1171">Викинги / Vikings</option>
+<option value="1417">Во все тяжкие / Breaking Bad</option>
+<option value="625">Доктор Хаус / House M.D.</option>
+<option value="1449">Игра престолов / Game of Thrones</option>
+<option value="273">Карточный Домик / House of Cards</option>
+<option value="504">Клан Сопрано / The Sopranos</option>
+<option value="372">Сверхъестественное / Supernatural</option>
+<option value="110">Секретные материалы / The X-Files</option>
+<option value="121">Твин пикс / Twin Peaks</option>
+<option value="507">Теория большого взрыва + Детство Шелдона</option>
+<option value="536">Форс-мажоры / Костюмы в законе / Suits</option>
+<option value="1144">Ходячие мертвецы + Бойтесь ходячих мертвецов</option>
+<option value="173">Черное зеркало / Black Mirror</option>
+<option value="195">Для некондиционных раздач</option>
+<option value="190">Архив (Зарубежные сериалы)</option>
+<option class="root_forum has_sf" value="2366">Зарубежные сериалы (HD Video)</option>
+<option value="119">Зарубежные сериалы (UHD Video)</option>
+<option value="1803">Новинки и сериалы в стадии показа (HD Video)</option>
+<option value="266">Сериалы США и Канады (HD Video)</option>
+<option value="193">Сериалы Великобритании и Ирландии (HD Video)</option>
+<option value="1690">Скандинавские сериалы (HD Video)</option>
+<option value="1459">Европейские сериалы (HD Video)</option>
+<option value="1463">Сериалы стран Африки, Ближнего и Среднего Востока (HD...</option>
+<option value="825">Сериалы Австралии и Новой Зеландии (HD Video)</option>
+<option value="1248">Сериалы Ближнего Зарубежья (HD Video)</option>
+<option value="1288">Сериалы совместного производства нескольких стран (HD...</option>
+<option value="1669">Викинги / Vikings (HD Video)</option>
+<option value="2393">Доктор Хаус / House M.D. (HD Video)</option>
+<option value="265">Игра престолов / Game of Thrones (HD Video)</option>
+<option value="2406">Карточный домик (HD Video)</option>
+<option value="2404">Сверхъестественное / Supernatural (HD Video)</option>
+<option value="2405">Секретные материалы / The X-Files (HD Video)</option>
+<option value="2370">Твин пикс / Twin Peaks (HD Video)</option>
+<option value="2396">Теория Большого Взрыва / The Big Bang Theory (HD Video)</option>
+<option value="2398">Ходячие мертвецы + Бойтесь ходячих мертвецов (HD Video)</option>
+<option value="1949">Черное зеркало / Black Mirror (HD Video)</option>
+<option value="1498">Для некондиционных раздач (HD Video)</option>
+<option value="2369">Архив Зарубежные сериалы (HD Video)</option>
+<option class="root_forum has_sf" value="911">Сериалы Латинской Америки, Турции и Индии</option>
+<option value="914">Ищу / Предлагаю</option>
+<option value="1493">Актёры и актрисы латиноамериканских сериалов</option>
+<option value="325">Сериалы Аргентины</option>
+<option value="534">Сериалы Бразилии</option>
+<option value="594">Сериалы Венесуэлы</option>
+<option value="1301">Сериалы Индии</option>
+<option value="607">Сериалы Колумбии</option>
+<option value="1574">Сериалы Латинской Америки с озвучкой (раздачи папками)</option>
+<option value="1539">Сериалы Латинской Америки с субтитрами</option>
+<option value="1940">Официальные краткие версии сериалов Латинской Америки</option>
+<option value="694">Сериалы Мексики</option>
+<option value="775">Сериалы Перу, Сальвадора, Чили и других стран</option>
+<option value="781">Сериалы совместного производства</option>
+<option value="718">Сериалы США (латиноамериканские)</option>
+<option value="704">Сериалы Турции</option>
+<option value="1537">Для некондиционных раздач</option>
+<option value="913">Архив (Сериалы Латинской Америки, Турции и Индии)</option>
+<option class="root_forum has_sf" value="2100">Азиатские сериалы</option>
+<option value="915">Корейские сериалы</option>
+<option value="1242">Корейские сериалы (HD Video)</option>
+<option value="717">Китайские сериалы</option>
+<option value="1939">Японские сериалы</option>
+<option value="2412">Сериалы Таиланда, Индонезии, Сингапура</option>
+<option value="2102">VMV и др. ролики</option>
+<option value="2101">Архив (Азиатские сериалы)</option>
+</optgroup>
+<optgroup label="Документалистика и юмор">
+<option class="root_forum" value="1629">Предложения по улучшению категории "Документалистика и...</option>
+<option class="root_forum has_sf" value="670">Вера и религия</option>
+<option value="1475">[Видео Религия] Христианство</option>
+<option value="2107">[Видео Религия] Ислам</option>
+<option value="1453">[Видео Религия] Культы и новые религиозные движения</option>
+<option value="294">[Видео Религия] Религии Индии, Тибета и Восточной Азии</option>
+<option class="root_forum has_sf" value="46">Документальные фильмы и телепередачи</option>
+<option value="2172">-= Правила, инструкции, FAQ'и =-</option>
+<option value="73">Архив (Документальные фильмы)</option>
+<option value="77">Ищу / Предлагаю / Анонсы ТВ</option>
+<option value="103">Документальные (DVD)</option>
+<option value="671">[Док] Биографии. Личности и кумиры</option>
+<option value="2177">[Док] Кинематограф и мультипликация</option>
+<option value="656">[Док] Мастера искусств Театра и Кино</option>
+<option value="2538">[Док] Искусство, история искусств</option>
+<option value="2159">[Док] Музыка</option>
+<option value="251">[Док] Криминальная документалистика</option>
+<option value="98">[Док] Тайны века / Спецслужбы / Теории Заговоров</option>
+<option value="97">[Док] Военное дело</option>
+<option value="851">[Док] Вторая мировая война</option>
+<option value="2178">[Док] Аварии / Катастрофы / Катаклизмы</option>
+<option value="821">[Док] Авиация</option>
+<option value="2076">[Док] Космос</option>
+<option value="56">[Док] Научно-популярные фильмы</option>
+<option value="2123">[Док] Флора и фауна</option>
+<option value="876">[Док] Путешествия и туризм</option>
+<option value="2139">[Док] Медицина</option>
+<option value="2380">[Док] Социальные ток-шоу</option>
+<option value="1467">[Док] Информационно-аналитические и общественно-политиче...</option>
+<option value="1469">[Док] Архитектура и строительство</option>
+<option value="672">[Док] Всё о доме, быте и дизайне</option>
+<option value="249">[Док] BBC</option>
+<option value="552">[Док] Discovery</option>
+<option value="500">[Док] National Geographic</option>
+<option value="2112">[Док] История: Древний мир / Античность / Средневековье</option>
+<option value="1327">[Док] История: Новое и Новейшее время</option>
+<option value="1468">[Док] Эпоха СССР</option>
+<option value="1280">[Док] Битва экстрасенсов / Теория невероятности /...</option>
+<option value="752">[Док] Русские сенсации / Программа Максимум / Профессия...</option>
+<option value="1114">[Док] Паранормальные явления</option>
+<option value="2168">[Док] Альтернативная история и наука</option>
+<option value="2160">[Док] Внежанровая документалистика</option>
+<option value="2176">[Док] Разное / некондиция</option>
+<option class="root_forum has_sf" value="314">Документальные (HD Video)</option>
+<option value="2323">Информационно-аналитические и общественно-политические...</option>
+<option value="1278">Биографии. Личности и кумиры (HD Video)</option>
+<option value="1281">Военное дело (HD Video)</option>
+<option value="2110">Естествознание, наука и техника (HD Video)</option>
+<option value="979">Путешествия и туризм (HD Video)</option>
+<option value="2169">Флора и фауна (HD Video)</option>
+<option value="2166">История (HD Video)</option>
+<option value="2164">BBC, Discovery, National Geographic, History Channel...</option>
+<option value="2163">Криминальная документалистика (HD Video)</option>
+<option value="85">Некондиционное видео - Документальные (HD Video)</option>
+<option class="root_forum has_sf" value="24">Развлекательные телепередачи и шоу, приколы и юмор</option>
+<option value="891">Архив (Приколы и юмор)</option>
+<option value="523">Ищу / предлагаю (Приколы и юмор)</option>
+<option value="1959">[Видео Юмор] Интеллектуальные игры и викторины</option>
+<option value="939">[Видео Юмор] Реалити и ток-шоу / номинации / показы</option>
+<option value="1481">[Видео Юмор] Детские телешоу</option>
+<option value="113">[Видео Юмор] КВН</option>
+<option value="115">[Видео Юмор] Пост КВН</option>
+<option value="882">[Видео Юмор] Кривое Зеркало / Городок / В Городке</option>
+<option value="1482">[Видео Юмор] Ледовые шоу</option>
+<option value="393">[Видео Юмор] Музыкальные шоу</option>
+<option value="1569">[Видео Юмор] Званый ужин</option>
+<option value="373">[Видео Юмор] Хорошие Шутки</option>
+<option value="1186">[Видео Юмор] Вечерний Квартал</option>
+<option value="137">[Видео Юмор] Фильмы со смешным переводом (пародии)</option>
+<option value="2537">[Видео Юмор] Stand-up comedy</option>
+<option value="532">[Видео Юмор] Украинские Шоу</option>
+<option value="827">[Видео Юмор] Танцевальные шоу, концерты, выступления</option>
+<option value="1484">[Видео Юмор] Цирк</option>
+<option value="1485">[Видео Юмор] Школа злословия</option>
+<option value="114">[Видео Юмор] Сатирики и юмористы</option>
+<option value="1332">Юмористические аудиопередачи</option>
+<option value="1495">Аудио и видео ролики (Приколы и юмор)</option>
+</optgroup>
+<optgroup label="Спорт">
+<option class="root_forum has_sf" value="1392">XXXII Летние Олимпийские игры 2020</option>
+<option value="2475">Легкая атлетика</option>
+<option value="2493">Плавание. Прыжки в воду. Синхронное плавание</option>
+<option value="2113">Спортивная гимнастика. Художественная гимнастика....</option>
+<option value="2482">Велоспорт</option>
+<option value="2103">Академическая гребля. Гребля на байдарках и каноэ</option>
+<option value="2522">Бокс. Борьба Вольная и Греко-римская. Дзюдо. Карате....</option>
+<option value="2485">Футбол</option>
+<option value="2486">Баскетбол. Волейбол. Гандбол. Водное поло. Регби....</option>
+<option value="2479">Теннис. Настольный теннис. Бадминтон</option>
+<option value="2089">Фехтование. Стрельба. Стрельба из лука. Современное...</option>
+<option value="1794">Другие виды спорта</option>
+<option value="2338">Обзорные и аналитические программы</option>
+<option class="root_forum has_sf" value="1315">XXIV Зимние Олимпийские игры 2022</option>
+<option value="1336">Биатлон</option>
+<option value="2171">Лыжные гонки</option>
+<option value="1339">Прыжки на лыжах с трамплина / Лыжное двоеборье</option>
+<option value="2455">Горные лыжи / Сноубординг / Фристайл</option>
+<option value="1434">Бобслей / Санный спорт / Скелетон</option>
+<option value="2350">Конькобежный спорт / Шорт-трек</option>
+<option value="1472">Фигурное катание</option>
+<option value="2068">Хоккей</option>
+<option value="2016">Керлинг</option>
+<option value="1311">Обзорные и аналитические программы</option>
+<option class="root_forum has_sf" value="255">Спортивные турниры, фильмы и передачи</option>
+<option value="261">Архив (Спорт)</option>
+<option value="964">Архив 2 (Спорт)</option>
+<option value="256">Автоспорт</option>
+<option value="1986">Мотоспорт</option>
+<option value="660">Формула-1 (2022)</option>
+<option value="1551">Формула-1 (2012-2021)</option>
+<option value="626">Формула 1 (до 2011 вкл.)</option>
+<option value="262">Велоспорт</option>
+<option value="1326">Волейбол/Гандбол</option>
+<option value="978">Бильярд</option>
+<option value="1287">Покер</option>
+<option value="1188">Бодибилдинг/Силовые виды спорта</option>
+<option value="1667">Бокс</option>
+<option value="1675">Классические единоборства</option>
+<option value="257">Смешанные единоборства и K-1</option>
+<option value="875">Американский футбол</option>
+<option value="263">Регби</option>
+<option value="2073">Бейсбол</option>
+<option value="550">Теннис</option>
+<option value="2124">Бадминтон/Настольный теннис</option>
+<option value="1470">Гимнастика/Соревнования по танцам</option>
+<option value="528">Лёгкая атлетика/Водные виды спорта</option>
+<option value="486">Зимние виды спорта</option>
+<option value="854">Фигурное катание</option>
+<option value="2079">Биатлон</option>
+<option value="260">Экстрим</option>
+<option value="1319">Спорт (видео)</option>
+<option class="root_forum has_sf" value="1608">Футбол</option>
+<option value="2294">UHDTV</option>
+<option value="2532">Чемпионат Европы 2020 [2021] (финальный турнир)</option>
+<option value="136">Чемпионат Европы 2020 [2021] (отбор)</option>
+<option value="592">Лига Наций</option>
+<option value="1693">Чемпионат Мира 2022 (отбор)</option>
+<option value="2533">Чемпионат Мира 2018 (игры)</option>
+<option value="1952">Чемпионат Мира 2018 (обзорные передачи, документалистика...</option>
+<option value="1621">Чемпионаты Мира</option>
+<option value="1668">Россия 2021-2022</option>
+<option value="2075">Россия 2020-2021</option>
+<option value="1613">Россия/СССР</option>
+<option value="1614">Англия</option>
+<option value="1623">Испания</option>
+<option value="1615">Италия</option>
+<option value="1630">Германия</option>
+<option value="2425">Франция</option>
+<option value="2514">Украина</option>
+<option value="1616">Другие национальные чемпионаты и кубки</option>
+<option value="2014">Международные турниры</option>
+<option value="1442">Еврокубки 2022-2023</option>
+<option value="1491">Еврокубки 2021-2022</option>
+<option value="1987">Еврокубки 2011-2021</option>
+<option value="1617">Еврокубки</option>
+<option value="1620">Чемпионаты Европы</option>
+<option value="1998">Товарищеские турниры и матчи</option>
+<option value="1343">Обзорные и аналитические передачи 2018-2022</option>
+<option value="751">Обзорные и аналитические передачи</option>
+<option value="497">Документальные фильмы (футбол)</option>
+<option value="1697">Мини-футбол/Пляжный футбол</option>
+<option value="1609">Архив (Футбол)</option>
+<option value="1610">Архив (Футбол) резервный</option>
+<option class="root_forum has_sf" value="2004">Баскетбол</option>
+<option value="1999">Архив (Баскетбол)</option>
+<option value="2001">Международные соревнования</option>
+<option value="2002">NBA / NCAA (до 2000 г.)</option>
+<option value="283">NBA / NCAA (2000-2010 гг.)</option>
+<option value="1997">NBA / NCAA (2010-2022 гг.)</option>
+<option value="2003">Европейский клубный баскетбол</option>
+<option class="root_forum has_sf" value="2009">Хоккей</option>
+<option value="2000">Архив (Хоккей)</option>
+<option value="2010">Хоккей с мячом / Бенди</option>
+<option value="2006">Международные турниры</option>
+<option value="2007">КХЛ</option>
+<option value="2005">НХЛ (до 2011/12)</option>
+<option value="259">НХЛ (с 2013)</option>
+<option value="2008">СССР - Канада</option>
+<option value="126">Документальные фильмы и аналитика</option>
+<option class="root_forum has_sf" value="845">Рестлинг</option>
+<option value="1476">Общение (Рестлинг)</option>
+<option value="343">Professional Wrestling</option>
+<option value="2111">Independent Wrestling</option>
+<option value="1527">International Wrestling</option>
+<option value="2069">Oldschool Wrestling</option>
+<option value="1323">Documentary Wrestling</option>
+<option value="2312">Архив (Рестлинг)</option>
+<option class="root_forum" value="1346">Для дооформления раздач</option>
+</optgroup>
+<optgroup label="Книги и журналы">
+<option class="root_forum has_sf" value="2058">Помощь в "Книгах и журналах", предложения по...</option>
+<option value="1411">Сканирование, обработка сканов</option>
+<option class="root_forum has_sf" value="21">Книги и журналы (общий раздел)</option>
+<option value="2157">Кино, театр, ТВ, мультипликация, цирк</option>
+<option value="765">Рисунок, графический дизайн</option>
+<option value="2019">Фото и видеосъемка</option>
+<option value="31">Журналы и газеты (общий раздел)</option>
+<option value="1427">Эзотерика, гадания, магия, фен-шуй</option>
+<option value="2422">Астрология</option>
+<option value="2195">Красота. Уход. Домоводство</option>
+<option value="2521">Мода. Стиль. Этикет</option>
+<option value="2223">Путешествия и туризм</option>
+<option value="2447">Знаменитости и кумиры</option>
+<option value="39">Разное (книги)</option>
+<option value="2086">Самиздат, статьи из журналов, фрагменты книг</option>
+<option class="root_forum has_sf" value="1101">Для детей, родителей и учителей</option>
+<option value="745">Учебная литература для детского сада и начальной школы...</option>
+<option value="1689">Учебная литература для старших классов (5-11 класс)</option>
+<option value="2336">Учителям и педагогам</option>
+<option value="2337">Научно-популярная и познавательная литература (для...</option>
+<option value="1353">Досуг и творчество</option>
+<option value="1400">Воспитание и развитие</option>
+<option value="1415">Худ. лит-ра для дошкольников и младших классов</option>
+<option value="2046">Худ. лит-ра для средних и старших классов</option>
+<option class="root_forum has_sf" value="1802">Спорт, физическая культура, боевые искусства</option>
+<option value="2189">Футбол (книги и журналы)</option>
+<option value="2190">Хоккей (книги и журналы)</option>
+<option value="2443">Игровые виды спорта</option>
+<option value="1477">Легкая атлетика. Плавание. Гимнастика. Тяжелая...</option>
+<option value="669">Автоспорт. Мотоспорт. Велоспорт</option>
+<option value="2196">Шахматы. Шашки</option>
+<option value="2056">Боевые искусства, единоборства</option>
+<option value="1436">Экстрим (книги)</option>
+<option value="2191">Физкультура, фитнес, бодибилдинг</option>
+<option value="2477">Спортивная пресса</option>
+<option class="root_forum has_sf" value="1680">Гуманитарные науки</option>
+<option value="1684">Искусствоведение. Культурология</option>
+<option value="2446">Фольклор. Эпос. Мифология</option>
+<option value="2524">Литературоведение</option>
+<option value="2525">Лингвистика</option>
+<option value="995">Философия</option>
+<option value="2022">Политология</option>
+<option value="2471">Социология</option>
+<option value="2375">Публицистика, журналистика</option>
+<option value="764">Бизнес, менеджмент</option>
+<option value="1685">Маркетинг</option>
+<option value="1688">Экономика</option>
+<option value="2472">Финансы</option>
+<option value="1687">Юридические науки. Право. Криминалистика</option>
+<option class="root_forum has_sf" value="2020">Исторические науки</option>
+<option value="1349">Методология и философия исторической науки</option>
+<option value="1967">Исторические источники (книги, периодика)</option>
+<option value="1341">Исторические источники (документы)</option>
+<option value="2049">Исторические персоны</option>
+<option value="1681">Альтернативные исторические теории</option>
+<option value="2319">Археология</option>
+<option value="2434">Древний мир. Античность</option>
+<option value="1683">Средние века</option>
+<option value="2444">История Нового и Новейшего времени</option>
+<option value="2427">История Европы</option>
+<option value="2452">История Азии и Африки</option>
+<option value="2445">История Америки, Австралии, Океании</option>
+<option value="2435">История России</option>
+<option value="667">История России до 1917 года</option>
+<option value="2436">Эпоха СССР</option>
+<option value="1335">История России после 1991 года</option>
+<option value="2453">История стран бывшего СССР</option>
+<option value="2320">Этнография, антропология</option>
+<option value="1801">Международные отношения. Дипломатия</option>
+<option class="root_forum has_sf" value="2023">Точные, естественные и инженерные науки</option>
+<option value="2024">Авиация / Космонавтика</option>
+<option value="2026">Физика</option>
+<option value="2192">Астрономия</option>
+<option value="2027">Биология / Экология</option>
+<option value="295">Химия / Биохимия</option>
+<option value="2028">Математика</option>
+<option value="2029">География / Геология / Геодезия</option>
+<option value="1325">Электроника / Радио</option>
+<option value="2386">Схемы и сервис-мануалы (оригинальная документация)</option>
+<option value="2031">Архитектура / Строительство / Инженерные сети /...</option>
+<option value="2030">Машиностроение</option>
+<option value="2526">Сварка / Пайка / Неразрушающий контроль</option>
+<option value="2527">Автоматизация / Робототехника</option>
+<option value="2254">Металлургия / Материаловедение</option>
+<option value="2376">Механика, сопротивление материалов</option>
+<option value="2054">Энергетика / электротехника</option>
+<option value="770">Нефтяная, газовая и химическая промышленность</option>
+<option value="2476">Сельское хозяйство и пищевая промышленность</option>
+<option value="2494">Железнодорожное дело</option>
+<option value="1528">Нормативная документация</option>
+<option value="2032">Журналы: научные, научно-популярные, радио и др.</option>
+<option class="root_forum has_sf" value="919">Ноты и Музыкальная литература</option>
+<option value="947">Архив (Ноты и Музыкальная литература)</option>
+<option value="945">Поиск и обсуждение (Ноты и Музыкальная литература)</option>
+<option value="944">Академическая музыка (Ноты и Media CD)</option>
+<option value="980">Другие направления (Ноты, табулатуры)</option>
+<option value="946">Самоучители и Школы</option>
+<option value="977">Песенники (Songbooks)</option>
+<option value="2074">Музыкальная литература и Теория</option>
+<option value="2349">Музыкальные журналы</option>
+<option class="root_forum has_sf" value="768">Военное дело</option>
+<option value="2099">Милитария</option>
+<option value="2021">Военная история</option>
+<option value="2437">История Второй мировой войны</option>
+<option value="1337">Биографии и мемуары военных деятелей</option>
+<option value="1447">Военная техника</option>
+<option value="2468">Стрелковое оружие</option>
+<option value="2469">Учебно-методическая литература</option>
+<option value="2470">Спецслужбы мира</option>
+<option class="root_forum has_sf" value="1686">Вера и религия</option>
+<option value="2215">Христианство</option>
+<option value="2216">Ислам</option>
+<option value="2217">Религии Индии, Тибета и Восточной Азии / Иудаизм</option>
+<option value="2218">Нетрадиционные религиозные, духовные и мистические...</option>
+<option value="2252">Религиоведение. История Религии</option>
+<option value="2543">Атеизм. Научный атеизм</option>
+<option class="root_forum has_sf" value="767">Психология</option>
+<option value="2515">Общая и прикладная психология</option>
+<option value="2516">Психотерапия и консультирование</option>
+<option value="2517">Психодиагностика и психокоррекция</option>
+<option value="2518">Социальная психология и психология отношений</option>
+<option value="2519">Тренинг и коучинг</option>
+<option value="2520">Саморазвитие и самосовершенствование</option>
+<option value="1696">Популярная психология</option>
+<option value="2253">Сексология. Взаимоотношения полов (18+)</option>
+<option class="root_forum has_sf" value="2033">Коллекционирование, увлечения и хобби</option>
+<option value="1412">Коллекционирование и вспомогательные ист. дисциплины</option>
+<option value="1446">Вышивание</option>
+<option value="753">Вязание</option>
+<option value="2037">Шитье, пэчворк</option>
+<option value="2224">Кружевоплетение</option>
+<option value="2194">Бисероплетение. Ювелирика. Украшения из проволоки.</option>
+<option value="2418">Бумажный арт</option>
+<option value="1410">Другие виды декоративно-прикладного искусства</option>
+<option value="2034">Домашние питомцы и аквариумистика</option>
+<option value="2433">Охота и рыбалка</option>
+<option value="1961">Кулинария (книги)</option>
+<option value="2432">Кулинария (газеты и журналы)</option>
+<option value="565">Моделизм</option>
+<option value="1523">Приусадебное хозяйство / Цветоводство</option>
+<option value="1575">Ремонт, частное строительство, дизайн интерьеров</option>
+<option value="1520">Деревообработка</option>
+<option value="2424">Настольные игры</option>
+<option value="769">Прочие хобби и игры</option>
+<option class="root_forum has_sf" value="2038">Художественная литература</option>
+<option value="2043">Русская литература</option>
+<option value="2042">Зарубежная литература (до 1900 г.)</option>
+<option value="2041">Зарубежная литература (XX и XXI век)</option>
+<option value="2044">Детектив, боевик</option>
+<option value="2039">Женский роман</option>
+<option value="2045">Отечественная фантастика / фэнтези / мистика</option>
+<option value="2080">Зарубежная фантастика / фэнтези / мистика</option>
+<option value="2047">Приключения</option>
+<option value="2193">Литературные журналы</option>
+<option value="1037">Самиздат и книги, изданные за счет авторов</option>
+<option class="root_forum has_sf" value="1418">Компьютерная литература</option>
+<option value="1422">Программы от Microsoft</option>
+<option value="1423">Другие программы</option>
+<option value="1424">Mac OS; Linux, FreeBSD и прочие *NIX</option>
+<option value="1445">СУБД</option>
+<option value="1425">Веб-дизайн и программирование</option>
+<option value="1426">Программирование (книги)</option>
+<option value="1428">Графика, обработка видео</option>
+<option value="1429">Сети / VoIP</option>
+<option value="1430">Хакинг и безопасность</option>
+<option value="1431">Железо (книги о ПК)</option>
+<option value="1433">Инженерные и научные программы (книги)</option>
+<option value="1432">Компьютерные журналы и приложения к ним</option>
+<option value="2202">Дисковые приложения к игровым журналам</option>
+<option class="root_forum has_sf" value="862">Комиксы, манга, ранобэ</option>
+<option value="2461">Комиксы на русском языке</option>
+<option value="2462">Комиксы издательства Marvel</option>
+<option value="2463">Комиксы издательства DC</option>
+<option value="2464">Комиксы других издательств</option>
+<option value="2473">Комиксы на других языках</option>
+<option value="281">Манга (на русском языке)</option>
+<option value="2465">Манга (на иностранных языках)</option>
+<option value="2458">Ранобэ</option>
+<option class="root_forum has_sf" value="2048">Коллекции книг и библиотеки</option>
+<option value="1238">Библиотеки (зеркала сетевых библиотек/коллекций)</option>
+<option value="2055">Тематические коллекции (подборки)</option>
+<option value="754">Многопредметные коллекции (подборки)</option>
+<option class="root_forum has_sf" value="2114">Мультимедийные и интерактивные издания</option>
+<option value="2438">Мультимедийные энциклопедии</option>
+<option value="2439">Интерактивные обучающие и развивающие материалы</option>
+<option value="2440">Обучающие издания для детей</option>
+<option value="2441">Кулинария. Цветоводство. Домоводство</option>
+<option value="2442">Культура. Искусство. История</option>
+<option class="root_forum has_sf" value="2125">Медицина и здоровье</option>
+<option value="2133">Клиническая медицина до 1980 г.</option>
+<option value="2130">Клиническая медицина с 1980 по 2000 г.</option>
+<option value="2313">Клиническая медицина после 2000 г.</option>
+<option value="2528">Научная медицинская периодика (газеты и журналы)</option>
+<option value="2129">Медико-биологические науки</option>
+<option value="2141">Фармация и фармакология</option>
+<option value="2314">Популярная медицинская периодика (газеты и журналы)</option>
+<option value="2132">Нетрадиционная, народная медицина и популярные книги о...</option>
+<option value="2131">Ветеринария, разное</option>
+<option value="2315">Тематические коллекции книг</option>
+<option class="root_forum" value="71">Архив (Книги и журналы)</option>
+</optgroup>
+<optgroup label="Обучение иностранным языкам">
+<option class="root_forum" value="2354">Объявления, предложения, помощь по разделу</option>
+<option class="root_forum has_sf" value="2362">Иностранные языки для взрослых</option>
+<option value="1265">Английский язык (для взрослых)</option>
+<option value="1266">Немецкий язык</option>
+<option value="1267">Французский язык</option>
+<option value="1358">Испанский язык</option>
+<option value="2363">Итальянский язык</option>
+<option value="734">Финский язык</option>
+<option value="1268">Другие европейские языки</option>
+<option value="1673">Арабский язык</option>
+<option value="1269">Китайский язык</option>
+<option value="1270">Японский язык</option>
+<option value="1275">Другие восточные языки</option>
+<option value="2364">Русский язык как иностранный</option>
+<option value="1276">Мультиязычные сборники и курсы</option>
+<option value="2094">LIM-курсы</option>
+<option value="1274">Разное (иностранные языки)</option>
+<option class="root_forum has_sf" value="1264">Иностранные языки для детей</option>
+<option value="2358">Английский язык (для детей)</option>
+<option value="2359">Другие европейские языки (для детей)</option>
+<option value="2360">Восточные языки (для детей)</option>
+<option value="2361">Школьные учебники, ЕГЭ, ОГЭ</option>
+<option class="root_forum has_sf" value="2057">Художественная литература (ин.языки)</option>
+<option value="2355">Художественная литература на английском языке</option>
+<option value="2474">Художественная литература на французском языке</option>
+<option value="2356">Художественная литература на других европейских языках</option>
+<option value="2357">Художественная литература на восточных языках</option>
+<option class="root_forum has_sf" value="2413">Аудиокниги на иностранных языках</option>
+<option value="1501">Аудиокниги на английском языке</option>
+<option value="1580">Аудиокниги на немецком языке</option>
+<option value="525">Аудиокниги на других иностранных языках</option>
+<option class="root_forum" value="1271">Архив (Иностранные языки)</option>
+</optgroup>
+<optgroup label="Обучающее видео">
+<option class="root_forum has_sf" value="610">Видеоуроки и обучающие интерактивные DVD</option>
+<option value="628">Архив (Видеоуроки)</option>
+<option value="1568">Кулинария</option>
+<option value="1542">Спорт</option>
+<option value="2335">Фитнес - Кардио-Силовые Тренировки</option>
+<option value="1544">Фитнес - Разум и Тело</option>
+<option value="1546">Бодибилдинг</option>
+<option value="1549">Оздоровительные практики</option>
+<option value="1597">Йога</option>
+<option value="1552">Видео- и фотосъёмка</option>
+<option value="1550">Уход за собой</option>
+<option value="1553">Рисование</option>
+<option value="1554">Игра на гитаре</option>
+<option value="617">Ударные инструменты</option>
+<option value="1555">Другие музыкальные инструменты</option>
+<option value="2017">Игра на бас-гитаре</option>
+<option value="1257">Бальные танцы</option>
+<option value="1258">Танец живота</option>
+<option value="2208">Уличные и клубные танцы</option>
+<option value="677">Танцы, разное</option>
+<option value="1255">Охота</option>
+<option value="1479">Рыболовство и подводная охота</option>
+<option value="1261">Фокусы и трюки</option>
+<option value="614">Образование</option>
+<option value="1583">Финансы</option>
+<option value="1259">Продажи, бизнес</option>
+<option value="2065">Беременность, роды, материнство</option>
+<option value="1254">Учебные видео для детей</option>
+<option value="1260">Психология</option>
+<option value="2209">Эзотерика, саморазвитие</option>
+<option value="2210">Пикап, знакомства</option>
+<option value="1547">Строительство, ремонт и дизайн</option>
+<option value="1548">Дерево- и металлообработка</option>
+<option value="2211">Растения и животные</option>
+<option value="1596">Хобби и рукоделие</option>
+<option value="2135">Медицина и стоматология</option>
+<option value="2140">Психотерапия и клиническая психология</option>
+<option value="2136">Массаж</option>
+<option value="2138">Здоровье</option>
+<option value="615">Разное</option>
+<option class="root_forum has_sf" value="1581">Боевые искусства (Видеоуроки)</option>
+<option value="1582">Архив (Боевые искусства)</option>
+<option value="1590">Айкидо и айки-дзюцу</option>
+<option value="1587">Вин чун</option>
+<option value="1594">Джиу-джитсу</option>
+<option value="1591">Дзюдо и самбо</option>
+<option value="1588">Каратэ</option>
+<option value="1585">Работа с оружием</option>
+<option value="1586">Русский стиль</option>
+<option value="2078">Рукопашный бой</option>
+<option value="1929">Смешанные стили</option>
+<option value="1593">Ударные стили</option>
+<option value="1592">Ушу</option>
+<option value="1595">Разное</option>
+<option class="root_forum has_sf" value="1556">Компьютерные видеоуроки и обучающие интерактивные DVD</option>
+<option value="1557">Архив (Компьютерные видеоуроки)</option>
+<option value="1560">Компьютерные сети и безопасность</option>
+<option value="1991">Devops</option>
+<option value="1561">ОС и серверные программы Microsoft</option>
+<option value="1653">Офисные программы Microsoft</option>
+<option value="1570">ОС и программы семейства UNIX</option>
+<option value="1654">Adobe Photoshop</option>
+<option value="1655">Autodesk Maya</option>
+<option value="1656">Autodesk 3ds Max</option>
+<option value="1930">Autodesk Softimage (XSI)</option>
+<option value="1931">ZBrush</option>
+<option value="1932">Flash, Flex и ActionScript</option>
+<option value="1562">2D-графика</option>
+<option value="1563">3D-графика</option>
+<option value="1626">Инженерные и научные программы (видеоуроки)</option>
+<option value="1564">Web-дизайн</option>
+<option value="1545">WEB, SMM, SEO, интернет-маркетинг</option>
+<option value="1565">Программирование (видеоуроки)</option>
+<option value="1559">Программы для Mac OS</option>
+<option value="1566">Работа с видео</option>
+<option value="1573">Работа со звуком</option>
+<option value="1567">Разное (Компьютерные видеоуроки)</option>
+</optgroup>
+<optgroup label="Аудиокниги">
+<option class="root_forum has_sf" value="395">Новости, объявления, полезная информация</option>
+<option value="396">Архив (Аудиокниги)</option>
+<option value="2322">Общение, обсуждения, поиск аудиокниг</option>
+<option value="2167">Авторы</option>
+<option value="1993">Исполнители</option>
+<option value="2321">Предложения по улучшению категории "Аудиокниги...</option>
+<option class="root_forum has_sf" value="2326">Радиоспектакли, история, мемуары</option>
+<option value="574">[Аудио] Радиоспектакли и литературные чтения</option>
+<option value="1036">[Аудио] Биографии и мемуары</option>
+<option value="400">[Аудио] История, культурология, философия</option>
+<option class="root_forum has_sf" value="2389">Фантастика, фэнтези, мистика, ужасы, фанфики</option>
+<option value="2388">[Аудио] Зарубежная фантастика, фэнтези, мистика, ужасы,...</option>
+<option value="2387">[Аудио] Российская фантастика, фэнтези, мистика, ужасы,...</option>
+<option value="661">[Аудио] Любовно-фантастический роман</option>
+<option value="2348">[Аудио] Сборники/разное Фантастика, фэнтези, мистика,...</option>
+<option class="root_forum has_sf" value="2327">Художественная литература</option>
+<option value="695">[Аудио] Поэзия</option>
+<option value="399">[Аудио] Зарубежная литература</option>
+<option value="402">[Аудио] Русская литература</option>
+<option value="467">[Аудио] Современные любовные романы</option>
+<option value="490">[Аудио] Детская литература</option>
+<option value="499">[Аудио] Зарубежные детективы, приключения, триллеры,...</option>
+<option value="2137">[Аудио] Российские детективы, приключения, триллеры,...</option>
+<option value="2127">[Аудио] Азиатская подростковая литература, ранобэ,...</option>
+<option class="root_forum has_sf" value="2324">Религии</option>
+<option value="2325">[Аудио] Православие</option>
+<option value="2342">[Аудио] Ислам</option>
+<option value="530">[Аудио] Другие традиционные религии</option>
+<option value="2152">[Аудио] Нетрадиционные религиозно-философские учения</option>
+<option class="root_forum has_sf" value="2328">Прочая литература</option>
+<option value="1350">[Аудио] Книги по медицине</option>
+<option value="403">[Аудио] Учебная и научно-популярная литература</option>
+<option value="1279">[Аудио] lossless-аудиокниги</option>
+<option value="716">[Аудио] Бизнес</option>
+<option value="2165">[Аудио] Разное</option>
+<option value="401">[Аудио] Некондиционные раздачи</option>
+</optgroup>
+<optgroup label="Авто и мото">
+<option class="root_forum has_sf" value="1964">Ремонт и эксплуатация транспортных средств</option>
+<option value="1966">Архив (Авто и мото)</option>
+<option value="1968">Ищу / Предлагаю (Ремонт и эксплуатация ТС)</option>
+<option value="1972">Общение</option>
+<option value="1973">Оригинальные каталоги по подбору запчастей</option>
+<option value="1974">Неоригинальные каталоги по подбору запчастей</option>
+<option value="1975">Программы по диагностике и ремонту</option>
+<option value="1976">Тюнинг, чиптюнинг, настройка</option>
+<option value="1977">Книги по ремонту/обслуживанию/эксплуатации ТС</option>
+<option value="1203">Мультимедийки по ремонту/обслуживанию/эксплуатации ТС</option>
+<option value="1978">Учет, утилиты и прочее</option>
+<option value="1979">Виртуальная автошкола</option>
+<option value="1980">Видеоуроки по вождению транспортных средств</option>
+<option value="1981">Видеоуроки по ремонту транспортных средств</option>
+<option value="1970">Журналы по авто/мото</option>
+<option value="334">Водный транспорт</option>
+<option class="root_forum has_sf" value="1202">Фильмы и передачи по авто/мото</option>
+<option value="1985">Документальные/познавательные фильмы</option>
+<option value="1982">Развлекательные передачи</option>
+<option value="2151">Top Gear/Топ Гир</option>
+<option value="1983">Тест драйв/Обзоры/Автосалоны</option>
+<option value="1984">Тюнинг/форсаж</option>
+</optgroup>
+<optgroup label="Музыка">
+<option class="root_forum" value="757">Предложения по улучшению музыкальных разделов</option>
+<option class="root_forum has_sf" value="215">Помощь по музыкальным разделам</option>
+<option value="1872">Инструкции, руководства, обзоры</option>
+<option value="675">Вопросы и ответы по музыкальным разделам</option>
+<option value="1874">Поиск музыки</option>
+<option class="root_forum has_sf" value="409">Классическая и современная академическая музыка</option>
+<option value="792">Каталоги раздач классической и академической музыки</option>
+<option value="435">Классическая музыка (обсуждение)</option>
+<option value="443">Архив (Классическая музыка)</option>
+<option value="560">Полные собрания сочинений и многодисковые издания...</option>
+<option value="794">Опера (lossless)</option>
+<option value="556">Вокальная музыка (lossless)</option>
+<option value="2307">Хоровая музыка (lossless)</option>
+<option value="557">Оркестровая музыка (lossless)</option>
+<option value="2308">Концерт для инструмента с оркестром (lossless)</option>
+<option value="558">Камерная инструментальная музыка (lossless)</option>
+<option value="793">Сольная инструментальная музыка (lossless)</option>
+<option value="1395">Духовные песнопения и музыка (lossless)</option>
+<option value="1396">Духовные песнопения и музыка (lossy)</option>
+<option value="436">Полные собрания сочинений и многодисковые издания...</option>
+<option value="2309">Вокальная и хоровая музыка (lossy)</option>
+<option value="2310">Оркестровая музыка (lossy)</option>
+<option value="2311">Камерная и сольная инструментальная музыка (lossy)</option>
+<option value="969">Классика в современной обработке, Classical Crossover...</option>
+<option class="root_forum has_sf" value="1125">Фольклор, Народная и Этническая музыка</option>
+<option value="1140">Архив (Фольклор, Народная и Этническая музыка)</option>
+<option value="1130">Восточноевропейский фолк (lossy)</option>
+<option value="1131">Восточноевропейский фолк (lossless)</option>
+<option value="1132">Западноевропейский фолк (lossy)</option>
+<option value="1133">Западноевропейский фолк (lossless)</option>
+<option value="2084">Klezmer и Еврейский фольклор (lossy и lossless)</option>
+<option value="1128">Этническая музыка Сибири, Средней и Восточной Азии...</option>
+<option value="1129">Этническая музыка Сибири, Средней и Восточной Азии...</option>
+<option value="1856">Этническая музыка Индии (lossy)</option>
+<option value="2430">Этническая музыка Индии (lossless)</option>
+<option value="1283">Этническая музыка Африки и Ближнего Востока (lossy)</option>
+<option value="2085">Этническая музыка Африки и Ближнего Востока (lossless)</option>
+<option value="1282">Фольклорная, Народная, Эстрадная музыка Кавказа и...</option>
+<option value="1284">Этническая музыка Северной и Южной Америки (lossy)</option>
+<option value="1285">Этническая музыка Северной и Южной Америки (lossless)</option>
+<option value="1138">Этническая музыка Австралии, Тихого и Индийского...</option>
+<option value="1136">Country, Bluegrass (lossy)</option>
+<option value="1137">Country, Bluegrass (lossless)</option>
+<option class="root_forum has_sf" value="1849">New Age, Relax, Meditative &amp; Flamenco</option>
+<option value="1846">Архив (New Age, Relax, Meditative &amp; Flamenco)</option>
+<option value="1126">New Age &amp; Meditative (lossy)</option>
+<option value="1127">New Age &amp; Meditative (lossless)</option>
+<option value="1134">Фламенко и акустическая гитара (lossy)</option>
+<option value="1135">Фламенко и акустическая гитара (lossless)</option>
+<option value="2018">Музыка для бальных танцев (lossy и lossless)</option>
+<option value="855">Звуки природы</option>
+<option class="root_forum has_sf" value="408">Рэп, Хип-Хоп, R'n'B</option>
+<option value="448">Архив (Рэп, Хип-Хоп, R'n'B)</option>
+<option value="441">Отечественный Рэп, Хип-Хоп (lossy)</option>
+<option value="1173">Отечественный R'n'B (lossy)</option>
+<option value="1486">Отечественный Рэп, Хип-Хоп, R'n'B (lossless)</option>
+<option value="1172">Зарубежный R'n'B (lossy)</option>
+<option value="446">Зарубежный Рэп, Хип-Хоп (lossy)</option>
+<option value="909">Зарубежный Рэп, Хип-Хоп (lossless)</option>
+<option value="1665">Зарубежный R'n'B (lossless)</option>
+<option class="root_forum has_sf" value="1760">Reggae, Ska, Dub</option>
+<option value="1761">Архив (Reggae, Ska, Dub)</option>
+<option value="1764">Rocksteady, Early Reggae, Ska-Jazz, Trad.Ska (lossy и...</option>
+<option value="1767">3rd Wave Ska (lossy)</option>
+<option value="1769">Ska-Punk, Ska-Core (lossy)</option>
+<option value="1765">Reggae (lossy)</option>
+<option value="1771">Dub (lossy)</option>
+<option value="1770">Dancehall, Raggamuffin (lossy)</option>
+<option value="1768">Reggae, Dancehall, Dub (lossless)</option>
+<option value="1774">Ska, Ska-Punk, Ska-Jazz (lossless)</option>
+<option value="1772">Отечественный Reggae, Dub (lossy и lossless)</option>
+<option value="1773">Отечественная Ska музыка (lossy и lossless)</option>
+<option value="2233">Reggae, Ska, Dub (компиляции) (lossy и lossless)</option>
+<option class="root_forum has_sf" value="416">Саундтреки, караоке и мюзиклы</option>
+<option value="473">Архив (Саундтреки, караоке и мюзиклы)</option>
+<option value="2377">Караоке</option>
+<option value="468">Минусовки (lossy и lossless)</option>
+<option value="691">Саундтреки к отечественным фильмам (lossless)</option>
+<option value="469">Саундтреки к отечественным фильмам (lossy)</option>
+<option value="786">Саундтреки к зарубежным фильмам (lossless)</option>
+<option value="785">Саундтреки к зарубежным фильмам (lossy)</option>
+<option value="1631">Саундтреки к сериалам (lossless)</option>
+<option value="1499">Саундтреки к сериалам (lossy)</option>
+<option value="715">Саундтреки к мультфильмам (lossy и lossless)</option>
+<option value="1388">Саундтреки к аниме (lossless)</option>
+<option value="282">Саундтреки к аниме (lossy)</option>
+<option value="796">Неофициальные саундтреки к фильмам и сериалам (lossy)</option>
+<option value="784">Саундтреки к играм (lossless)</option>
+<option value="783">Саундтреки к играм (lossy)</option>
+<option value="2331">Неофициальные саундтреки к играм (lossy)</option>
+<option value="2431">Аранжировки музыки из игр (lossy и lossless)</option>
+<option value="880">Мюзикл (lossy и lossless)</option>
+<option class="root_forum has_sf" value="1215">Шансон, Авторская и Военная песня</option>
+<option value="1218">Архив (Шансон, Авторская и Военная песня)</option>
+<option value="1220">Отечественный шансон (lossless)</option>
+<option value="1221">Отечественный шансон (lossy)</option>
+<option value="1334">Сборники отечественного шансона (lossy)</option>
+<option value="1216">Военная песня, марши (lossless)</option>
+<option value="1223">Военная песня, марши (lossy)</option>
+<option value="1224">Авторская песня (lossless)</option>
+<option value="1225">Авторская песня (lossy)</option>
+<option value="1226">Менестрели и ролевики (lossy и lossless)</option>
+<option class="root_forum" value="1842">Label Packs (lossless)</option>
+<option class="root_forum" value="1648">Label packs, Scene packs (lossy)</option>
+</optgroup>
+<optgroup label="Популярная музыка">
+<option class="root_forum has_sf" value="2495">Отечественная поп-музыка</option>
+<option value="2496">Архив (Отечественная поп-музыка)</option>
+<option value="424">Популярная музыка России и стран бывшего СССР (lossy)</option>
+<option value="1361">Популярная музыка России и стран бывшего СССР...</option>
+<option value="425">Популярная музыка России и стран бывшего СССР (lossless)</option>
+<option value="1635">Советская эстрада, ретро, романсы (lossy)</option>
+<option value="1634">Советская эстрада, ретро, романсы (lossless)</option>
+<option class="root_forum has_sf" value="2497">Зарубежная поп-музыка</option>
+<option value="2498">Архив (Зарубежная поп-музыка)</option>
+<option value="428">Зарубежная поп-музыка (lossy)</option>
+<option value="1362">Зарубежная поп-музыка (сборники) (lossy)</option>
+<option value="429">Зарубежная поп-музыка (lossless)</option>
+<option value="735">Итальянская поп-музыка (lossy)</option>
+<option value="1753">Итальянская поп-музыка (lossless)</option>
+<option value="2232">Латиноамериканская поп-музыка (lossy)</option>
+<option value="714">Латиноамериканская поп-музыка (lossless)</option>
+<option value="1331">Восточноазиатская поп-музыка (lossy)</option>
+<option value="1330">Восточноазиатская поп-музыка (lossless)</option>
+<option value="1219">Зарубежный шансон (lossy)</option>
+<option value="1452">Зарубежный шансон (lossless)</option>
+<option value="2275">Easy Listening, Instrumental Pop (lossy)</option>
+<option value="2270">Easy Listening, Instrumental Pop (lossless)</option>
+<option value="1351">Сборники песен для детей (lossy и lossless)</option>
+<option class="root_forum has_sf" value="2499">Eurodance, Disco, Hi-NRG</option>
+<option value="2506">Архив (Eurodance, Disco, Hi-NRG)</option>
+<option value="2503">Eurodance, Euro-House, Technopop (lossy)</option>
+<option value="2504">Eurodance, Euro-House, Technopop (сборники) (lossy)</option>
+<option value="2502">Eurodance, Euro-House, Technopop (lossless)</option>
+<option value="2501">Disco, Italo-Disco, Euro-Disco, Hi-NRG (lossy)</option>
+<option value="2505">Disco, Italo-Disco, Euro-Disco, Hi-NRG (сборники)...</option>
+<option value="2500">Disco, Italo-Disco, Euro-Disco, Hi-NRG (lossless)</option>
+</optgroup>
+<optgroup label="Джазовая и Блюзовая музыка">
+<option class="root_forum has_sf" value="2266">Курилка (общение на джазовые и блюзовые темы)</option>
+<option value="2299">Общение на джазовые темы</option>
+<option value="2300">Общение на блюзовые темы</option>
+<option class="root_forum has_sf" value="2267">Зарубежный джаз</option>
+<option value="2272">Архив (Зарубежный джаз)</option>
+<option value="2277">Early Jazz, Swing, Gypsy (lossless)</option>
+<option value="2278">Bop (lossless)</option>
+<option value="2279">Mainstream Jazz, Cool (lossless)</option>
+<option value="2280">Jazz Fusion (lossless)</option>
+<option value="2281">World Fusion, Ethnic Jazz (lossless)</option>
+<option value="2282">Avant-Garde Jazz, Free Improvisation (lossless)</option>
+<option value="2353">Modern Creative, Third Stream (lossless)</option>
+<option value="2284">Smooth, Jazz-Pop (lossless)</option>
+<option value="2285">Vocal Jazz (lossless)</option>
+<option value="2283">Funk, Soul, R&amp;B (lossless)</option>
+<option value="2286">Сборники зарубежного джаза (lossless)</option>
+<option value="2287">Зарубежный джаз (lossy)</option>
+<option class="root_forum has_sf" value="2268">Зарубежный блюз</option>
+<option value="2273">Архив (Зарубежный блюз)</option>
+<option value="2293">Blues (Texas, Chicago, Modern and Others) (lossless)</option>
+<option value="2292">Blues-rock (lossless)</option>
+<option value="2290">Roots, Pre-War Blues, Early R&amp;B, Gospel (lossless)</option>
+<option value="2289">Зарубежный блюз (сборники; Tribute VA) (lossless)</option>
+<option value="2288">Зарубежный блюз (lossy)</option>
+<option class="root_forum has_sf" value="2269">Отечественный джаз и блюз</option>
+<option value="2274">Архив (Отечественный джаз и блюз)</option>
+<option value="2297">Отечественный джаз (lossless)</option>
+<option value="2295">Отечественный джаз (lossy)</option>
+<option value="2296">Отечественный блюз (lossless)</option>
+<option value="2298">Отечественный блюз (lossy)</option>
+</optgroup>
+<optgroup label="Рок-музыка">
+<option class="root_forum has_sf" value="1698">Зарубежный Rock</option>
+<option value="733">Архив (Зарубежный Rock)</option>
+<option value="1702">Classic Rock &amp; Hard Rock (lossless)</option>
+<option value="1703">Classic Rock &amp; Hard Rock (lossy)</option>
+<option value="1704">Progressive &amp; Art-Rock (lossless)</option>
+<option value="1705">Progressive &amp; Art-Rock (lossy)</option>
+<option value="1706">Folk-Rock (lossless)</option>
+<option value="1707">Folk-Rock (lossy)</option>
+<option value="2329">AOR (Melodic Hard Rock, Arena rock) (lossless)</option>
+<option value="2330">AOR (Melodic Hard Rock, Arena rock) (lossy)</option>
+<option value="1708">Pop-Rock &amp; Soft Rock (lossless)</option>
+<option value="1709">Pop-Rock &amp; Soft Rock (lossy)</option>
+<option value="1710">Instrumental Guitar Rock (lossless)</option>
+<option value="1711">Instrumental Guitar Rock (lossy)</option>
+<option value="1712">Rockabilly, Psychobilly, Rock'n...</option>
+<option value="1713">Rockabilly, Psychobilly, Rock'n'Roll (lossy)</option>
+<option value="731">Сборники зарубежного рока (lossless)</option>
+<option value="1799">Сборники зарубежного рока (lossy)</option>
+<option value="1714">Восточноазиатский рок (lossless)</option>
+<option value="1715">Восточноазиатский рок (lossy)</option>
+<option class="root_forum has_sf" value="1716">Зарубежный Metal</option>
+<option value="1717">Архив (Зарубежный Metal)</option>
+<option value="1718">Для общения пользователей (Metal)</option>
+<option value="1796">Avant-garde, Experimental Metal (lossless)</option>
+<option value="1797">Avant-garde, Experimental Metal (lossy)</option>
+<option value="1719">Black (lossless)</option>
+<option value="1778">Black (lossy)</option>
+<option value="1779">Death, Doom (lossless)</option>
+<option value="1780">Death, Doom (lossy)</option>
+<option value="1720">Folk, Pagan, Viking (lossless)</option>
+<option value="798">Folk, Pagan, Viking (lossy)</option>
+<option value="1724">Gothic Metal (lossless)</option>
+<option value="1725">Gothic Metal (lossy)</option>
+<option value="1730">Grind, Brutal Death (lossless)</option>
+<option value="1731">Grind, Brutal Death (lossy)</option>
+<option value="1726">Heavy, Power, Progressive (lossless)</option>
+<option value="1727">Heavy, Power, Progressive (lossy)</option>
+<option value="1815">Sludge, Stoner, Post-Metal (lossless)</option>
+<option value="1816">Sludge, Stoner, Post-Metal (lossy)</option>
+<option value="1728">Thrash, Speed (lossless)</option>
+<option value="1729">Thrash, Speed (lossy)</option>
+<option value="2230">Сборники (lossless)</option>
+<option value="2231">Сборники (lossy)</option>
+<option class="root_forum has_sf" value="1732">Зарубежные Alternative, Punk, Independent</option>
+<option value="1733">Архив (Alternative, Punk, Independent)</option>
+<option value="1736">Alternative &amp; Nu-metal (lossless)</option>
+<option value="1737">Alternative &amp; Nu-metal (lossy)</option>
+<option value="1738">Punk (lossless)</option>
+<option value="1739">Punk (lossy)</option>
+<option value="1740">Hardcore (lossless)</option>
+<option value="1741">Hardcore (lossy)</option>
+<option value="1742">Indie, Post-Rock &amp; Post-Punk (lossless)</option>
+<option value="1743">Indie, Post-Rock &amp; Post-Punk (lossy)</option>
+<option value="1744">Industrial &amp; Post-industrial (lossless)</option>
+<option value="1745">Industrial &amp; Post-industrial (lossy)</option>
+<option value="1746">Emocore, Post-hardcore, Metalcore (lossless)</option>
+<option value="1747">Emocore, Post-hardcore, Metalcore (lossy)</option>
+<option value="1748">Gothic Rock &amp; Dark Folk (lossless)</option>
+<option value="1749">Gothic Rock &amp; Dark Folk (lossy)</option>
+<option value="2175">Avant-garde, Experimental Rock (lossless)</option>
+<option value="2174">Avant-garde, Experimental Rock (lossy)</option>
+<option class="root_forum has_sf" value="722">Отечественный Rock, Metal</option>
+<option value="736">Архив (Отечественный Рок)</option>
+<option value="737">Rock (lossless)</option>
+<option value="738">Rock (lossy)</option>
+<option value="464">Alternative, Punk, Independent (lossless)</option>
+<option value="463">Alternative, Punk, Independent (lossy)</option>
+<option value="739">Metal (lossless)</option>
+<option value="740">Metal (lossy)</option>
+<option value="951">Rock на языках народов xUSSR (lossless)</option>
+<option value="952">Rock на языках народов xUSSR (lossy)</option>
+</optgroup>
+<optgroup label="Электронная музыка">
+<option class="root_forum has_sf" value="1821">Trance, Goa Trance, Psy-Trance, PsyChill, Ambient, Dub</option>
+<option value="1845">Архив (Trance, Goa Trance, Psy-Trance, PsyChill,...</option>
+<option value="1844">Goa Trance, Psy-Trance (lossless)</option>
+<option value="1822">Goa Trance, Psy-Trance (lossy)</option>
+<option value="1894">PsyChill, Ambient, Dub (lossless)</option>
+<option value="1895">PsyChill, Ambient, Dub (lossy)</option>
+<option value="460">Goa Trance, Psy-Trance, PsyChill, Ambient, Dub (Live...</option>
+<option value="1818">Trance (lossless)</option>
+<option value="1819">Trance (lossy)</option>
+<option value="1847">Trance (Singles, EPs) (lossy)</option>
+<option value="1824">Trance (Radioshows, Podcasts, Live Sets, Mixes) (lossy)</option>
+<option class="root_forum has_sf" value="1807">House, Techno, Hardcore, Hardstyle, Jumpstyle</option>
+<option value="1848">Архив (House, Techno, Hardcore, Hardstyle, Jumpstyle)</option>
+<option value="1829">Hardcore, Hardstyle, Jumpstyle (lossless)</option>
+<option value="1830">Hardcore, Hardstyle, Jumpstyle (lossy)</option>
+<option value="1831">Hardcore, Hardstyle, Jumpstyle (vinyl, web)</option>
+<option value="1857">House (lossless)</option>
+<option value="1859">House (Radioshow, Podcast, Liveset, Mixes)</option>
+<option value="1858">House (lossy)</option>
+<option value="840">House (Проморелизы, сборники) (lossy)</option>
+<option value="1860">House (Singles, EPs) (lossy)</option>
+<option value="1825">Techno (lossless)</option>
+<option value="1826">Techno (lossy)</option>
+<option value="1827">Techno (Radioshows, Podcasts, Livesets, Mixes)</option>
+<option value="1828">Techno (Singles, EPs) (lossy)</option>
+<option class="root_forum has_sf" value="1808">Drum &amp; Bass, Jungle, Breakbeat, Dubstep, IDM, Electro</option>
+<option value="1851">Архив (Drum &amp; Bass, Jungle, Electro, Breakbeat, IDM)</option>
+<option value="797">Electro, Electro-Freestyle, Nu Electro (lossless)</option>
+<option value="1805">Electro, Electro-Freestyle, Nu Electro (lossy)</option>
+<option value="1832">Drum &amp; Bass, Jungle (lossless)</option>
+<option value="1833">Drum &amp; Bass, Jungle (lossy)</option>
+<option value="1834">Drum &amp; Bass, Jungle (Radioshows, Podcasts,...</option>
+<option value="1836">Breakbeat (lossless)</option>
+<option value="1837">Breakbeat (lossy)</option>
+<option value="1839">Dubstep (lossless)</option>
+<option value="454">Dubstep (lossy)</option>
+<option value="1838">Breakbeat, Dubstep (Radioshows, Podcasts, Livesets,...</option>
+<option value="1840">IDM (lossless)</option>
+<option value="1841">IDM (lossy)</option>
+<option value="2229">IDM Discography &amp; Collections (lossy)</option>
+<option class="root_forum has_sf" value="1809">Chillout, Lounge, Downtempo, Trip-Hop</option>
+<option value="1854">Архив (Chillout, Lounge, Downtempo, Trip-Hop)</option>
+<option value="1861">Chillout, Lounge, Downtempo (lossless)</option>
+<option value="1862">Chillout, Lounge, Downtempo (lossy)</option>
+<option value="1947">Nu Jazz, Acid Jazz, Future Jazz (lossless)</option>
+<option value="1946">Nu Jazz, Acid Jazz, Future Jazz (lossy)</option>
+<option value="1945">Trip Hop, Abstract Hip-Hop (lossless)</option>
+<option value="1944">Trip Hop, Abstract Hip-Hop (lossy)</option>
+<option class="root_forum has_sf" value="1810">Traditional Electronic, Ambient, Modern Classical,...</option>
+<option value="1870">Архив (Traditional Electronic, Ambient, Experimental)</option>
+<option value="1864">Traditional Electronic, Ambient (lossless)</option>
+<option value="1865">Traditional Electronic, Ambient (lossy)</option>
+<option value="1871">Modern Classical, Electroacoustic (lossless)</option>
+<option value="1867">Modern Classical, Electroacoustic (lossy)</option>
+<option value="1869">Experimental (lossless)</option>
+<option value="1873">Experimental (lossy)</option>
+<option class="root_forum has_sf" value="1811">Industrial, Noise, EBM, Dark Electro, Aggrotech, Cyberpunk,...</option>
+<option value="1883">Архив (Industrial, Noise, EBM, Dark Electro, Aggrotech,...</option>
+<option value="1868">EBM, Dark Electro, Aggrotech (lossless)</option>
+<option value="1875">EBM, Dark Electro, Aggrotech (lossy)</option>
+<option value="1877">Industrial, Noise (lossless)</option>
+<option value="1878">Industrial, Noise (lossy)</option>
+<option value="1907">Cyberpunk, 8-bit, Chiptune (lossy &amp; lossless)</option>
+<option value="1880">Synthpop, Futurepop, New Wave, Electropop (lossless)</option>
+<option value="1881">Synthpop, Futurepop, New Wave, Electropop (lossy)</option>
+<option value="466">Synthwave, Spacesynth, Dreamwave, Retrowave, Outrun...</option>
+<option value="465">Synthwave, Spacesynth, Dreamwave, Retrowave, Outrun...</option>
+<option value="1866">Darkwave, Neoclassical, Ethereal, Dungeon Synth...</option>
+<option value="406">Darkwave, Neoclassical, Ethereal, Dungeon Synth (lossy)</option>
+</optgroup>
+<optgroup label="Hi-Res форматы, оцифровки">
+<option class="root_forum" value="1239">Архив (Hi-Res форматы, оцифровки)</option>
+<option class="root_forum has_sf" value="1785">Для общения (Hi-Res, оцифровки)</option>
+<option value="1115">Инструкции по оцифровкам, Hi-Res и многоканальному аудио</option>
+<option class="root_forum has_sf" value="1299">Hi-Res stereo и многоканальная музыка</option>
+<option value="1884">Классика и классика в современной обработке (Hi-Res...</option>
+<option value="1164">Классика и классика в современной обработке...</option>
+<option value="2513">New Age, Relax, Meditative &amp; Flamenco (Hi-Res...</option>
+<option value="1397">Саундтреки (Hi-Res stereo и многоканальная музыка)</option>
+<option value="2512">Музыка разных жанров (Hi-Res stereo и многоканальная...</option>
+<option value="1885">Поп-музыка (Hi-Res stereo)</option>
+<option value="1163">Поп-музыка (многоканальная музыка)</option>
+<option value="2302">Джаз и Блюз (Hi-Res stereo)</option>
+<option value="2303">Джаз и Блюз (многоканальная музыка)</option>
+<option value="1755">Рок-музыка (Hi-Res stereo)</option>
+<option value="1757">Рок-музыка (многоканальная музыка)</option>
+<option value="1893">Электронная музыка (Hi-Res stereo)</option>
+<option value="1890">Электронная музыка (многоканальная музыка)</option>
+<option class="root_forum has_sf" value="2219">Оцифровки с аналоговых носителей</option>
+<option value="1660">Классика и классика в современной обработке (оцифровки)</option>
+<option value="506">Фольклор, народная и этническая музыка (оцифровки)</option>
+<option value="1835">Rap, Hip-Hop, R'n'B, Reggae, Ska, Dub...</option>
+<option value="1625">Саундтреки и мюзиклы (оцифровки)</option>
+<option value="1217">Шансон, авторские, военные песни и марши (оцифровки)</option>
+<option value="974">Музыка других жанров (оцифровки)</option>
+<option value="1444">Зарубежная поп-музыка (оцифровки)</option>
+<option value="2401">Советская эстрада, ретро, романсы (оцифровки)</option>
+<option value="239">Отечественная поп-музыка (оцифровки)</option>
+<option value="450">Инструментальная поп-музыка (оцифровки)</option>
+<option value="2301">Джаз и блюз (оцифровки)</option>
+<option value="123">Alternative, Punk, Independent (оцифровки)</option>
+<option value="1756">Зарубежная рок-музыка (оцифровки)</option>
+<option value="1758">Отечественная рок-музыка (оцифровки)</option>
+<option value="1766">Зарубежный и Отечественный Metal (оцифровки)</option>
+<option value="1754">Электронная музыка (оцифровки)</option>
+<option class="root_forum has_sf" value="860">Неофициальные конверсии цифровых форматов</option>
+<option value="453">Конверсии Quadraphonic</option>
+<option value="1170">Конверсии SACD</option>
+<option value="1759">Конверсии Blu-Ray, ADVD и DVD-Audio</option>
+<option value="1852">Апмиксы-Upmixes/Даунмиксы-Downmix</option>
+</optgroup>
+<optgroup label="Музыкальное видео">
+<option class="root_forum has_sf" value="1853">Помощь по музыкальным видео</option>
+<option value="1455">Правила и Инструкции по работе с Видео, DVD Video, HD...</option>
+<option value="2510">Для общения пользователей</option>
+<option class="root_forum has_sf" value="413">Музыкальное SD видео</option>
+<option value="2402">Архив (Музыкальное SD видео)</option>
+<option value="445">Классическая и современная академическая музыка (Видео)</option>
+<option value="702">Опера, Оперетта и Мюзикл (Видео)</option>
+<option value="1990">Балет и современная хореография (Видео)</option>
+<option value="1793">Классика в современной обработке, Classical Crossover...</option>
+<option value="1141">Фольклор, Народная и Этническая музыка и фламенко...</option>
+<option value="1775">New Age, Relax, Meditative, Рэп, Хип-Хоп,...</option>
+<option value="1227">Зарубежный и Отечественный Шансон, Авторская и Военная...</option>
+<option value="475">Музыка других жанров, Советская эстрада, ретро, романсы...</option>
+<option value="1121">Отечественная поп-музыка (Видео)</option>
+<option value="431">Зарубежная Поп-музыка, Eurodance, Disco (Видео)</option>
+<option value="2378">Восточноазиатская поп-музыка (Видео)</option>
+<option value="2383">Разножанровые сборные концерты и сборники видеоклипов...</option>
+<option value="2305">Джаз и Блюз (Видео)</option>
+<option value="1782">Rock (Видео)</option>
+<option value="1787">Metal (Видео)</option>
+<option value="1789">Зарубежный Alternative, Punk, Independent (Видео)</option>
+<option value="1791">Отечественный Рок, Панк, Альтернатива (Видео)</option>
+<option value="1912">Электронная музыка (Видео)</option>
+<option value="1189">Документальные фильмы о музыке и музыкантах (Видео)</option>
+<option class="root_forum has_sf" value="2403">Музыкальное DVD видео</option>
+<option value="2391">Архив (Музыкальное DVD видео)</option>
+<option value="984">Классическая и современная академическая музыка (DVD...</option>
+<option value="983">Опера, Оперетта и Мюзикл (DVD видео)</option>
+<option value="2352">Балет и современная хореография (DVD Video)</option>
+<option value="2384">Классика в современной обработке, Classical Crossover...</option>
+<option value="1142">Фольклор, Народная и Этническая музыка и Flamenco (DVD...</option>
+<option value="1107">New Age, Relax, Meditative, Рэп, Хип-Хоп,...</option>
+<option value="1228">Зарубежный и Отечественный Шансон, Авторская и Военная...</option>
+<option value="988">Музыка других жанров, Советская эстрада, ретро, романсы...</option>
+<option value="1122">Отечественная поп-музыка (DVD Video)</option>
+<option value="986">Зарубежная Поп-музыка, Eurodance, Disco (DVD Video)</option>
+<option value="2379">Восточноазиатская поп-музыка (DVD Video)</option>
+<option value="2088">Разножанровые сборные концерты и сборники видеоклипов...</option>
+<option value="2304">Джаз и Блюз (DVD Видео)</option>
+<option value="1783">Зарубежный Rock (DVD Video)</option>
+<option value="1788">Зарубежный Metal (DVD Video)</option>
+<option value="1790">Зарубежный Alternative, Punk, Independent (DVD Video)</option>
+<option value="1792">Отечественный Рок, Метал, Панк, Альтернатива (DVD Video)</option>
+<option value="1886">Электронная музыка (DVD Video)</option>
+<option value="2509">Документальные фильмы о музыке и музыкантах (DVD Video)</option>
+<option class="root_forum has_sf" value="2507">Неофициальные DVD видео</option>
+<option value="2263">Классическая музыка, Опера, Балет, Мюзикл...</option>
+<option value="2511">Шансон, Авторская песня, Сборные концерты, МДЖ...</option>
+<option value="2264">Зарубежная и Отечественная Поп-музыка (Неофициальные...</option>
+<option value="2262">Джаз и Блюз (Неофициальные DVD Video)</option>
+<option value="2261">Зарубежная и Отечественная Рок-музыка (Неофициальные...</option>
+<option value="1887">Электронная музыка (Неофициальные DVD Video)</option>
+<option value="2531">Прочие жанры (Неофициальные DVD видео)</option>
+<option class="root_forum has_sf" value="2400">Музыкальное HD видео</option>
+<option value="2399">Архив (Музыкальное HD Video)</option>
+<option value="1812">Классическая и современная академическая музыка (HD...</option>
+<option value="655">Опера, Оперетта и Мюзикл (HD Видео)</option>
+<option value="1777">Балет и современная хореография (HD Video)</option>
+<option value="2530">Фольклор, Народная, Этническая музыка и Flamenco (HD...</option>
+<option value="2529">New Age, Relax, Meditative, Рэп, Хип-Хоп,...</option>
+<option value="1781">Музыка других жанров, Разножанровые сборные концерты...</option>
+<option value="2508">Зарубежная поп-музыка (HD Video)</option>
+<option value="2426">Отечественная поп-музыка (HD видео)</option>
+<option value="2351">Восточноазиатская Поп-музыка (HD Video)</option>
+<option value="2306">Джаз и Блюз (HD Video)</option>
+<option value="1795">Зарубежный рок (HD Video)</option>
+<option value="2271">Отечественный рок (HD видео)</option>
+<option value="1913">Электронная музыка (HD Video)</option>
+<option value="1784">UHD музыкальное видео</option>
+<option value="1892">Документальные фильмы о музыке и музыкантах (HD Video)</option>
+<option class="root_forum" value="518">Некондиционное музыкальное видео (Видео, DVD видео, HD...</option>
+</optgroup>
+<optgroup label="Игры">
+<option class="root_forum" value="1007">Предложения по улучшению категории "Игры"</option>
+<option class="root_forum has_sf" value="5">Игры для Windows</option>
+<option value="1151">Поиск и обсуждение игр для Windows</option>
+<option value="635">Горячие Новинки</option>
+<option value="127">Аркады</option>
+<option value="2203">Файтинги</option>
+<option value="647">Экшены от первого лица</option>
+<option value="646">Экшены от третьего лица</option>
+<option value="50">Хорроры</option>
+<option value="53">Приключения и квесты</option>
+<option value="1008">Квесты в стиле "Поиск предметов"</option>
+<option value="900">Визуальные новеллы</option>
+<option value="128">Для самых маленьких</option>
+<option value="2204">Логические игры</option>
+<option value="278">Шахматы</option>
+<option value="2118">Многопользовательские игры</option>
+<option value="52">Ролевые игры</option>
+<option value="54">Симуляторы</option>
+<option value="51">Стратегии в реальном времени</option>
+<option value="2226">Пошаговые стратегии</option>
+<option value="2228">IBM-PC-несовместимые компьютеры</option>
+<option value="68">Архив (Игры)</option>
+<option class="root_forum has_sf" value="139">Прочее для Windows-игр</option>
+<option value="2478">Официальные патчи, моды, плагины, дополнения</option>
+<option value="2480">Неофициальные модификации, плагины, дополнения</option>
+<option value="2481">Русификаторы</option>
+<option class="root_forum has_sf" value="2142">Прочее для Microsoft Flight Simulator, Prepar3D, X-Plane</option>
+<option value="2060">Сценарии, меши и аэропорты для FS2004, FSX, P3D</option>
+<option value="2145">Самолёты и вертолёты для FS2004, FSX, P3D</option>
+<option value="2146">Миссии, трафик, звуки, паки и утилиты для FS2004, FSX,...</option>
+<option value="2143">Сценарии, миссии, трафик, звуки, паки и утилиты для...</option>
+<option value="2012">Самолёты и вертолёты для X-Plane</option>
+<option class="root_forum has_sf" value="960">Игры для Apple Macintosh</option>
+<option value="537">Нативные игры для Mac</option>
+<option value="637">Игры для Mac с Wineskin, DOSBox, Cider и другими</option>
+<option class="root_forum has_sf" value="899">Игры для Linux</option>
+<option value="1992">Нативные игры для Linux</option>
+<option value="2059">Игры для Linux с Wine, DOSBox и другими</option>
+<option class="root_forum has_sf" value="548">Игры для консолей</option>
+<option value="908">PS</option>
+<option value="357">PS2</option>
+<option value="886">PS3</option>
+<option value="546">Игры PS1, PS2 и PSP для PS3</option>
+<option value="973">PS4</option>
+<option value="1352">PSP</option>
+<option value="1116">Игры PS1 для PSP</option>
+<option value="595">PS Vita</option>
+<option value="887">Original Xbox</option>
+<option value="510">Xbox 360</option>
+<option value="773">Wii/WiiU</option>
+<option value="774">NDS/3DS</option>
+<option value="1605">Switch</option>
+<option value="968">Dreamcast</option>
+<option value="129">Остальные платформы</option>
+<option value="545">Архив (Игры для консолей)</option>
+<option class="root_forum has_sf" value="2185">Видео для консолей</option>
+<option value="2487">Видео для PS Vita</option>
+<option value="2182">Фильмы для PSP</option>
+<option value="2181">Сериалы для PSP</option>
+<option value="2180">Мультфильмы для PSP</option>
+<option value="2179">Дорамы для PSP</option>
+<option value="2186">Аниме для PSP</option>
+<option value="700">Видео для PSP</option>
+<option value="1926">Видео для PS3 и других консолей</option>
+<option value="2467">Архив (Видео для консолей)</option>
+<option class="root_forum has_sf" value="650">Игры для мобильных устройств</option>
+<option value="2149">Игры для Android</option>
+<option value="2420">Игры для Oculus Quest</option>
+<option value="1001">Игры для Java</option>
+<option value="1004">Игры для Symbian</option>
+<option value="1002">Игры для Windows Mobile</option>
+<option class="root_forum has_sf" value="240">Игровое видео</option>
+<option value="2415">Видеопрохождения игр</option>
+</optgroup>
+<optgroup label="Программы и Дизайн">
+<option class="root_forum" value="758">Предложения по улучшению категории "Программы и...</option>
+<option class="root_forum has_sf" value="216">Инструкции, руководства, обзоры программ</option>
+<option value="1077">Ищу и предлагаю программу</option>
+<option class="root_forum has_sf" value="1012">Операционные системы от Microsoft</option>
+<option value="1191">Общение (Обсуждения, вопросы/ответы)</option>
+<option value="2489">Оригинальные образы Windows</option>
+<option value="2523">Сборки Windows 8 и далее</option>
+<option value="2153">Сборки Windows XP - Windows 7</option>
+<option value="1019">Операционные системы выпущенные до Windows XP</option>
+<option value="1021">Серверные ОС (оригинальные + сборки)</option>
+<option value="1025">Разное (сборки All-in-One, пакеты обновлений, утилиты,...</option>
+<option value="1017">Архив (Операционные системы от Microsoft)</option>
+<option class="root_forum has_sf" value="1376">Linux, Unix и другие ОС</option>
+<option value="1382">Помощь и общение</option>
+<option value="1379">Операционные системы (Linux, Unix)</option>
+<option value="1381">Программное обеспечение (Linux, Unix)</option>
+<option value="1473">Другие ОС и ПО под них</option>
+<option value="1384">Архив (Linux)</option>
+<option class="root_forum" value="1195">Тестовые диски для настройки аудио/видео аппаратуры</option>
+<option class="root_forum has_sf" value="1013">Системные программы</option>
+<option value="1196">Общение (Системные программы)</option>
+<option value="1028">Работа с жёстким диском</option>
+<option value="1029">Резервное копирование</option>
+<option value="1030">Архиваторы и файловые менеджеры</option>
+<option value="1031">Программы для настройки и оптимизации ОС</option>
+<option value="1032">Сервисное обслуживание компьютера</option>
+<option value="1033">Работа с носителями информации</option>
+<option value="1034">Информация и диагностика</option>
+<option value="1066">Программы для интернет и сетей</option>
+<option value="1035">ПО для защиты компьютера (Антивирусное ПО, Фаерволлы)</option>
+<option value="1038">Анти-шпионы и анти-трояны</option>
+<option value="1039">Программы для защиты информации</option>
+<option value="1536">Драйверы и прошивки</option>
+<option value="1051">Оригинальные диски к компьютерам и комплектующим</option>
+<option value="1040">Серверное ПО для Windows</option>
+<option value="1041">Изменение интерфейса ОС Windows</option>
+<option value="1636">Скринсейверы</option>
+<option value="1042">Разное (Системные программы под Windows)</option>
+<option value="1026">Архив (Системные программы)</option>
+<option class="root_forum has_sf" value="1014">Системы для бизнеса, офиса, научной и проектной работы</option>
+<option value="1198">Общение (Системы для бизнеса, офиса, научной и...</option>
+<option value="2134">Медицина - интерактивный софт</option>
+<option value="1060">Всё для дома: кройка, шитьё, кулинария</option>
+<option value="1061">Офисные системы</option>
+<option value="1062">Системы для бизнеса</option>
+<option value="1067">Распознавание текста, звука и синтез речи</option>
+<option value="1086">Работа с PDF и DjVu</option>
+<option value="1068">Словари, переводчики</option>
+<option value="1063">Системы для научной работы</option>
+<option value="1087">САПР (общие и машиностроительные)</option>
+<option value="1192">САПР (электроника, автоматика, ГАП)</option>
+<option value="1088">Программы для архитекторов и строителей</option>
+<option value="1193">Библиотеки и проекты для архитекторов и дизайнеров...</option>
+<option value="1071">Прочие справочные системы</option>
+<option value="1073">Разное (Системы для бизнеса, офиса, научной и проектной...</option>
+<option value="1059">Архив (Системы для бизнеса, офиса, научной и проектной...</option>
+<option class="root_forum has_sf" value="1052">Веб-разработка и Программирование</option>
+<option value="307">Общение (Веб-разработка и Программирование)</option>
+<option value="1053">WYSIWYG Редакторы для веб-диза</option>
+<option value="1054">Текстовые редакторы с подсветкой</option>
+<option value="1055">Среды программирования, компиляторы и вспомогательные...</option>
+<option value="1056">Компоненты для сред программирования</option>
+<option value="2077">Системы управления базами данных</option>
+<option value="1057">Скрипты и движки сайтов, CMS а также расширения к ним</option>
+<option value="1018">Шаблоны для сайтов и CMS</option>
+<option value="1058">Разное (Веб-разработка и программирование)</option>
+<option value="1050">Архив (Веб-разработка и программирование)</option>
+<option class="root_forum has_sf" value="1016">Программы для работы с мультимедиа и 3D</option>
+<option value="1078">Общение (Программы для работы с мультимедиа и 3D)</option>
+<option value="1079">Программные комплекты</option>
+<option value="1080">Плагины для программ компании Adobe</option>
+<option value="1081">Графические редакторы</option>
+<option value="1082">Программы для верстки, печати и работы со шрифтами</option>
+<option value="1083">3D моделирование, рендеринг и плагины для них</option>
+<option value="1084">Анимация</option>
+<option value="1085">Создание BD/HD/DVD-видео</option>
+<option value="1089">Редакторы видео</option>
+<option value="1090">Видео- Аудио- конверторы</option>
+<option value="1065">Аудио- и видео-, CD- проигрыватели и каталогизаторы</option>
+<option value="1064">Каталогизаторы и просмотрщики графики</option>
+<option value="1092">Разное (Программы для работы с мультимедиа и 3D)</option>
+<option value="1204">Виртуальные студии, секвенсоры и аудиоредакторы</option>
+<option value="1027">Виртуальные инструменты и синтезаторы</option>
+<option value="1199">Плагины для обработки звука</option>
+<option value="1091">Разное (Программы для работы со звуком)</option>
+<option value="1076">Архив (Программы для работы с мультимедиа и 3D)</option>
+<option class="root_forum has_sf" value="828">Материалы для мультимедиа и дизайна</option>
+<option value="838">Ищу/Предлагаю (Материалы для мультимедиа и дизайна)</option>
+<option value="1357">Авторские работы</option>
+<option value="890">Официальные сборники векторных клипартов</option>
+<option value="830">Прочие векторные клипарты</option>
+<option value="1290">Photostocks</option>
+<option value="1962">Дополнения для программ компоузинга и постобработки</option>
+<option value="831">Рамки, шаблоны, текстуры и фоны</option>
+<option value="829">Прочие растровые клипарты</option>
+<option value="633">3D модели, сцены и материалы</option>
+<option value="1009">Футажи</option>
+<option value="1963">Прочие сборники футажей</option>
+<option value="1954">Музыкальные библиотеки</option>
+<option value="1010">Звуковые эффекты</option>
+<option value="1674">Библиотеки сэмплов</option>
+<option value="2421">Библиотеки и саундбанки для сэмплеров, пресеты для...</option>
+<option value="2492">Multitracks</option>
+<option value="839">Материалы для создания меню и обложек DVD</option>
+<option value="1679">Дополнения, стили, кисти, формы, узоры для программ...</option>
+<option value="1011">Шрифты</option>
+<option value="835">Разное (Материалы для мультимедиа и дизайна)</option>
+<option value="837">Архив (Материалы для мультимедиа и дизайна)</option>
+<option class="root_forum has_sf" value="1503">ГИС, системы навигации и карты</option>
+<option value="1505">Ищу и предлагаю (ГИС, системы навигации и карты)</option>
+<option value="1506">Общение (ГИС, системы навигации и карты)</option>
+<option value="1507">ГИС (Геоинформационные системы)</option>
+<option value="1526">Карты, снабженные программной оболочкой</option>
+<option value="1508">Атласы и карты современные (после 1950 г.)</option>
+<option value="1509">Атласы и карты старинные (до 1950 г.)</option>
+<option value="1510">Карты прочие (астрономические, исторические,...</option>
+<option value="1511">Встроенная автомобильная навигация</option>
+<option value="1512">Garmin</option>
+<option value="1513">Ozi</option>
+<option value="1514">TomTom</option>
+<option value="1515">Navigon / Navitel</option>
+<option value="1516">Igo</option>
+<option value="1517">Разное - системы навигации и карты</option>
+<option value="1504">Архив (ГИС, системы навигации и карты)</option>
+</optgroup>
+<optgroup label="Мобильные устройства">
+<option class="root_forum has_sf" value="285">Приложения для мобильных устройств</option>
+<option value="2154">Приложения для Android</option>
+<option value="1005">Приложения для Java</option>
+<option value="289">Приложения для Symbian</option>
+<option value="290">Приложения для Windows Mobile</option>
+<option value="288">Софт для работы с телефоном</option>
+<option value="292">Прошивки для телефонов</option>
+<option value="291">Обои и темы</option>
+<option value="296">Архив (Мобильные устройства)</option>
+<option class="root_forum has_sf" value="957">Видео для мобильных устройств</option>
+<option value="287">Видео для смартфонов и КПК</option>
+<option value="286">Видео в формате 3GP для мобильных</option>
+</optgroup>
+<optgroup label="Apple">
+<option class="root_forum has_sf" value="1366">Apple Macintosh</option>
+<option value="1368">Mac OS (для Macintosh)</option>
+<option value="1383">Mac OS (для РС-Хакинтош)</option>
+<option value="1394">Программы для просмотра и обработки видео (Mac OS)</option>
+<option value="1370">Программы для создания и обработки графики (Mac OS)</option>
+<option value="2237">Плагины для программ компании Adobe (Mac OS)</option>
+<option value="1372">Аудио редакторы и конвертеры (Mac OS)</option>
+<option value="1373">Системные программы (Mac OS)</option>
+<option value="1375">Офисные программы (Mac OS)</option>
+<option value="1371">Программы для интернета и сетей (Mac OS)</option>
+<option value="1374">Другие программы (Mac OS)</option>
+<option value="1393">Архив (Apple Macintosh)</option>
+<option class="root_forum has_sf" value="1933">iOS</option>
+<option value="1935">Программы для iOS</option>
+<option value="1003">Игры для iOS</option>
+<option value="1937">Разное для iOS</option>
+<option value="1934">Архив (iOS)</option>
+<option class="root_forum has_sf" value="2235">Видео</option>
+<option value="1908">Фильмы для iPod, iPhone, iPad</option>
+<option value="864">Сериалы для iPod, iPhone, iPad</option>
+<option value="863">Мультфильмы для iPod, iPhone, iPad</option>
+<option value="2535">Аниме для iPod, iPhone, iPad</option>
+<option value="2534">Музыкальное видео для iPod, iPhone, iPad</option>
+<option value="2239">Архив (Видео)</option>
+<option class="root_forum has_sf" value="2238">Видео HD</option>
+<option value="1936">Фильмы HD для Apple TV</option>
+<option value="315">Сериалы HD для Apple TV</option>
+<option value="1363">Мультфильмы HD для Apple TV</option>
+<option value="2082">Документальное видео HD для Apple TV</option>
+<option value="2241">Музыкальное видео HD для Apple TV</option>
+<option value="405">Архив (Видео HD)</option>
+<option class="root_forum has_sf" value="2236">Аудио</option>
+<option value="1909">Аудиокниги (AAC, ALAC)</option>
+<option value="1927">Музыка lossless (ALAC)</option>
+<option value="2240">Музыка Lossy (AAC-iTunes)</option>
+<option value="2248">Музыка Lossy (AAC)</option>
+<option value="2244">Музыка Lossy (AAC) (Singles, EPs)</option>
+<option value="2242">Архив (Аудио)</option>
+<option class="root_forum has_sf" value="2243">F.A.Q.</option>
+<option value="2257">Вопросы-ответы Mac OS (для PC- Хакинтош)</option>
+<option value="2256">Вопросы-ответы MAC OS (для Macintosh)</option>
+<option value="2245">iOS</option>
+<option value="2246">Аудио и Видео</option>
+</optgroup>
+<optgroup label="Разное">
+<option class="root_forum has_sf" value="10">Разное (раздачи)</option>
+<option value="760">Предложения по улучшению раздела "Разное",...</option>
+<option value="491">Архив (Разное)</option>
+<option value="865">Психоактивные аудиопрограммы</option>
+<option value="1100">Аватары, Иконки, Смайлы</option>
+<option value="1643">Живопись, Графика, Скульптура, Digital Art</option>
+<option value="848">Картинки</option>
+<option value="808">Любительские фотографии</option>
+<option value="630">Обои</option>
+<option value="1664">Фото знаменитостей</option>
+<option value="148">Аудио</option>
+<option value="965">Музыка (lossy)</option>
+<option value="134">Музыка (lossless)</option>
+<option value="807">Видео</option>
+<option value="147">Публикации и учебные материалы (тексты)</option>
+<option value="847">Трейлеры и дополнительные материалы к фильмам</option>
+<option value="1167">Любительские видеоклипы</option>
+</optgroup>
+</select>
