@@ -47,19 +47,20 @@ public sealed class RutrackerParser : IParser
         var xdoc = new HtmlDocument();
         xdoc.Load(stream);
 
+        var index = 1;
+        var totalPages = 1;
         var indexNode = xdoc.DocumentNode.SelectSingleNode(IndexPath);
-        if (indexNode == null)
+        if (indexNode != null)
         {
-            throw new ParserException("Error extracting page index.");
-        }
-        var index = int.Parse(indexNode.InnerText);
+            index = int.Parse(indexNode.InnerText);
 
-        var totalPagesNode = xdoc.DocumentNode.SelectSingleNode(TotalPagesPath);
-        if (indexNode == null)
-        {
-            throw new ParserException("Error extracting total pages number.");
+            var totalPagesNode = xdoc.DocumentNode.SelectSingleNode(TotalPagesPath);
+            if (indexNode == null)
+            {
+                throw new ParserException("Error extracting total pages number.");
+            }
+            totalPages = int.Parse(totalPagesNode.InnerText);
         }
-        var totalPages = int.Parse(totalPagesNode.InnerText);
 
         var branches = new Dictionary<string, string>();
         var pages = new List<string>();

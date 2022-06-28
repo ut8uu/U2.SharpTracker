@@ -36,7 +36,7 @@ namespace U2.SharpTracker.Loader
 
             while (!token.IsCancellationRequested)
             {
-                await Task.Delay(1000, token);
+                await Task.Delay(100, token);
 
                 var branch = await GetWaitingBranchAsync(token);
                 if (branch != null)
@@ -58,6 +58,8 @@ namespace U2.SharpTracker.Loader
         {
             Debug.Assert(topic != null);
             Debug.Assert(!string.IsNullOrEmpty(topic.Url));
+
+            Console.WriteLine($"Processing topic: {topic.Url}");
 
             topic.UrlLoadState = UrlLoadState.Loading;
             await _service.AddOrUpdateTopicAsync(topic, token);
@@ -112,7 +114,7 @@ namespace U2.SharpTracker.Loader
 
         private async Task<BranchDto> GetWaitingBranchAsync(CancellationToken token)
         {
-            var branches = await _service.GetBranchesAsync(Guid.Empty, token);
+            var branches = await _service.GetBranchesAsync(token);
             return branches.FirstOrDefault(b => b.LoadState == UrlLoadState.Unknown);
         }
 
@@ -123,12 +125,16 @@ namespace U2.SharpTracker.Loader
                 throw new ArgumentNullException(nameof(branch));
             }
 
+            Console.WriteLine($"Processing branch: {branch.Url}");
+
             branch.LoadState = UrlLoadState.Loading;
             await _service.AddOrUpdateBranchAsync(branch, cancellationToken);
 
             var start = 0;
             while (true)
             {
+                var pageIndex = (start / 50) + 1;
+                Console.WriteLine($"Page {pageIndex}");
                 var url = $"{branch.Url}&start={start}";
                 var info = new UrlInfo(url);
                 var content = await DownloadUrlAsync(info);
@@ -144,6 +150,8 @@ namespace U2.SharpTracker.Loader
                 var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(content));
                 var listingPage = _parser.ParseBranch(memoryStream);
 
+                var nlRequired = false;
+
                 foreach (var b in listingPage.Branches)
                 {
                     if (!await _service.ContainsBranchAsync(b.Key, cancellationToken))
@@ -151,13 +159,15 @@ namespace U2.SharpTracker.Loader
                         var newBranch = new BranchDto
                         {
                             Id = Guid.NewGuid(),
+                            ParentId = branch.Id,
                             LoadStatusCode = UrlLoadStatusCode.Unknown,
                             Url = b.Key,
                             LoadState = UrlLoadState.Unknown,
                             Title = b.Value,
-
                         };
                         await _service.AddOrUpdateBranchAsync(newBranch, cancellationToken);
+
+                        Console.WriteLine($"Inserted new branch: {b.Key}");
                     }
                 }
 
@@ -178,6 +188,15 @@ namespace U2.SharpTracker.Loader
                         Url = page,
                     };
                     await _service.AddOrUpdateTopicAsync(topicDto, cancellationToken);
+
+                    //Console.WriteLine($"Inserted new topic: {page}");
+                    Console.Write("+");
+                    nlRequired = true;
+                }
+
+                if (nlRequired)
+                {
+                    Console.WriteLine("");
                 }
 
                 if (listingPage.CurrentPage == listingPage.TotalPages)

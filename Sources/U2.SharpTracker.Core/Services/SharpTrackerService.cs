@@ -112,6 +112,20 @@ public sealed class SharpTrackerService : ISharpTrackerService
         return _storage.TryGetUrlAsync(id, cancellationToken);
     }
 
+    public async Task<List<BranchDto>> GetBranchesAsync(CancellationToken cancellationToken)
+    {
+        try
+        {
+            var collection = _storage.GetBranchesAsync(cancellationToken).ToEnumerable();
+            var list = new List<BranchDto>(collection);
+            return list;
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+    }
+
     public async Task<List<BranchDto>> GetBranchesAsync(Guid parentId, CancellationToken cancellationToken)
     {
         try

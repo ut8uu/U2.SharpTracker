@@ -33,6 +33,7 @@ public interface ISharpTrackerService
     Task ResetLoadingBranchesAsync(CancellationToken token);
     public Task<bool> ContainsBranchAsync(string url, CancellationToken cancellationToken);
     public Task AddOrUpdateBranchAsync(BranchDto branch, CancellationToken cancellationToken);
+    public Task<List<BranchDto>> GetBranchesAsync(CancellationToken cancellationToken);
     public Task<List<BranchDto>> GetBranchesAsync(Guid parentId, CancellationToken cancellationToken);
     public Task<BranchDto> GetBranchAsync(string id, CancellationToken cancellationToken);
     public Task<BranchDto> GetBranchAsync(Guid id, CancellationToken cancellationToken);
