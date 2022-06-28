@@ -150,7 +150,7 @@ public sealed class SharpTrackerService : ISharpTrackerService
         }
     }
 
-    public Task<BranchDto> GetBranchAsync(string id, CancellationToken cancellationToken)
+    public Task<BranchDto> GetBranchAsync(int id, CancellationToken cancellationToken)
     {
         return _storage.TryGetBranchAsync(id, cancellationToken);
     }

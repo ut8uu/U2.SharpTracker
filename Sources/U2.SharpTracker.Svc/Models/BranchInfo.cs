@@ -37,7 +37,7 @@ public sealed class BranchInfo
 
     public Guid Id { get; set; }
     public Guid ParentId { get; set; }
-    public string OriginalId { get; set; }
+    public int OriginalId { get; set; }
     public string Name { get; set; }
     public string Url { get; set; }
     public UrlLoadState ObjectState { get; set; }

@@ -47,7 +47,7 @@ namespace U2.SharpTracker.Core.Storage
             return _branchesCollection.InsertOneAsync(branch, new InsertOneOptions(), cancellationToken);
         }
 
-        public Task<BranchDto> TryGetBranchAsync(string originalBranchId, CancellationToken cancellationToken)
+        public Task<BranchDto> TryGetBranchAsync(int originalBranchId, CancellationToken cancellationToken)
         {
             return _branchesCollection.Find(b => b.OriginalId == originalBranchId)
                 .FirstOrDefaultAsync(cancellationToken);

@@ -31,7 +31,7 @@ namespace U2.SharpTracker.Core;
 
 public sealed class RTPerBranchStrategy : IDownloadStrategy
 {
-    private string _branchId = "0";
+    private int _branchId = 0;
     private bool _started;
     private const string _rutrackerUrl = "https://rutracker.org";
     private readonly IParser _parser = new RutrackerParser();

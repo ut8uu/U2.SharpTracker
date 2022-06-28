@@ -28,7 +28,7 @@ namespace U2.SharpTracker.Core;
 public interface IStorage
 {
     Task AddBranchAsync(BranchDto branch, CancellationToken cancellationToken);
-    Task<BranchDto> TryGetBranchAsync(string originalBranchId, CancellationToken cancellationToken);
+    Task<BranchDto> TryGetBranchAsync(int originalBranchId, CancellationToken cancellationToken);
     Task<BranchDto> TryGetBranchAsync(Guid branchId, CancellationToken cancellationToken);
     Task UpdateBranchAsync(BranchDto branch, CancellationToken cancellationToken);
     Task DeleteBranchAsync(Guid id, CancellationToken cancellationToken);

@@ -36,7 +36,7 @@ public interface ISharpTrackerService
     public Task AddOrUpdateBranchAsync(BranchDto branch, CancellationToken cancellationToken);
     public Task<List<BranchDto>> GetBranchesAsync(CancellationToken cancellationToken);
     public Task<List<BranchDto>> GetBranchesAsync(Guid parentId, CancellationToken cancellationToken);
-    public Task<BranchDto> GetBranchAsync(string id, CancellationToken cancellationToken);
+    public Task<BranchDto> GetBranchAsync(int id, CancellationToken cancellationToken);
     public Task<BranchDto> GetBranchAsync(Guid id, CancellationToken cancellationToken);
     public Task DeleteBranchAsync(Guid id, CancellationToken cancellationToken);
 

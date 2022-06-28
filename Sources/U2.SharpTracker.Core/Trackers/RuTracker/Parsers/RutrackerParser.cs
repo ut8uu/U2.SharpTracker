@@ -149,7 +149,7 @@ public sealed class RutrackerParser : IParser
         return result;
     }
 
-    private int GetIdFromUrl(string url)
+    public static int GetIdFromUrl(string url)
     {
         if (!url.Contains('='))
         {

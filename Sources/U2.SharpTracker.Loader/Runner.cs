@@ -30,8 +30,35 @@ namespace U2.SharpTracker.Loader
             _service = new SharpTrackerService(storage);
         }
 
+        public async Task ResetAsync(CancellationToken token)
+        {
+            Console.WriteLine("Processing branches");
+            var branches = await _service.GetBranchesAsync(token);
+            foreach (var b in branches)
+            {
+                b.LoadState = UrlLoadState.Unknown;
+                b.LoadStatusCode = UrlLoadStatusCode.Unknown;
+                await _service.AddOrUpdateBranchAsync(b, token);
+            }
+
+            branches = await _service.GetBranchesAsync(token);
+            foreach (var b in branches)
+            {
+                Console.WriteLine($"Processing topics from {b.Title}");
+                var pages = _service.GetTopicsAsync(b.Id, token);
+                await foreach (var t in pages)
+                {
+                    t.OriginalId = RutrackerParser.GetIdFromUrl(t.Url);
+                    await _service.AddOrUpdateTopicAsync(t, token);
+                    Console.Write(".");
+                }
+            }
+            Console.WriteLine();
+        }
+
         public async Task RunAsync(CancellationToken token)
         {
+            await ResetAsync(token);
             await _service.ResetLoadingBranchesAsync(token);
 
             while (!token.IsCancellationRequested)
@@ -157,6 +184,7 @@ namespace U2.SharpTracker.Loader
                     var newBranch = new BranchDto
                     {
                         Id = Guid.NewGuid(),
+                        OriginalId = RutrackerParser.GetIdFromUrl(b.Key),
                         ParentId = branch.Id,
                         LoadStatusCode = UrlLoadStatusCode.Unknown,
                         Url = b.Key,
