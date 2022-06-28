@@ -66,11 +66,14 @@ namespace U2.SharpTracker.Core.Tests.RuTracker
             var page1 = result.Pages.First();
             Assert.NotNull(page1);
 
-            Assert.Equal("Суворов: Великое путешествие (Борис Чертков) [2022, Россия, мультфильм, приключения, история, WEB-DL 1080p]", page1.Title);
+            //Assert.Equal("Суворов: Великое путешествие (Борис Чертков) [2022, Россия, мультфильм, приключения, история, WEB-DL 1080p]", page1.Title);
             Assert.Equal(78, page1.Seeders);
             Assert.Equal(9, page1.Leechers);
             Assert.Equal(2, page1.Replies);
             Assert.Equal(779, page1.DownloadNumber);
+
+            var page2 = result.Pages[1];
+            Assert.Equal(3, page2.Seeders);
         }
 
         [Theory]
