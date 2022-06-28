@@ -36,13 +36,12 @@ public sealed class TopicDto
     public string Hash { get; set; }
     public UrlLoadState UrlLoadState { get; set; }
     public UrlLoadStatusCode LoadStatusCode { get; set; }
-    public ParseStatusCode ParseStatusCode { get; set; }
-    public string ParserMessage { get; set; }
+    public ParserStatusCode ParseStatusCode { get; set; }
+    public string ProcessingMessage { get; set; }
+    public long Size { get; set; }
+    public int Seeders { get; set; }
+    public int Leechers { get; set; }
+    public int DownloadNumber { get; set; }
+    public int Replies { get; set; }
 }
 
-public enum ParseStatusCode
-{
-    Unknown,
-    Success,
-    Failure,
-}

@@ -21,6 +21,7 @@ namespace U2.SharpTracker.Core;
 
 public enum ParserStatusCode
 {
+    Unknown,
     Success,
     Fail,
 }

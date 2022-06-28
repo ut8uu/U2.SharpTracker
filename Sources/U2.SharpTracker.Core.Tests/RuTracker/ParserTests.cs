@@ -50,6 +50,29 @@ namespace U2.SharpTracker.Core.Tests.RuTracker
             Assert.Equal(2, result.TotalPages);
         }
 
+        [Fact]
+        public void CanParseBranchPage2()
+        {
+            var parser = new RutrackerParser();
+            var stream = new MemoryStream(TestResource.rt_f1_short);
+            var result = parser.ParseBranch(stream);
+            Assert.NotNull(result);
+
+            Assert.Empty(result.Branches);
+            Assert.Equal(3, result.Pages.Count());
+            Assert.Equal(1, result.CurrentPage);
+            Assert.Equal(1, result.TotalPages);
+
+            var page1 = result.Pages.First();
+            Assert.NotNull(page1);
+
+            Assert.Equal("Суворов: Великое путешествие (Борис Чертков) [2022, Россия, мультфильм, приключения, история, WEB-DL 1080p]", page1.Title);
+            Assert.Equal(78, page1.Seeders);
+            Assert.Equal(9, page1.Leechers);
+            Assert.Equal(2, page1.Replies);
+            Assert.Equal(779, page1.DownloadNumber);
+        }
+
         [Theory]
         [MemberData(nameof(ParseTopicTestData))]
         public void CanParseTopicPage(TopicTestData testData)

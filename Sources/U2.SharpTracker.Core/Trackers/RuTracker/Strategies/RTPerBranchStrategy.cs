@@ -133,7 +133,7 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
             var listingPage = _parser.ParseBranch(memoryStream);
             foreach (var page in listingPage.Pages)
             {
-                if (await _storage.HasUrl(page, _cancellationTokenSource.Token))
+                if (await _storage.HasUrl(page.Url, _cancellationTokenSource.Token))
                 {
                     continue;
                 }
@@ -145,7 +145,17 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
                     RawContent = string.Empty,
                     UrlLoadState = UrlLoadState.Unknown,
                     LoadStatusCode = UrlLoadStatusCode.Unknown,
-                    Url = page,
+                    Url = page.Url,
+                    Title = page.Title,
+                    Leechers = page.Leechers,
+                    Seeders = page.Seeders,
+                    Size = page.Size,
+                    DownloadNumber = page.DownloadNumber,
+                    Replies = page.Replies,
+                    Description = string.Empty,
+                    ParseStatusCode = page.ParserStatusCode,
+                    Hash = string.Empty,
+                    ProcessingMessage = page.ProcessingMessage,
                 };
                 await _storage.AddUrlAsync(urlDto, token);
             }

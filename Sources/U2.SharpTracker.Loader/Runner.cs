@@ -81,29 +81,29 @@ namespace U2.SharpTracker.Loader
                     topic.RawContent = torrentInfo.RawContent;
                     topic.UrlLoadState = UrlLoadState.Loaded;
                     topic.Hash = torrentInfo.MagnetLink;
-                    topic.ParseStatusCode = ParseStatusCode.Success;
+                    topic.ParseStatusCode = ParserStatusCode.Success;
                 }
                 catch (ParserException ex)
                 {
                     topic.LoadStatusCode = UrlLoadStatusCode.Success;
                     topic.UrlLoadState = UrlLoadState.Loaded;
-                    topic.ParseStatusCode = ParseStatusCode.Failure;
-                    topic.ParserMessage = ex.Message;
+                    topic.ParseStatusCode = ParserStatusCode.Fail;
+                    topic.ProcessingMessage = ex.Message;
                 }
                 catch (Exception ex)
                 {
                     topic.LoadStatusCode = UrlLoadStatusCode.Success;
                     topic.UrlLoadState = UrlLoadState.Loaded;
-                    topic.ParseStatusCode = ParseStatusCode.Failure;
-                    topic.ParserMessage = ex.Message;
+                    topic.ParseStatusCode = ParserStatusCode.Fail;
+                    topic.ProcessingMessage = ex.Message;
                 }
             }
             else
             {
                 topic.LoadStatusCode = UrlLoadStatusCode.Failure;
                 topic.UrlLoadState = UrlLoadState.Loaded;
-                topic.ParseStatusCode = ParseStatusCode.Unknown;
-                topic.ParserMessage = string.Empty;
+                topic.ParseStatusCode = ParserStatusCode.Unknown;
+                topic.ProcessingMessage = string.Empty;
             }
         }
 
@@ -173,7 +173,7 @@ namespace U2.SharpTracker.Loader
 
                 foreach (var page in listingPage.Pages)
                 {
-                    if (await _service.ContainsTopicAsync(page, cancellationToken))
+                    if (await _service.ContainsTopicAsync(page.Url, cancellationToken))
                     {
                         continue;
                     }
@@ -185,7 +185,17 @@ namespace U2.SharpTracker.Loader
                         RawContent = string.Empty,
                         UrlLoadState = UrlLoadState.Unknown,
                         LoadStatusCode = UrlLoadStatusCode.Unknown,
-                        Url = page,
+                        Url = page.Url,
+                        Title = page.Title,
+                        Leechers = page.Leechers,
+                        Seeders = page.Seeders,
+                        Size = page.Size,
+                        DownloadNumber = page.DownloadNumber,
+                        Replies = page.Replies,
+                        Description = string.Empty,
+                        ParseStatusCode = page.ParserStatusCode,
+                        Hash = string.Empty,
+                        ProcessingMessage = page.ProcessingMessage,
                     };
                     await _service.AddOrUpdateTopicAsync(topicDto, cancellationToken);
 
