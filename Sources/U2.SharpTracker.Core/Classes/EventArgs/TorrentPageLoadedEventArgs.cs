@@ -27,6 +27,7 @@ public sealed class TorrentPageLoadedEventArgs
 public sealed class TorrentPageInfo
 {
     public string Url { get; set; }
+    public int OriginalId { get; set; }
     public UrlLoadStatusCode StatusCode { get; set; }
     public ParserStatusCode ParserStatusCode { get; set; }
     public string ProcessingMessage { get; set; }

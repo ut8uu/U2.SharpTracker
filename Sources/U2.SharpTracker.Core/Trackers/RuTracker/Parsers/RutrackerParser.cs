@@ -127,6 +127,7 @@ public sealed class RutrackerParser : IParser
                         Seeders = int.Parse(seeders),
                         Replies = int.Parse(replies),
                         Size = Convert.ToInt64(sizeNumeric),
+                        OriginalId = GetIdFromUrl(url),
                     };
                     pages.Add(tpi);
                 }
@@ -146,6 +147,21 @@ public sealed class RutrackerParser : IParser
         };
 
         return result;
+    }
+
+    private int GetIdFromUrl(string url)
+    {
+        if (!url.Contains('='))
+        {
+            throw new ParserException($"Bad URL '{url}'. '=' is expected.");
+        }
+        var chunks = url.Split('=', StringSplitOptions.RemoveEmptyEntries);
+        if (int.TryParse(chunks.Last(), out var id))
+        {
+            return id;
+        }
+
+        throw new ParserException($"Bad url '{url}'. Can't extract identifier.");
     }
 
     private string GetNodeValue(HtmlDocument x, string xpath, string defaultValue)

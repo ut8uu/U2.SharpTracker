@@ -27,6 +27,7 @@ public interface ISharpTrackerService
     public Task<TopicDto> GetWaitingTopicAsync(CancellationToken cancellationToken);
 
     public Task AddOrUpdateTopicAsync(TopicDto topicDto, CancellationToken cancellationToken);
+    public Task<bool> AddTopicIfNotExistsAsync(TopicDto topicDto, CancellationToken cancellationToken);
     public Task DeleteTopicAsync(Guid id, CancellationToken cancellationToken);
     public Task<bool> ContainsTopicAsync(string url, CancellationToken cancellationToken);
 

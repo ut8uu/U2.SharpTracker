@@ -154,30 +154,22 @@ namespace U2.SharpTracker.Loader
 
                 foreach (var b in listingPage.Branches)
                 {
-                    if (!await _service.ContainsBranchAsync(b.Key, cancellationToken))
+                    var newBranch = new BranchDto
                     {
-                        var newBranch = new BranchDto
-                        {
-                            Id = Guid.NewGuid(),
-                            ParentId = branch.Id,
-                            LoadStatusCode = UrlLoadStatusCode.Unknown,
-                            Url = b.Key,
-                            LoadState = UrlLoadState.Unknown,
-                            Title = b.Value,
-                        };
-                        await _service.AddOrUpdateBranchAsync(newBranch, cancellationToken);
+                        Id = Guid.NewGuid(),
+                        ParentId = branch.Id,
+                        LoadStatusCode = UrlLoadStatusCode.Unknown,
+                        Url = b.Key,
+                        LoadState = UrlLoadState.Unknown,
+                        Title = b.Value,
+                    };
+                    await _service.AddOrUpdateBranchAsync(newBranch, cancellationToken);
 
-                        Console.WriteLine($"Inserted new branch: {b.Key}");
-                    }
+                    Console.WriteLine($"Inserted new branch: {b.Key}");
                 }
 
                 foreach (var page in listingPage.Pages)
                 {
-                    if (await _service.ContainsTopicAsync(page.Url, cancellationToken))
-                    {
-                        continue;
-                    }
-
                     var topicDto = new TopicDto
                     {
                         Id = Guid.NewGuid(),
@@ -197,11 +189,11 @@ namespace U2.SharpTracker.Loader
                         Hash = string.Empty,
                         ProcessingMessage = page.ProcessingMessage,
                     };
-                    await _service.AddOrUpdateTopicAsync(topicDto, cancellationToken);
-
-                    //Console.WriteLine($"Inserted new topic: {page}");
-                    Console.Write("+");
-                    nlRequired = true;
+                     if (await _service.AddTopicIfNotExistsAsync(topicDto, cancellationToken))
+                    {
+                        Console.Write("+");
+                        nlRequired = true;
+                    }
                 }
 
                 if (nlRequired)

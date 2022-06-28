@@ -46,5 +46,6 @@ public interface IStorage
     IAsyncEnumerable<TopicDto> GetUrlsAsync(Guid branchId, CancellationToken cancellationToken);
 
     Task<bool> HasUrl(string url, CancellationToken cancellationToken);
+    Task<bool> HasUrl(int originalId, CancellationToken cancellationToken);
     Task<bool> HasBranch(string branch, CancellationToken cancellationToken);
 }

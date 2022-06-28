@@ -29,6 +29,7 @@ public sealed class TopicDto
 {
     public Guid Id { get; set; }
     public Guid BranchId { get; set; }
+    public int OriginalId { get; set; }
     public string Url { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }

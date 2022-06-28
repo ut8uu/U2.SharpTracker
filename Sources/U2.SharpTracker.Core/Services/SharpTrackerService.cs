@@ -45,9 +45,9 @@ public sealed class SharpTrackerService : ISharpTrackerService
         return _storage.TryGetUrlAsync(id, cancellationToken);
     }
 
-    public Task<TopicDto> GetTopicAsync(string id, CancellationToken cancellationToken)
+    public Task<TopicDto> GetTopicAsync(string url, CancellationToken cancellationToken)
     {
-        return _storage.TryGetUrlAsync(id, cancellationToken);
+        return _storage.TryGetUrlAsync(url, cancellationToken);
     }
 
     public Task<TopicDto> GetWaitingTopicAsync(CancellationToken cancellationToken)
@@ -68,6 +68,16 @@ public sealed class SharpTrackerService : ISharpTrackerService
         {
             await _storage.AddUrlAsync(topicDto, cancellationToken);
         }
+    }
+
+    public async Task<bool> AddTopicIfNotExistsAsync(TopicDto topicDto, CancellationToken cancellationToken)
+    {
+        if (!await _storage.HasUrl(topicDto.OriginalId, cancellationToken))
+        {
+            await _storage.AddUrlAsync(topicDto, cancellationToken);
+            return true;
+        }
+        return false;
     }
 
     public Task DeleteTopicAsync(Guid id, CancellationToken cancellationToken)

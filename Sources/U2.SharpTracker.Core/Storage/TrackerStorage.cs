@@ -134,9 +134,16 @@ namespace U2.SharpTracker.Core.Storage
 
         public Task<bool> HasUrl(string url, CancellationToken cancellationToken)
         {
-            var urlsCount = _urlsCollection.Find(x => x.Url == url)
-                .CountDocumentsAsync(cancellationToken);
-            return Task.FromResult(urlsCount.Result > 0);
+            var foundUrl = _urlsCollection.Find(x => x.Url == url)
+                .FirstOrDefault(cancellationToken);
+            return Task.FromResult(foundUrl != null);
+        }
+
+        public Task<bool> HasUrl(int originalId, CancellationToken cancellationToken)
+        {
+            var foundUrl = _urlsCollection.Find(x => x.OriginalId == originalId)
+                .FirstOrDefault(cancellationToken);
+            return Task.FromResult(foundUrl != null);
         }
 
         public Task<bool> HasBranch(string url, CancellationToken cancellationToken)
