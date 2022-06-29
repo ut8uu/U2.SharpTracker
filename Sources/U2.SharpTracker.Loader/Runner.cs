@@ -32,6 +32,7 @@ namespace U2.SharpTracker.Loader
 
         public async Task ResetAsync(CancellationToken token)
         {
+        /*
             Console.WriteLine("Processing branches");
             var branches = await _service.GetBranchesAsync(token);
             foreach (var b in branches)
@@ -41,15 +42,21 @@ namespace U2.SharpTracker.Loader
                 b.OriginalId = RutrackerParser.GetIdFromUrl(b.Url);
                 await _service.AddOrUpdateBranchAsync(b, token);
             }
+            //*/
 
-            branches = await _service.GetBranchesAsync(token);
+            var branches = await _service.GetBranchesAsync(token);
             foreach (var b in branches)
             {
-                Console.WriteLine($"Processing topics from {b.Title}");
+                var topicsToUpdate = new List<TopicDto>();
+                Console.WriteLine($"{Environment.NewLine}Processing topics from {b.Title}");
                 var pages = _service.GetTopicsAsync(b.Id, token);
                 await foreach (var t in pages)
                 {
-                    t.OriginalId = RutrackerParser.GetIdFromUrl(t.Url);
+                    if (t.UrlLoadState == UrlLoadState.Unknown)
+                    {
+                        continue;
+                    }
+                    t.UrlLoadState = UrlLoadState.Unknown;
                     await _service.AddOrUpdateTopicAsync(t, token);
                     Console.Write(".");
                 }
@@ -87,7 +94,9 @@ namespace U2.SharpTracker.Loader
             Debug.Assert(topic != null);
             Debug.Assert(!string.IsNullOrEmpty(topic.Url));
 
-            Console.WriteLine($"Processing topic: {topic.Url}");
+            var dt = DateTime.Now.ToString("yyMMdd:HHmm");
+
+            Console.WriteLine($"{dt} Processing topic: {topic.Url}");
 
             topic.UrlLoadState = UrlLoadState.Loading;
             await _service.AddOrUpdateTopicAsync(topic, token);
@@ -105,11 +114,12 @@ namespace U2.SharpTracker.Loader
                     torrentInfo = _parser.ParseTorrentPage(stream);
                     topic.Title = torrentInfo.Title;
                     topic.Description = torrentInfo.Description;
-                    topic.LoadStatusCode = UrlLoadStatusCode.Success;
                     topic.RawContent = torrentInfo.RawContent;
-                    topic.UrlLoadState = UrlLoadState.Loaded;
                     topic.Hash = torrentInfo.MagnetLink;
                     topic.ParseStatusCode = ParserStatusCode.Success;
+
+                    topic.UrlLoadState = UrlLoadState.Completed;
+                    topic.LoadStatusCode = UrlLoadStatusCode.Success;
                 }
                 catch (ParserException ex)
                 {
@@ -133,6 +143,8 @@ namespace U2.SharpTracker.Loader
                 topic.ParseStatusCode = ParserStatusCode.Unknown;
                 topic.ProcessingMessage = string.Empty;
             }
+
+            await _service.AddOrUpdateTopicAsync(topic, token);
         }
 
         private Task<TopicDto> GetWaitingTopicAsync(CancellationToken token)

@@ -43,6 +43,7 @@ public sealed class RutrackerParser : IParser
     private const string TorrentPageTitle = "//a[@id='topic-title']";
     private const string TorrentPageDescription = "//td[@class='message td2']//div[@class='post_wrap']//div[@class='post_body']";
     private const string TorrentPageMagnet = "//a[@class='med magnet-link']";
+    private const string TorrentPageMagnet2 = "//a[@class='magnet-link']";
 
     public ListingPage ParseBranch(Stream stream)
     {
@@ -171,7 +172,8 @@ public sealed class RutrackerParser : IParser
             var node = FindNode(x, xpath, "");
             return node.InnerText;
         }
-        catch{
+        catch
+        {
             return defaultValue;
         }
     }
@@ -190,21 +192,21 @@ public sealed class RutrackerParser : IParser
         var win1251 = Encoding.GetEncoding("windows-1251");
 
         var xdoc = new HtmlDocument();
-        xdoc.Load(stream, win1251);
+        xdoc.Load(stream);
 
-        var titleNode = FindNode(xdoc, TorrentPageTitle, 
-            "Failed to extract title");
+        var titleNode = FindNode(xdoc, TorrentPageTitle, "Failed to extract title");
 
-        var desctiprionNode = FindNode(xdoc, TorrentPageDescription,
-            "Failed to extract description");
+        var desctiprionNode = FindNode(xdoc, TorrentPageDescription, "Failed to extract description");
 
-        var magnetNode = FindNode(xdoc, TorrentPageMagnet,
-            "Failed to extract magnet link");
+        var magnetNode = FindNode(xdoc, TorrentPageMagnet, "Failed to extract magnet link", false);
+        if (magnetNode == null)
+        {
+            magnetNode = FindNode(xdoc, TorrentPageMagnet2, "Failed to extract magnet link");
+        }
 
         result.Title = titleNode.InnerText;
         result.Description = desctiprionNode.InnerHtml;
-        result.MagnetLink =
-            RegularExpressionHelper.MatchAndGetFirst("xt=urn:btih:([A-F0-9]+)&",
+        result.MagnetLink = RegularExpressionHelper.MatchAndGetFirst("xt=urn:btih:([A-F0-9]+)&",
                 magnetNode.Attributes["href"].Value);
 
         return result;
@@ -218,16 +220,20 @@ public sealed class RutrackerParser : IParser
     /// <param name="exceptionMessage">An exception mesage to show if node hasn't been found.</param>
     /// <returns></returns>
     /// <exception cref="ParserException"></exception>
-    private static HtmlNode FindNode(HtmlDocument doc, string xpath, 
-    string exceptionMessage, bool trowException = true)
+    private static HtmlNode FindNode(HtmlDocument doc, string xpath,
+        string exceptionMessage, bool throwException = true)
     {
         var node = doc.DocumentNode.SelectSingleNode(xpath);
-        if (node == null)
+        if (node != null)
+        {
+            return node;
+        }
+
+        if (throwException)
         {
             throw new ParserException(exceptionMessage);
         }
-
-        return node;
+        return null;
     }
 
     private static HtmlNode FindNode(HtmlNode input, string xpath, string exceptionMessage)
