@@ -22,6 +22,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace U2.SharpTracker.Core.Storage
@@ -115,6 +116,12 @@ namespace U2.SharpTracker.Core.Storage
         public Task DeleteUrlAsync(Guid id, CancellationToken cancellationToken)
         {
             return _urlsCollection.DeleteOneAsync(x => x.Id == id, cancellationToken);
+        }
+
+        public async Task<TopicDto> GetTopicAsync(BsonDocument filter, CancellationToken token)
+        {
+            using var cursor = await _urlsCollection.FindAsync(filter, options: null, token);
+            return cursor.FirstOrDefault(token);
         }
 
         public async IAsyncEnumerable<TopicDto> GetUrlsAsync(CancellationToken cancellationToken)

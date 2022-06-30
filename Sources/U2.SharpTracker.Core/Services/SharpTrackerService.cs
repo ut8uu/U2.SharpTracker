@@ -17,6 +17,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +49,11 @@ public sealed class SharpTrackerService : ISharpTrackerService
     public Task<TopicDto> GetTopicAsync(string url, CancellationToken cancellationToken)
     {
         return _storage.TryGetUrlAsync(url, cancellationToken);
+    }
+
+    public Task<TopicDto> GetWaitingTopicAsync2(BsonDocument filter, CancellationToken cancellationToken)
+    {
+        return _storage.GetTopicAsync(filter, cancellationToken);
     }
 
     public Task<TopicDto> GetWaitingTopicAsync(CancellationToken cancellationToken)

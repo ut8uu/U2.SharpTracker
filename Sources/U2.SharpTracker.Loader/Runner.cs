@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -80,7 +81,8 @@ namespace U2.SharpTracker.Loader
                     continue;
                 }
 
-                var topic = await GetWaitingTopicAsync(token);
+                var filter = new BsonDocument("UrlLoadState", 0);
+                var topic = await GetWaitingTopicAsync2(filter, token);
                 if (topic != null)
                 {
                     await ProcessTopicAsync(topic, token);
@@ -150,6 +152,11 @@ namespace U2.SharpTracker.Loader
         private Task<TopicDto> GetWaitingTopicAsync(CancellationToken token)
         {
             return _service.GetWaitingTopicAsync(token);
+        }
+
+        private Task<TopicDto> GetWaitingTopicAsync2(BsonDocument filter, CancellationToken token)
+        {
+            return _service.GetWaitingTopicAsync2(filter, token);
         }
 
         private async Task<BranchDto> GetWaitingBranchAsync(CancellationToken token)

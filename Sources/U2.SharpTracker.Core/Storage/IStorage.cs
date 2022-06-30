@@ -17,6 +17,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +45,8 @@ public interface IStorage
 
     IAsyncEnumerable<TopicDto> GetUrlsAsync(CancellationToken cancellationToken);
     IAsyncEnumerable<TopicDto> GetUrlsAsync(Guid branchId, CancellationToken cancellationToken);
+
+    Task<TopicDto> GetTopicAsync(BsonDocument filter, CancellationToken token);
 
     Task<bool> HasUrl(string url, CancellationToken cancellationToken);
     Task<bool> HasUrl(int originalId, CancellationToken cancellationToken);
