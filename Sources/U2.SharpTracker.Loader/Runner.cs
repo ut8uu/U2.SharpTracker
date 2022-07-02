@@ -10,7 +10,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using U2.SharpTracker.Core;
 using U2.SharpTracker.Core.Storage;
-using U2.SharpTracker.Core.Trackers.RuTracker;
 
 namespace U2.SharpTracker.Loader
 {
@@ -33,18 +32,6 @@ namespace U2.SharpTracker.Loader
 
         public async Task ResetAsync(CancellationToken token)
         {
-        /*
-            Console.WriteLine("Processing branches");
-            var branches = await _service.GetBranchesAsync(token);
-            foreach (var b in branches)
-            {
-                b.LoadState = UrlLoadState.Unknown;
-                b.LoadStatusCode = UrlLoadStatusCode.Unknown;
-                b.OriginalId = RutrackerParser.GetIdFromUrl(b.Url);
-                await _service.AddOrUpdateBranchAsync(b, token);
-            }
-            //*/
-
             var branches = await _service.GetBranchesAsync(token);
             foreach (var b in branches)
             {
@@ -273,10 +260,10 @@ namespace U2.SharpTracker.Loader
         {
             try
             {
-                var cache = await _service.GetUrlCacheAsync(url.Url, token);
-                if (cache != null)
+                var cache = FileCache.TryGetCache(url.Url);
+                if (!string.IsNullOrEmpty(cache))
                 {
-                    return cache.Content;
+                    return cache;
                 }
 
                 var client = new HttpClient();
@@ -290,14 +277,7 @@ namespace U2.SharpTracker.Loader
 
                 if (responseString != null)
                 {
-                    cache = new UrlCacheRecord
-                    {
-                        Id = Guid.NewGuid(),
-                        Url = url.Url,
-                        Content = responseString,
-                        ValidTill = DateTime.UtcNow.AddMonths(1),
-                    };
-                    await _service.AddUrlCacheRecordAsync(cache, token);
+                    FileCache.PutCache(url.Url, responseString);
                 }
 
                 return responseString;

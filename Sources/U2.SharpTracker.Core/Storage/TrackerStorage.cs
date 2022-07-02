@@ -36,14 +36,12 @@ namespace U2.SharpTracker.Core.Storage
         private readonly IMongoDatabase _database;
         readonly IMongoCollection<BranchDto> _branchesCollection;
         readonly IMongoCollection<TopicDto> _urlsCollection;
-        readonly IMongoCollection<UrlCacheRecord> _urlsCache;
 
         public TrackerStorage(IMongoDatabase database)
         {
             _database = database;
             _branchesCollection = database.GetCollection<BranchDto>(BranchesCollectionName);
             _urlsCollection = database.GetCollection<TopicDto>(UrlsCollectionName);
-            _urlsCache = database.GetCollection<UrlCacheRecord>(UrlsCacheCollectionName);
         }
 
         public Task AddBranchAsync(BranchDto branch, CancellationToken cancellationToken)
@@ -161,16 +159,6 @@ namespace U2.SharpTracker.Core.Storage
             var branchesCount = _branchesCollection.Find(x => x.Url == url)
                 .CountDocumentsAsync(cancellationToken);
             return Task.FromResult(branchesCount.Result > 0);
-        }
-
-        public Task<UrlCacheRecord> GetUrlCacheAsync(string url, CancellationToken token)
-        {
-            return _urlsCache.Find(x => x.Url == url).FirstOrDefaultAsync(cancellationToken: token);
-        }
-
-        public Task AddUrlCacheAsync(UrlCacheRecord record, CancellationToken token)
-        {
-            return _urlsCache.InsertOneAsync(record, new InsertOneOptions(), token);
         }
     }
 }

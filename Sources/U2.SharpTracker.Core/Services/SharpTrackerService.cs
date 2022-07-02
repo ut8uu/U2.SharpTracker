@@ -181,21 +181,4 @@ public sealed class SharpTrackerService : ISharpTrackerService
             await _storage.UpdateBranchAsync(b, token);
         }
     }
-
-    public async Task<UrlCacheRecord> GetUrlCacheAsync(string url, CancellationToken token)
-    {
-        var cache = await _storage.GetUrlCacheAsync(url, token);
-        if (cache == null || cache.ValidTill < DateTime.UtcNow)
-        {
-            return null;
-        }
-
-        return cache;
-    }
-
-    public Task AddUrlCacheRecordAsync(UrlCacheRecord urlCache, CancellationToken token)
-    {
-        urlCache.ValidTill = DateTime.UtcNow.AddDays(30);
-        return _storage.AddUrlCacheAsync(urlCache, token);
-    }
 }
