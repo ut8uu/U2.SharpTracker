@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using U2.SharpTracker.Core;
 using U2.SharpTracker.Core.Storage;
+using U2.SharpTracker.Core.Trackers.RuTracker;
 
 namespace U2.SharpTracker.Loader
 {
@@ -52,9 +53,46 @@ namespace U2.SharpTracker.Loader
             Console.WriteLine();
         }
 
+        private async Task LoadCatalogue()
+        {
+            var catalogue = RuTrackerCatalogue.GetCatalogue();
+            foreach (var item in catalogue)
+            {
+                var branchId = int.Parse(item.BranchId);
+                var parentId = int.Parse(item.ParentId);
+                var name = item.Name;
+
+                var branch = await _service.GetBranchAsync(branchId, CancellationToken.None);
+                if (branch == null)
+                {
+                    Console.WriteLine($"Branch {name} does not exist.");
+                    var parentGuid = Guid.Empty;
+                    if (parentId > 0)
+                    {
+                        var parent = await _service.GetBranchAsync(parentId, CancellationToken.None);
+                        parentGuid = parent.Id;
+                        Console.WriteLine($"Parent found: {parent.Title}");
+                    }
+
+                    branch = new BranchDto
+                    {
+                        Id = Guid.NewGuid(),
+                        Url = RuTrackerHelper.GenerateBranchUrl(branchId, 0),
+                        Title = name,
+                        LoadStatusCode = UrlLoadStatusCode.Unknown,
+                        LoadState = UrlLoadState.Unknown,
+                        OriginalId = branchId,
+                        ParentId = parentGuid,
+                    };
+                    await _service.AddOrUpdateBranchAsync(branch, CancellationToken.None);
+                }
+            }
+        }
+
         public async Task RunAsync(CancellationToken token)
         {
             //await ResetAsync(token);
+            await LoadCatalogue();
             await _service.ResetLoadingBranchesAsync(token);
 
             while (!token.IsCancellationRequested)
