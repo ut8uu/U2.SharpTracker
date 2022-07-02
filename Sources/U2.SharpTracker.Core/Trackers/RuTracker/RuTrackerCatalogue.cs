@@ -18,6 +18,7 @@
  */
 
 using System;
+using U2.SharpTracker.Core.Trackers.RuTracker;
 
 namespace U2.SharpTracker.Core;
 
@@ -1448,6 +1449,42 @@ public static class RuTrackerCatalogue
             new RuTrackerCatalogueItem("2236", "2244", "Музыка Lossy (AAC) (Singles, EPs)"),
             new RuTrackerCatalogueItem("2236", "2242", "Архив (Аудио)"),
         };
+    }
+
+    public static async Task InitCatalogue(SharpTrackerService service)
+    {
+        var catalogue = RuTrackerCatalogue.GetCatalogue();
+        foreach (var item in catalogue)
+        {
+            var branchId = int.Parse(item.BranchId);
+            var parentId = int.Parse(item.ParentId);
+            var name = item.Name;
+
+            var branch = await service.GetBranchAsync(branchId, CancellationToken.None);
+            if (branch == null)
+            {
+                Console.WriteLine($"Branch {name} does not exist.");
+                var parentGuid = Guid.Empty;
+                if (parentId > 0)
+                {
+                    var parent = await service.GetBranchAsync(parentId, CancellationToken.None);
+                    parentGuid = parent.Id;
+                    Console.WriteLine($"Parent found: {parent.Title}");
+                }
+
+                branch = new BranchDto
+                {
+                    Id = Guid.NewGuid(),
+                    Url = RuTrackerHelper.GenerateBranchUrl(branchId, 0),
+                    Title = name,
+                    LoadStatusCode = UrlLoadStatusCode.Unknown,
+                    LoadState = UrlLoadState.Unknown,
+                    OriginalId = branchId,
+                    ParentId = parentGuid,
+                };
+                await service.AddOrUpdateBranchAsync(branch, CancellationToken.None);
+            }
+        }
     }
 }
 
