@@ -160,5 +160,12 @@ namespace U2.SharpTracker.Core.Storage
                 .CountDocumentsAsync(cancellationToken);
             return Task.FromResult(branchesCount.Result > 0);
         }
+
+        public Task<bool> HasBranch(int originalId, CancellationToken cancellationToken)
+        {
+            var hasBranch = _branchesCollection.Find(x => x.OriginalId == originalId)
+                .Any(cancellationToken);
+            return Task.FromResult(hasBranch);
+        }
     }
 }

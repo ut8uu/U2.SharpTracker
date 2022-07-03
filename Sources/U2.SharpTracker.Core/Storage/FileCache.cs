@@ -31,7 +31,7 @@ public abstract class FileCache
         }
         else
         {
-            return TryGetBranchCache(id);
+            return null;// TryGetBranchCache(id);
         }
     }
 

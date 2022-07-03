@@ -191,19 +191,23 @@ namespace U2.SharpTracker.Loader
 
                 foreach (var b in listingPage.Branches)
                 {
-                    var newBranch = new BranchDto
+                    var originalId = RutrackerParser.GetIdFromUrl(b.Key);
+                    if (!await _service.ContainsBranchAsync(originalId, cancellationToken))
                     {
-                        Id = Guid.NewGuid(),
-                        OriginalId = RutrackerParser.GetIdFromUrl(b.Key),
-                        ParentId = branch.Id,
-                        LoadStatusCode = UrlLoadStatusCode.Unknown,
-                        Url = b.Key,
-                        LoadState = UrlLoadState.Unknown,
-                        Title = b.Value,
-                    };
-                    await _service.AddOrUpdateBranchAsync(newBranch, cancellationToken);
+                        var newBranch = new BranchDto
+                        {
+                            Id = Guid.NewGuid(),
+                            OriginalId = originalId,
+                            ParentId = branch.Id,
+                            LoadStatusCode = UrlLoadStatusCode.Unknown,
+                            Url = b.Key,
+                            LoadState = UrlLoadState.Unknown,
+                            Title = b.Value,
+                        };
+                        await _service.AddOrUpdateBranchAsync(newBranch, cancellationToken);
 
-                    Console.WriteLine($"Inserted new branch: {b.Key}");
+                        Console.WriteLine($"Inserted new branch: {b.Key}");
+                    }
                 }
 
                 foreach (var page in listingPage.Pages)
@@ -266,6 +270,8 @@ namespace U2.SharpTracker.Loader
                 var cache = FileCache.TryGetCache(url.Url);
                 if (!string.IsNullOrEmpty(cache))
                 {
+                    url.UrlLoadState = UrlLoadState.Loaded;
+                    url.UrlLoadStatusCode = UrlLoadStatusCode.Success;
                     return cache;
                 }
 

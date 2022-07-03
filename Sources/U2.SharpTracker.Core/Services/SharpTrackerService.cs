@@ -101,6 +101,11 @@ public sealed class SharpTrackerService : ISharpTrackerService
         return _storage.HasBranch(url, cancellationToken);
     }
 
+    public Task<bool> ContainsBranchAsync(int originalId, CancellationToken cancellationToken)
+    {
+        return _storage.HasBranch(originalId, cancellationToken);
+    }
+
     private async Task<bool> BranchExists(BranchDto branch, CancellationToken cancellationToken)
     {
         return await GetBranchAsync(branch.Id, cancellationToken) != null;
