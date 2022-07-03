@@ -58,7 +58,7 @@ namespace U2.SharpTracker.Loader
         {
             //await ResetAsync(token);
             await RuTrackerCatalogue.InitCatalogue(_service);
-//            await _service.ResetLoadingBranchesAsync(token);
+            await _service.ResetLoadingBranchesAsync(token);
 
             while (!token.IsCancellationRequested)
             {
@@ -172,7 +172,7 @@ namespace U2.SharpTracker.Loader
             {
                 var pageIndex = (start / 50) + 1;
                 Console.WriteLine($"Page {pageIndex}");
-                var url = $"{branch.Url}&start={start}";
+                var url = $"{branch.Url.Replace("&start=0", "")}&start={start}";
                 var info = new UrlInfo(url);
                 var content = await DownloadUrlAsync(info, cancellationToken);
                 if (info.UrlLoadStatusCode != UrlLoadStatusCode.Success)

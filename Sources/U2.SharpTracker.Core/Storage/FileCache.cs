@@ -9,14 +9,14 @@ namespace U2.SharpTracker.Core;
 
 public abstract class FileCache
 {
-    private static string IdToPath(string folder, int id, int start = 0)
+    private static string IdToPath(string folder, int id, int start = -1)
     {
         var currentPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         var id1 = id / 1000000;
         var id2 = (id % 1000000) / 1000;
         var id3 = (id % 1000);
-        var id4 = $"{Path.PathSeparator}{start}";
-        if (start == 0)
+        var id4 = $"{Path.DirectorySeparatorChar}{start.ToString().PadLeft(5, '0')}";
+        if (start < 0)
         {
             id4 = string.Empty;
         }
