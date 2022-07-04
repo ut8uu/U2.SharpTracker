@@ -11,7 +11,8 @@ public abstract class FileCache
 {
     private static string IdToPath(string folder, int id, int start = -1)
     {
-        var currentPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        //var currentPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        var currentPath = "d:\\cache\\RuTracker";
         var id1 = id / 1000000;
         var id2 = (id % 1000000) / 1000;
         var id3 = (id % 1000);
@@ -20,7 +21,7 @@ public abstract class FileCache
         {
             id4 = string.Empty;
         }
-        var path = Path.Combine(currentPath,"Cache", folder, 
+        var path = Path.Combine(currentPath, folder, 
             id1.ToString().PadLeft(3, '0'), 
             id2.ToString().PadLeft(3, '0'), 
             $"{id3.ToString().PadLeft(3, '0')}{id4}.html");

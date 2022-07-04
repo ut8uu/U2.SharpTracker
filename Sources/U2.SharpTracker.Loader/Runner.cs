@@ -250,6 +250,11 @@ namespace U2.SharpTracker.Loader
                 }
 
                 start = listingPage.CurrentPage * 50;
+
+                if (start >= 25000)
+                {
+                    break;
+                }
             }
 
             branch.LoadStatusCode = UrlLoadStatusCode.Success;

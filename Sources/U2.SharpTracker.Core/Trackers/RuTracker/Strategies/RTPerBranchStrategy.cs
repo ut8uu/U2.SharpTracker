@@ -166,6 +166,10 @@ public sealed class RTPerBranchStrategy : IDownloadStrategy
             }
 
             start = listingPage.CurrentPage * 50;
+            if (start >= 25000) // RuTracker restrictions
+            {
+                break;
+            }
         }
         return true;
     }

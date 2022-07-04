@@ -35,6 +35,8 @@ public sealed class RutrackerParser : IParser
     //const string PageRecordXpath = "//table[@class='vf-table vf-tor forumline forum']//tr//td[2]//a[1]";
     const string PageRecordXpath = "//tr[@class='hl-tr']";
     private const string PageRecordTopicTitleXpath = "//a[@class='torTopic bold tt-text']";
+    private const string PageRecordTopicTitleXpath2 = "//a[@class='topictitle tt-text']";
+    private const string PageRecordTopicTitleXpath3 = "//a[@class='gen tt-text']";
     const string BranchRecordXpath = "//table[@class='forumline forum']//tr/td[2]//a";
     const string IndexPath = "//div[@id='pagination']/p[1]/b[1]";
     const string TotalPagesPath = "//div[@id='pagination']/p[1]/b[2]";
@@ -92,50 +94,60 @@ public sealed class RutrackerParser : IParser
         }
 
         elements = xdoc.DocumentNode.SelectNodes(PageRecordXpath);
-        foreach (var element in elements)
+        if (elements != null && elements.Count > 0)
         {
-            var x = new HtmlDocument();
-            x.LoadHtml(element.OuterHtml);
-            try
+            var xpaths = new[]
             {
-                var id = element.Attributes["data-topic_id"];
-                var url = $"{RuTrackerUrl}/forum/viewtopic.php?t={id.Value}";
-                var title = FindNode(x, PageRecordTopicTitleXpath, "Title not found").InnerText;
-                title = HttpUtility.HtmlDecode(title);
-
-                if (pages.All(x => x.Url != url))
+                PageRecordTopicTitleXpath,
+                PageRecordTopicTitleXpath2,
+                PageRecordTopicTitleXpath3,
+            };
+            foreach (var element in elements)
+            {
+                var x = new HtmlDocument();
+                x.LoadHtml(element.OuterHtml);
+                try
                 {
-                    var downloadNumber = GetNodeValue(x, "//td[4]/p[2]/b", "0");
-                    var downloaded = downloadNumber.Replace(",", "");
-                    var leechers = GetNodeValue(x, "//td[3]/div/div/span[3]", "0");
-                    var seeders = GetNodeValue(x, "//td[3]/div/div/span[1]", "0");
-                    var replies = GetNodeValue(x, "//td[4]/p[1]/span", "0");
-                    var size = GetNodeValue(x, "//td[3]/div/div[2]/a", "0");
-                    size = size.Replace("&nbsp;GB", "e+9");
-                    size = size.Replace("&nbsp;MB", "e+6");
-                    size = size.Replace("&nbsp;KB", "e+3");
-                    size = size.Replace("&nbsp;B", "");
-                    size = size.Replace(".", ",");
-                    var sizeNumeric = double.Parse(size, CultureInfo.InvariantCulture);
+                    var id = element.Attributes["data-topic_id"];
+                    var url = $"{RuTrackerUrl}/forum/viewtopic.php?t={id.Value}";
+                    var title = FindNode(x, xpaths, "Title not found").InnerText;
+                    title = HttpUtility.HtmlDecode(title);
 
-                    var tpi = new TorrentPageInfo
+                    if (pages.All(x => x.Url != url))
                     {
-                        Url = url,
-                        Title = title,
-                        Description = string.Empty,
-                        DownloadNumber = int.Parse(downloaded),
-                        Leechers = int.Parse(leechers),
-                        Seeders = int.Parse(seeders),
-                        Replies = int.Parse(replies),
-                        Size = Convert.ToInt64(sizeNumeric),
-                        OriginalId = GetIdFromUrl(url),
-                    };
-                    pages.Add(tpi);
+                        var downloadNumber = GetNodeValue(x, "//td[4]/p[2]/b", "0");
+                        var downloaded = downloadNumber.Replace(",", "");
+                        var leechers = GetNodeValue(x, "//td[3]/div/div/span[3]", "0");
+                        var seeders = GetNodeValue(x, "//td[3]/div/div/span[1]", "0");
+                        var replies = GetNodeValue(x, "//td[4]/p[1]/span", "0");
+                        var size = GetNodeValue(x, "//td[3]/div/div[2]/a", "0");
+                        size = size.Replace("&nbsp;GB", "e+9");
+                        size = size.Replace("&nbsp;MB", "e+6");
+                        size = size.Replace("&nbsp;KB", "e+3");
+                        size = size.Replace("&nbsp;B", "");
+                        size = size.Replace(".", ",");
+                        var sizeNumeric = double.Parse(size, CultureInfo.InvariantCulture);
+
+                        var tpi = new TorrentPageInfo
+                        {
+                            Url = url,
+                            Title = title,
+                            Description = string.Empty,
+                            DownloadNumber = int.Parse(downloaded),
+                            Leechers = int.Parse(leechers),
+                            Seeders = int.Parse(seeders),
+                            Replies = int.Parse(replies),
+                            Size = Convert.ToInt64(sizeNumeric),
+                            OriginalId = GetIdFromUrl(url),
+                        };
+                        pages.Add(tpi);
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                var s = ex.Message;
+                catch (Exception ex)
+                {
+                    var s = ex.Message;
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
 
@@ -166,6 +178,11 @@ public sealed class RutrackerParser : IParser
     }
 
     private string GetNodeValue(HtmlDocument x, string xpath, string defaultValue)
+    {
+        return GetNodeValue(x, new[] { xpath }, defaultValue);
+    }
+
+    private string GetNodeValue(HtmlDocument x, IEnumerable<string> xpath, string defaultValue)
     {
         try
         {
@@ -212,6 +229,12 @@ public sealed class RutrackerParser : IParser
         return result;
     }
 
+    private static HtmlNode FindNode(HtmlDocument doc, string xpath,
+        string exceptionMessage, bool throwException = true)
+    {
+        return FindNode(doc, new[] { xpath }, exceptionMessage, throwException);
+    }
+
     /// <summary>
     /// Attempts to find out the node by its xPath.
     /// </summary>
@@ -220,13 +243,16 @@ public sealed class RutrackerParser : IParser
     /// <param name="exceptionMessage">An exception mesage to show if node hasn't been found.</param>
     /// <returns></returns>
     /// <exception cref="ParserException"></exception>
-    private static HtmlNode FindNode(HtmlDocument doc, string xpath,
+    private static HtmlNode FindNode(HtmlDocument doc, IEnumerable<string> xpaths,
         string exceptionMessage, bool throwException = true)
     {
-        var node = doc.DocumentNode.SelectSingleNode(xpath);
-        if (node != null)
+        foreach (var xpath in xpaths)
         {
-            return node;
+            var node = doc.DocumentNode.SelectSingleNode(xpath);
+            if (node != null)
+            {
+                return node;
+            }
         }
 
         if (throwException)
